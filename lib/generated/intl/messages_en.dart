@@ -66,6 +66,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "change": MessageLookupByLibrary.simpleMessage("Change"),
         "changeDevicePassword":
             MessageLookupByLibrary.simpleMessage("Change device password"),
+        "changeKeypadPassword":
+            MessageLookupByLibrary.simpleMessage("Change keypad password"),
+        "changeOut1ByRemote":
+            MessageLookupByLibrary.simpleMessage("Change out1 by remote"),
         "changePasswordCentral":
             MessageLookupByLibrary.simpleMessage("Change password central"),
         "changeTheBurglarAlarmPassword": MessageLookupByLibrary.simpleMessage(
@@ -74,18 +78,25 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Change the menu password"),
         "changeZoneName":
             MessageLookupByLibrary.simpleMessage("Change zone name"),
+        "changingTheVolumeOfSSingleSiren": MessageLookupByLibrary.simpleMessage(
+            "Changing the volume of a single siren"),
+        "changingTheVolumeOfTheMainSiren": MessageLookupByLibrary.simpleMessage(
+            "Changing the volume of the main siren"),
         "chargeCode": MessageLookupByLibrary.simpleMessage("SIM card Charge"),
         "chargeIncrease":
             MessageLookupByLibrary.simpleMessage("Charge increase"),
         "chargeReportAfterEachStimulation":
             MessageLookupByLibrary.simpleMessage(
                 "Charge report after each stimulation"),
+        "chirpPartSet": MessageLookupByLibrary.simpleMessage("Chirp Part Set"),
         "codIsDisable": MessageLookupByLibrary.simpleMessage(
             "This code is disabled on this device"),
         "code": MessageLookupByLibrary.simpleMessage("Code"),
         "confidentialOnAndOffReport": MessageLookupByLibrary.simpleMessage(
             "Confidential on and off report"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "connectingTheKeypad":
+            MessageLookupByLibrary.simpleMessage("Connecting the keypad"),
         "contactTheManagerThroughAFixedLine":
             MessageLookupByLibrary.simpleMessage(
                 "Contact the manager through a fixed line"),
@@ -105,12 +116,16 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Device settings"),
         "deviceShutdownReport":
             MessageLookupByLibrary.simpleMessage("Device shutdown report"),
+        "disableSIMCardCalls":
+            MessageLookupByLibrary.simpleMessage("Disable SIM card calls"),
         "disarm": MessageLookupByLibrary.simpleMessage("DISARM"),
         "doSendMessage":
             MessageLookupByLibrary.simpleMessage("Do send message?"),
         "doYouExit": MessageLookupByLibrary.simpleMessage("Do you exit?"),
         "doorOpenerOutput":
             MessageLookupByLibrary.simpleMessage("Door opener output"),
+        "doubleProtection":
+            MessageLookupByLibrary.simpleMessage("Double protection"),
         "eeeexit": MessageLookupByLibrary.simpleMessage("Eeeexit"),
         "emergencyButton":
             MessageLookupByLibrary.simpleMessage("Emergency button"),
@@ -163,6 +178,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "insert": MessageLookupByLibrary.simpleMessage("Insert"),
         "installationLocation":
             MessageLookupByLibrary.simpleMessage("Installation location"),
+        "instantaneousOutputTimerBasedOn": MessageLookupByLibrary.simpleMessage(
+            "Instantaneous output timer based on"),
+        "internalBellMessage":
+            MessageLookupByLibrary.simpleMessage("Internal bell message"),
         "internalSpeaker":
             MessageLookupByLibrary.simpleMessage("Internal speaker"),
         "irancell": MessageLookupByLibrary.simpleMessage("Irancell"),
@@ -176,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "loginPasswordEnable":
             MessageLookupByLibrary.simpleMessage("Login password enable"),
+        "lowBatteryWarning":
+            MessageLookupByLibrary.simpleMessage("Low battery warning"),
         "mainPage": MessageLookupByLibrary.simpleMessage("Main page"),
         "mainSirenVolumeControl":
             MessageLookupByLibrary.simpleMessage("Main siren volume control"),
@@ -186,6 +207,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "memory": MessageLookupByLibrary.simpleMessage("Memory"),
         "messageIsSend":
             MessageLookupByLibrary.simpleMessage("Message is send"),
+        "minutes": MessageLookupByLibrary.simpleMessage("Minutes"),
         "momentary": MessageLookupByLibrary.simpleMessage("Momentary"),
         "nameIsNotTrue":
             MessageLookupByLibrary.simpleMessage("Name is not true"),
@@ -269,8 +291,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter simCard number"),
         "pleaseSelectDeviceModel":
             MessageLookupByLibrary.simpleMessage("Please select device model"),
+        "powerOutageCall":
+            MessageLookupByLibrary.simpleMessage("Power outage call"),
         "projector": MessageLookupByLibrary.simpleMessage("Projector"),
         "pulse": MessageLookupByLibrary.simpleMessage("Pulse"),
+        "rFReceiverActivation":
+            MessageLookupByLibrary.simpleMessage("RF receiver activation"),
+        "rejectCallFromUnknownNumber": MessageLookupByLibrary.simpleMessage(
+            "Reject call from unknown number"),
         "remainingCharge":
             MessageLookupByLibrary.simpleMessage("Remaining charge"),
         "remote": MessageLookupByLibrary.simpleMessage("Remote"),
@@ -299,6 +327,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "scanYourFingerForAuthentication": MessageLookupByLibrary.simpleMessage(
             "Scan your finger for authentication"),
+        "seconds": MessageLookupByLibrary.simpleMessage("Seconds"),
         "seconds30": MessageLookupByLibrary.simpleMessage("30 seconds"),
         "seconds60": MessageLookupByLibrary.simpleMessage("60 seconds"),
         "selectTheDeviceOperator":
@@ -316,6 +345,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendMessage": MessageLookupByLibrary.simpleMessage("Send message"),
         "sendNumberInputDial":
             MessageLookupByLibrary.simpleMessage("Send number input dial"),
+        "sendRemainingCharge":
+            MessageLookupByLibrary.simpleMessage("Send remaining charge"),
         "setAlarmTime": MessageLookupByLibrary.simpleMessage("Set alarm time"),
         "setArrivalTime":
             MessageLookupByLibrary.simpleMessage("Set arrival time"),
@@ -342,12 +373,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "setupStimulationType":
             MessageLookupByLibrary.simpleMessage("Setup stimulation type"),
         "show": MessageLookupByLibrary.simpleMessage("Show"),
+        "silencingASingleZone":
+            MessageLookupByLibrary.simpleMessage("Silencing a single zone"),
         "silentFunction":
             MessageLookupByLibrary.simpleMessage("Silent function"),
         "simCard": MessageLookupByLibrary.simpleMessage("Sim card"),
         "simCardCharge": MessageLookupByLibrary.simpleMessage("SimCard charge"),
         "simCardInquiry":
             MessageLookupByLibrary.simpleMessage("Sim card inquiry"),
+        "simCardModuleActivation":
+            MessageLookupByLibrary.simpleMessage("SIM card module activation"),
         "simCardNumber": MessageLookupByLibrary.simpleMessage("SimCard number"),
         "simCardType": MessageLookupByLibrary.simpleMessage("SimCard type"),
         "singleSirenSetting":
@@ -358,6 +393,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Single siren when semi-activated"),
         "smart": MessageLookupByLibrary.simpleMessage("Smart"),
         "sms": MessageLookupByLibrary.simpleMessage("SMS"),
+        "smsFromUnknownNumberCalledMr": MessageLookupByLibrary.simpleMessage(
+            "SMS from unknown number called Mr."),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
         "stopDialing": MessageLookupByLibrary.simpleMessage("Stop dialing"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
@@ -401,6 +438,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "wrongPassword":
             MessageLookupByLibrary.simpleMessage("Password is Wrong"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
+        "zone13Masha": MessageLookupByLibrary.simpleMessage("Zone 13, Masha"),
+        "zone14ManualSwitch":
+            MessageLookupByLibrary.simpleMessage("Zone 14 manual switch"),
         "zone24Hour2Stage":
             MessageLookupByLibrary.simpleMessage("24-hour 2-stage zone"),
         "zoneName": MessageLookupByLibrary.simpleMessage("Zone name"),

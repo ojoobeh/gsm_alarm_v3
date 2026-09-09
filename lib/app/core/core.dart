@@ -43,7 +43,7 @@ class Core {
   static List<DeviceModel> deviceModelList = <DeviceModel>[
     DeviceModel(id: 1, model: Core.model1, selected: 1, hasMultiPart: 1, hasWifi: 0),
     DeviceModel(id: 2, model: Core.model2, selected: 0, hasMultiPart: 1, hasWifi: 0),
-    DeviceModel(id: 3, model: Core.model3, selected: 0, hasMultiPart: 1, hasWifi: 1),
+    DeviceModel(id: 3, model: Core.model3, selected: 0, hasMultiPart: 1, hasWifi: 0),
     // DeviceModel(id: 4, model: Core.model4, selected: 0, hasMultiPart: 1, hasWifi: 1),
   ];
   static List<PartModel> partModelList = <PartModel>[

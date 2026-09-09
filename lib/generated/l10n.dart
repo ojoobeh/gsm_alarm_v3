@@ -2584,6 +2584,226 @@ class S {
     );
   }
 
+  /// `Connecting the keypad`
+  String get connectingTheKeypad {
+    return Intl.message(
+      'Connecting the keypad',
+      name: 'connectingTheKeypad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `RF receiver activation`
+  String get rFReceiverActivation {
+    return Intl.message(
+      'RF receiver activation',
+      name: 'rFReceiverActivation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SIM card module activation`
+  String get simCardModuleActivation {
+    return Intl.message(
+      'SIM card module activation',
+      name: 'simCardModuleActivation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send remaining charge`
+  String get sendRemainingCharge {
+    return Intl.message(
+      'Send remaining charge',
+      name: 'sendRemainingCharge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Zone 13, Masha`
+  String get zone13Masha {
+    return Intl.message(
+      'Zone 13, Masha',
+      name: 'zone13Masha',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Double protection`
+  String get doubleProtection {
+    return Intl.message(
+      'Double protection',
+      name: 'doubleProtection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Zone 14 manual switch`
+  String get zone14ManualSwitch {
+    return Intl.message(
+      'Zone 14 manual switch',
+      name: 'zone14ManualSwitch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Changing the volume of the main siren`
+  String get changingTheVolumeOfTheMainSiren {
+    return Intl.message(
+      'Changing the volume of the main siren',
+      name: 'changingTheVolumeOfTheMainSiren',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Changing the volume of a single siren`
+  String get changingTheVolumeOfSSingleSiren {
+    return Intl.message(
+      'Changing the volume of a single siren',
+      name: 'changingTheVolumeOfSSingleSiren',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change keypad password`
+  String get changeKeypadPassword {
+    return Intl.message(
+      'Change keypad password',
+      name: 'changeKeypadPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change out1 by remote`
+  String get changeOut1ByRemote {
+    return Intl.message(
+      'Change out1 by remote',
+      name: 'changeOut1ByRemote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reject call from unknown number`
+  String get rejectCallFromUnknownNumber {
+    return Intl.message(
+      'Reject call from unknown number',
+      name: 'rejectCallFromUnknownNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instantaneous output timer based on`
+  String get instantaneousOutputTimerBasedOn {
+    return Intl.message(
+      'Instantaneous output timer based on',
+      name: 'instantaneousOutputTimerBasedOn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seconds`
+  String get seconds {
+    return Intl.message(
+      'Seconds',
+      name: 'seconds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Minutes`
+  String get minutes {
+    return Intl.message(
+      'Minutes',
+      name: 'minutes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Silencing a single zone`
+  String get silencingASingleZone {
+    return Intl.message(
+      'Silencing a single zone',
+      name: 'silencingASingleZone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `SMS from unknown number called Mr.`
+  String get smsFromUnknownNumberCalledMr {
+    return Intl.message(
+      'SMS from unknown number called Mr.',
+      name: 'smsFromUnknownNumberCalledMr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Disable SIM card calls`
+  String get disableSIMCardCalls {
+    return Intl.message(
+      'Disable SIM card calls',
+      name: 'disableSIMCardCalls',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chirp Part Set`
+  String get chirpPartSet {
+    return Intl.message(
+      'Chirp Part Set',
+      name: 'chirpPartSet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Internal bell message`
+  String get internalBellMessage {
+    return Intl.message(
+      'Internal bell message',
+      name: 'internalBellMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Low battery warning`
+  String get lowBatteryWarning {
+    return Intl.message(
+      'Low battery warning',
+      name: 'lowBatteryWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Power outage call`
+  String get powerOutageCall {
+    return Intl.message(
+      'Power outage call',
+      name: 'powerOutageCall',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `<![CDATA[\n<p>پس از نصب نرم افزار، ابتدا باید اطلاعات مربوط به دستگاه و محل نصب را از طریق قسمت تنظیمات محل نصب در نرم افزار ذخیره کنید. پس از ذخیره، نام محل نصب بالای صفحه اصلی نمایش داده می شود. </p>\n<p>در صورتی که از سیستم حفاظتی  Gsm در محل دیگری نیز استفاده می کنید، با اضافه کردن این محل از طریق نرم افزار، سیستم های حفاظتی ذخیره شده را کنترل نمائید.</p>\n `
   String get help1 {
     return Intl.message(

@@ -64,6 +64,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "change": MessageLookupByLibrary.simpleMessage("اعمال تغییر"),
         "changeDevicePassword":
             MessageLookupByLibrary.simpleMessage("تغییر پسورد دستگاه"),
+        "changeKeypadPassword":
+            MessageLookupByLibrary.simpleMessage("تغییر پسورد کی پد"),
+        "changeOut1ByRemote":
+            MessageLookupByLibrary.simpleMessage("تغییر out1 توسط ریموت"),
         "changePasswordCentral":
             MessageLookupByLibrary.simpleMessage("تغییر رمز عبور مرکزی"),
         "changeTheBurglarAlarmPassword":
@@ -71,16 +75,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeTheMenuPassword":
             MessageLookupByLibrary.simpleMessage("تغییر پسورد منو"),
         "changeZoneName": MessageLookupByLibrary.simpleMessage("تغییر نام زون"),
+        "changingTheVolumeOfSSingleSiren":
+            MessageLookupByLibrary.simpleMessage("تغییر ولوم تک آژیر"),
+        "changingTheVolumeOfTheMainSiren":
+            MessageLookupByLibrary.simpleMessage("تغییر ولوم آژیر اصلی"),
         "chargeCode": MessageLookupByLibrary.simpleMessage("شارژ سیمکارت"),
         "chargeIncrease": MessageLookupByLibrary.simpleMessage("افزایش شارژ"),
         "chargeReportAfterEachStimulation":
             MessageLookupByLibrary.simpleMessage("گزارش شارژ بعد از هر تحریک"),
+        "chirpPartSet": MessageLookupByLibrary.simpleMessage("چریپ پارت ست"),
         "codIsDisable": MessageLookupByLibrary.simpleMessage(
             "این کد در این دستگاه غیر فعال است"),
         "code": MessageLookupByLibrary.simpleMessage("کد"),
         "confidentialOnAndOffReport":
             MessageLookupByLibrary.simpleMessage("گزارش روشن و خاموش محرمانه"),
         "confirm": MessageLookupByLibrary.simpleMessage("تایید"),
+        "connectingTheKeypad":
+            MessageLookupByLibrary.simpleMessage("اتصال کی پد"),
         "contactTheManagerThroughAFixedLine":
             MessageLookupByLibrary.simpleMessage(
                 "تماس از طریق خط ثابت با مدیر"),
@@ -97,12 +108,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تنظیمات دستگاه"),
         "deviceShutdownReport":
             MessageLookupByLibrary.simpleMessage("گزارش خاموش ماندن دستگاه"),
+        "disableSIMCardCalls": MessageLookupByLibrary.simpleMessage(
+            "غیرفعال کردن تماس با سیم کارت"),
         "disarm": MessageLookupByLibrary.simpleMessage("غیر فعال"),
         "doSendMessage":
             MessageLookupByLibrary.simpleMessage("پیامک ارسال شود؟"),
         "doYouExit": MessageLookupByLibrary.simpleMessage("آیا خارج میشوید؟"),
         "doorOpenerOutput":
             MessageLookupByLibrary.simpleMessage("خروجی درب بازکن"),
+        "doubleProtection": MessageLookupByLibrary.simpleMessage("حفاظت مضاعف"),
         "eeeexit": MessageLookupByLibrary.simpleMessage("بییییلی"),
         "emergencyButton": MessageLookupByLibrary.simpleMessage("دکمه اضطراری"),
         "emergencyButtons":
@@ -151,6 +165,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "inactive": MessageLookupByLibrary.simpleMessage("غیر فعال"),
         "insert": MessageLookupByLibrary.simpleMessage("Insert"),
         "installationLocation": MessageLookupByLibrary.simpleMessage("محل نصب"),
+        "instantaneousOutputTimerBasedOn":
+            MessageLookupByLibrary.simpleMessage("تایمر خروجی لحظه ای بر اساس"),
+        "internalBellMessage":
+            MessageLookupByLibrary.simpleMessage("پیام زنگ داخلی"),
         "internalSpeaker":
             MessageLookupByLibrary.simpleMessage("بلند گوی داخلی"),
         "irancell": MessageLookupByLibrary.simpleMessage("ایرانسل"),
@@ -164,6 +182,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("ورود"),
         "loginPasswordEnable":
             MessageLookupByLibrary.simpleMessage("فعال بودن رمز عبور ورودی"),
+        "lowBatteryWarning":
+            MessageLookupByLibrary.simpleMessage("هشدار باطری ضعیف"),
         "mainPage": MessageLookupByLibrary.simpleMessage("صفحه اصلی"),
         "mainSirenVolumeControl":
             MessageLookupByLibrary.simpleMessage("کنترل ولوم آژیر اصلی"),
@@ -173,6 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "melody": MessageLookupByLibrary.simpleMessage("ملودی"),
         "memory": MessageLookupByLibrary.simpleMessage("حافظه"),
         "messageIsSend": MessageLookupByLibrary.simpleMessage("پیام ارسال شد"),
+        "minutes": MessageLookupByLibrary.simpleMessage("دقیقه"),
         "momentary": MessageLookupByLibrary.simpleMessage("لحظه ای"),
         "nameIsNotTrue": MessageLookupByLibrary.simpleMessage("نام معتبر نیست"),
         "nameIsNotValid":
@@ -257,8 +278,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("شماره سیم کارت را وارد کنید"),
         "pleaseSelectDeviceModel": MessageLookupByLibrary.simpleMessage(
             "مدل دستگاه خود را انتخاب کنید"),
+        "powerOutageCall": MessageLookupByLibrary.simpleMessage("تماس قطع برق"),
         "projector": MessageLookupByLibrary.simpleMessage("پروژکتور"),
         "pulse": MessageLookupByLibrary.simpleMessage("پالس"),
+        "rFReceiverActivation":
+            MessageLookupByLibrary.simpleMessage("فعال بودن گیرنده آر اف"),
+        "rejectCallFromUnknownNumber":
+            MessageLookupByLibrary.simpleMessage("رد تماس شماره ناشناس"),
         "remainingCharge":
             MessageLookupByLibrary.simpleMessage("باقی مانده شارژ"),
         "remote": MessageLookupByLibrary.simpleMessage("ریموت"),
@@ -287,6 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "save": MessageLookupByLibrary.simpleMessage("ذخیره"),
         "scanYourFingerForAuthentication": MessageLookupByLibrary.simpleMessage(
             "برای احراز هویت انگشت خود را اسکن کنید"),
+        "seconds": MessageLookupByLibrary.simpleMessage("ثانیه"),
         "seconds30": MessageLookupByLibrary.simpleMessage("۳۰ ثانیه"),
         "seconds60": MessageLookupByLibrary.simpleMessage("۶۰ ثانیه"),
         "selectTheDeviceOperator":
@@ -303,6 +330,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendMessage": MessageLookupByLibrary.simpleMessage("ارسال پیامک"),
         "sendNumberInputDial":
             MessageLookupByLibrary.simpleMessage("ارسال شماره ورودی"),
+        "sendRemainingCharge":
+            MessageLookupByLibrary.simpleMessage("ارسال باقیمانده شارژ"),
         "setAlarmTime": MessageLookupByLibrary.simpleMessage("تنظیم زمان آژیر"),
         "setArrivalTime":
             MessageLookupByLibrary.simpleMessage("تنظیم زمان ورود"),
@@ -329,11 +358,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "setupStimulationType":
             MessageLookupByLibrary.simpleMessage("تنظیم نوع تحریک"),
         "show": MessageLookupByLibrary.simpleMessage("مشاهده"),
+        "silencingASingleZone":
+            MessageLookupByLibrary.simpleMessage("سایلنت کردن تک زون"),
         "silentFunction": MessageLookupByLibrary.simpleMessage("عملکرد بی صدا"),
         "simCard": MessageLookupByLibrary.simpleMessage("سیم کارت"),
         "simCardCharge": MessageLookupByLibrary.simpleMessage("شارژ سیم کارت"),
         "simCardInquiry":
             MessageLookupByLibrary.simpleMessage("استعلام سیم کارت"),
+        "simCardModuleActivation":
+            MessageLookupByLibrary.simpleMessage("فعال بودن ماژول سیم کارت"),
         "simCardNumber": MessageLookupByLibrary.simpleMessage("شماره سیمکارت"),
         "simCardType": MessageLookupByLibrary.simpleMessage("نوع سیم کارت"),
         "singleSirenSetting":
@@ -344,6 +377,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تک آژیر هنگام نیمه فعال شدن"),
         "smart": MessageLookupByLibrary.simpleMessage("هوشمند"),
         "sms": MessageLookupByLibrary.simpleMessage("اس ام اس"),
+        "smsFromUnknownNumberCalledMr": MessageLookupByLibrary.simpleMessage(
+            "پیامک شماره ناشناس تماس گرفته شده به مستر"),
         "status": MessageLookupByLibrary.simpleMessage("وضعیت"),
         "stopDialing": MessageLookupByLibrary.simpleMessage("توقف شماره گیری"),
         "success": MessageLookupByLibrary.simpleMessage("موفقیت آمیز"),
@@ -360,7 +395,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "timer": MessageLookupByLibrary.simpleMessage("تایمر"),
         "ton": MessageLookupByLibrary.simpleMessage("تن"),
         "turnOffAtClock": m0,
-        "turnOffTime": MessageLookupByLibrary.simpleMessage("اتصال کی پد"),
+        "turnOffTime": MessageLookupByLibrary.simpleMessage("زمان خاموش شدن"),
         "turnOnAtClock": m1,
         "turnOnSilently":
             MessageLookupByLibrary.simpleMessage("روشن شدن بی صدا"),
@@ -387,6 +422,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "wrongPassword":
             MessageLookupByLibrary.simpleMessage("رمز عبور اشتباه است"),
         "yes": MessageLookupByLibrary.simpleMessage("بلی"),
+        "zone13Masha": MessageLookupByLibrary.simpleMessage("زون۱۳ مشاع"),
+        "zone14ManualSwitch":
+            MessageLookupByLibrary.simpleMessage("سوییچ دستی زون۱۴"),
         "zone24Hour2Stage":
             MessageLookupByLibrary.simpleMessage("زون  24ساعته  2مرحله اي"),
         "zoneName": MessageLookupByLibrary.simpleMessage("نام زون"),
