@@ -17,7 +17,7 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();//
 
   // if (isAndroid) {
   //   await AndroidAlarmManager.initialize();
