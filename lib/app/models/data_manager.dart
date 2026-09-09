@@ -13,6 +13,7 @@ class DataManager {
   static const String _tbOutputModel = 'output';
   static const String adminPassword = 'adminPassword';
   static const String password = 'password';
+
   /// ****************************** HOME ********************************************
   static const String on = "on";
   static const String off = "off";
@@ -30,39 +31,62 @@ class DataManager {
 
   /// ****************************** OUTPUT ********************************************
   static const String output = 'output';
+
   /// ****************************** OTHER SETTING ?????? ********************************************
-   static const String deleteRemoteNumber = 'deleteRemoteNumber';
+  static const String deleteRemoteNumber = 'deleteRemoteNumber';
   static const String insertToMemory = 'insertToMemory';
   static const String deleteFromMemory = 'deleteFromMemory';
   static const String showMemory = 'showMemory';
-  static const String callPriority = 'callPriority';//,//پیشفرض تماس یا پیام
-  static const String setZoneSetting = 'setZoneSetting';//کنترل زون ها
+  static const String callPriority = 'callPriority'; //,//پیشفرض تماس یا پیام
+  static const String setZoneSetting = 'setZoneSetting'; //کنترل زون ها
   // /// ****************************** OTHER SETTING PAGE 2 ********************************************
-  static const String alarmSilentExternalSpeaker = 'alarmSilentExternalSpeaker';//گزارش قطع بلندگو
-  static const String alarmOnOffPower = 'alarmOnOffPower';//گزارش قطع برق
-  static const String alarmOnOffSmsReceivingReport = 'alarmOnOffSmsReceivingReport';//ارسال گزارش تحویل اس ام اس
-  static const String alarmOnOffConfidental = 'alarmOnOffConfidental';//ارسال گزارش روشن و خاموش شدن دزدگیر
-  static const String selectSimType = 'selectSimType';//انتخاب اپراتور
+  static const String alarmSilentExternalSpeaker = 'alarmSilentExternalSpeaker'; //گزارش قطع بلندگو
+  static const String alarmOnOffPower = 'alarmOnOffPower'; //گزارش قطع برق
+  static const String alarmOnOffSmsReceivingReport = 'alarmOnOffSmsReceivingReport'; //ارسال گزارش تحویل اس ام اس
+  static const String alarmOnOffConfidental = 'alarmOnOffConfidental'; //ارسال گزارش روشن و خاموش شدن دزدگیر
+  static const String selectSimType = 'selectSimType'; //انتخاب اپراتور
   // /// ****************************** OTHER SETTING PAGE 3 ********************************************
-  static const String setupStimulationType = 'setupStimulationType';//نوع تحریک
-  static const String setupLanguageSMS = 'setupLanguageSMS';//زبان ارسال پیام
-  static const String defaultDialingSystem = 'defaultDialingSystem';//پیشفرض سیستم شماره گیری
-  static const String remoteControl = 'remoteControl';//کنترل از راه دور
-  static const String setAlarmTime = 'setAlarmTime';//مدت زمان آژیر
-  static const String singleSirenSetting = 'singleSirenSetting';//نوع تک آژیر
+  static const String setupStimulationType = 'setupStimulationType'; //نوع تحریک
+  static const String setupLanguageSMS = 'setupLanguageSMS'; //زبان ارسال پیام
+  static const String defaultDialingSystem = 'defaultDialingSystem'; //پیشفرض سیستم شماره گیری
+  static const String remoteControl = 'remoteControl'; //کنترل از راه دور
+  static const String setAlarmTime = 'setAlarmTime'; //مدت زمان آژیر
+  static const String singleSirenSetting = 'singleSirenSetting'; //نوع تک آژیر
   static const String outputControl2WithMuteButton = 'outputControl2WithMuteButton';
-  static const String setArrivalTime = 'setArrivalTime';//زمان ورود و خروج
-  static const String changeTheBurglarAlarmPassword = 'changeTheBurglarAlarmPassword';//*تغییر پسورد
+  static const String setArrivalTime = 'setArrivalTime'; //زمان ورود و خروج
+  static const String changeTheBurglarAlarmPassword = 'changeTheBurglarAlarmPassword'; //*تغییر پسورد
   // /// ****************************** OTHER SETTING PAGE 3 ********************************************
-  static const String typeOfFixedLineDialing = 'typeOfFixedLineDialing';//نوع شماره گیری خط ثابت
-  static const String turnTheDialerOnAndOff = 'turnTheDialerOnAndOff';//روشن و خاموش کردن تلفن کننده
-  static const String singleSirenWhenSemiActivated = 'singleSirenWhenSemiActivated';//تک آژیر هنگام نیمه فعال شدن
-  static const String output1AsADoorOpener = 'output1AsADoorOpener';//خروجی 1 به عنوان درب بازکن
+  static const String typeOfFixedLineDialing = 'typeOfFixedLineDialing'; //نوع شماره گیری خط ثابت
+  static const String turnTheDialerOnAndOff = 'turnTheDialerOnAndOff'; //روشن و خاموش کردن تلفن کننده
+  static const String singleSirenWhenSemiActivated = 'singleSirenWhenSemiActivated'; //تک آژیر هنگام نیمه فعال شدن
+  static const String output1AsADoorOpener = 'output1AsADoorOpener'; //خروجی 1 به عنوان درب بازکن
   // static const String automaticPowerOn = 'automaticPowerOn';//روشن شدن خودکار
-  static const String changeZoneName = 'changeZoneName';//تغییر نام زون
-  static const String deviceShutdownReport = 'deviceShutdownReport';//گزارش خاموش ماندن دستگاه
-  static const String twoStageShutdown = 'twoStageShutdown';//خاموش کردن دو مرحله ای ( حفاظت مضاعف )
+  static const String changeZoneName = 'changeZoneName'; //تغییر نام زون
+  static const String deviceShutdownReport = 'deviceShutdownReport'; //گزارش خاموش ماندن دستگاه
+  static const String twoStageShutdown = 'twoStageShutdown'; //خاموش کردن دو مرحله ای ( حفاظت مضاعف )
 
+  static const String connectingTheKeypad = 'connectingTheKeypad';//اتصال کی پد
+  static const String rFReceiverActivation = 'rFReceiverActivation';//فعال بودن گیرنده آر اف
+  static const String simCardModuleActivation = 'simCardModuleActivation';//فعال بودن ماژول سیم کارت
+  static const String sendRemainingCharge = 'sendRemainingCharge';//ارسال باقیمانده شارژ
+  static const String zone13Masha = 'zone13Masha';//زون۱۳ مشاع
+  static const String doubleProtection = 'doubleProtection';//حفاظت مضاعف
+  static const String zone14ManualSwitch = 'zone14ManualSwitch';//سوییچ دستی زون۱۴
+  static const String changingTheVolumeOfTheMainSiren = 'changingTheVolumeOfTheMainSiren';//تغییر ولوم آژیر اصلی
+  static const String changingTheVolumeOfSSingleSiren = 'changingTheVolumeOfSSingleSiren';//تغییر ولوم تک آژیر
+  static const String changeKeypadPassword = 'changeKeypadPassword';//تغییر پسورد کی پد
+  static const String changeOut1ByRemote = 'changeOut1ByRemote';//تغییر out1 توسط ریموت
+  static const String rejectCallFromUnknownNumber = 'rejectCallFromUnknownNumber';//رد تماس شماره ناشناس
+  static const String instantaneousOutputTimerBasedOn = 'instantaneousOutputTimerBasedOn';//تایمر خروجی لحظه ای بر اساس
+  static const String seconds = 'seconds';//ثانیه
+  static const String minutes = 'minutes';//دقیقه
+  static const String silencingASingleZone = 'silencingASingleZone';//سایلنت کردن تک زون
+  static const String smsFromUnknownNumberCalledMr = 'smsFromUnknownNumberCalledMr';//پیامک شماره ناشناس تماس گرفته شده به مستر
+  static const String disableSIMCardCalls = 'disableSIMCardCalls';//غیرفعال کردن تماس با سیم کارت
+  static const String chirpPartSet = 'chirpPartSet';//چریپ پارت ست
+  static const String internalBellMessage = 'internalBellMessage';//پیام زنگ داخلی
+  static const String lowBatteryWarning = 'lowBatteryWarning';//هشدار باطری ضعیف
+  static const String powerOutageCall = 'powerOutageCall';//تماس قطع برق
 
   // static const String outputDorOpen = 'outputDorOpen';
   // static const String alarmOnOffSimCardSharg2 = 'alarmOnOffSimCardSharg2';
@@ -197,10 +221,11 @@ class DataManager {
     List<OutputModel> list = tb.list ?? <OutputModel>[];
     return list;
   }
+
   static Future<List<OutputModel>> getOutputModelListByDeviceId(int id) async {
     TbOutputModel tb = await getTbOutputModel();
 
-    List<OutputModel> list = tb.list?.where((element) => element.deviceId==id).toList() ?? <OutputModel>[];
+    List<OutputModel> list = tb.list?.where((element) => element.deviceId == id).toList() ?? <OutputModel>[];
     return list;
   }
 
