@@ -1,10 +1,11 @@
 part of 'core.dart';
 
 String getCode(String code) {
+  String _code = code;
   String res = '';
   if (Core.selectLocationSettingModel.value.id != null) {
     //1
-    List<CodeModel> list = Core.tbCodeModel.list!.where((element) => element.title == code).toList(); //2
+    List<CodeModel> list = Core.tbCodeModel.list!.where((element) => element.title == _code).toList(); //2
     int modelType = Core.selectLocationSettingModel.value.modelType ?? 0;
     if (modelType == 1) {
       res = list.first.model1 ?? '';

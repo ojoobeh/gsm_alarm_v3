@@ -278,7 +278,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("شماره سیم کارت را وارد کنید"),
         "pleaseSelectDeviceModel": MessageLookupByLibrary.simpleMessage(
             "مدل دستگاه خود را انتخاب کنید"),
-        "powerOutageCall": MessageLookupByLibrary.simpleMessage("تماس قطع برق"),
+        "powerOutageCall":
+            MessageLookupByLibrary.simpleMessage("تغییر پسورد دستگاه"),
         "projector": MessageLookupByLibrary.simpleMessage("پروژکتور"),
         "pulse": MessageLookupByLibrary.simpleMessage("پالس"),
         "rFReceiverActivation":

@@ -95,37 +95,6 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
             ),
           ),
 
-          // Container(
-          //   padding: const EdgeInsets.all(8),
-          //   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          //   width: double.infinity,
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(8),
-          //     color: context.theme.scaffoldBackgroundColor,
-          //     boxShadow: [
-          //       BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-          //     ],
-          //   ),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.center,
-          //     children: [
-          //       Text(s.changeTheMenuPassword).bodyMedium().marginOnly(bottom: 4, top: 20),
-          //       appTextFormField(
-          //         inputType: TextInputType.number,
-          //         controller: etMenuPassword,
-          //         // textAlign: TextAlignVertical.center,
-          //         hint: s.enterPassword,
-          //       ),
-          //       const SizedBox(height: 8),
-          //       button(
-          //         title: s.save,
-          //         onTap: () {
-          //           changeMenuPassword(context);
-          //         },
-          //       ),
-          //     ],
-          //   ),
-          // )      ,
       Container(
             padding: const EdgeInsets.all(8),
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -140,7 +109,7 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(s.changeTheBurglarAlarmPassword).bodyMedium().marginOnly(bottom: 4, top: 20),
+                Text(s.changeKeypadPassword).bodyMedium().marginOnly(bottom: 4, top: 20),
                 appTextFormField(
                   inputType: TextInputType.number,
                   controller: etBurglarAlarmPassword,
@@ -152,6 +121,37 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
                   title: s.save,
                   onTap: () {
                     changeTheBurglarAlarmPassword(context);
+                  },
+                ),
+              ],
+            ),
+          ),
+      Container(
+            padding: const EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: context.theme.scaffoldBackgroundColor,
+              boxShadow: [
+                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(s.changeDevicePassword).bodyMedium().marginOnly(bottom: 4, top: 20),
+                appTextFormField(
+                  inputType: TextInputType.number,
+                  controller: etDevicePassword,
+                  // textAlign: TextAlignVertical.center,
+                  hint: s.enterPassword,
+                ),
+                const SizedBox(height: 8),
+                button(
+                  title: s.save,
+                  onTap: () {
+                    changeDevicePassword(context);
                   },
                 ),
               ],

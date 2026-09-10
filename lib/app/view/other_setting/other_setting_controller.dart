@@ -24,6 +24,7 @@ mixin OtherSettingController {
   final TextEditingController etRemoteNumber = TextEditingController();
   final TextEditingController etAdminPassword = TextEditingController();
   final TextEditingController etBurglarAlarmPassword = TextEditingController();
+  final TextEditingController etDevicePassword = TextEditingController();
   final TextEditingController etMenuPassword = TextEditingController();
   final TextEditingController etAppPassword = TextEditingController();
   final TextEditingController etZoneName = TextEditingController();
@@ -239,9 +240,10 @@ mixin OtherSettingController {
   // }
 
   Future<void> deleteRemote() async {
-    if (etRemoteNumber.text.length > 0) {
+    String dd=etRemoteNumber.text;
+    if (dd.length > 0) {
       String code = await getCode(DataManager.deleteRemoteNumber);
-      sendMessage(code.replaceAll("VAL", (etRemoteNumber.text).toString()));
+      sendMessage(code.replaceAll("VAL", (dd).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: "Enter the remote number");
     }
@@ -270,8 +272,18 @@ mixin OtherSettingController {
 
   void changeTheBurglarAlarmPassword(BuildContext context) {
     if (etBurglarAlarmPassword.text.length > 3) {
-      String _code = getCode(DataManager.changeTheBurglarAlarmPassword);
+      String _code = getCode(DataManager.changeKeypadPassword);
       sendMessage(_code.replaceAll("NEWPASS", (etBurglarAlarmPassword.text.toString())));
+
+    } else {
+      snackbarRed(title: s.error, subtitle: s.thePasswordMustBe4Characters);
+    }
+  }
+
+  void changeDevicePassword(BuildContext context) {
+    if (etDevicePassword.text.length > 3) {
+      String _code = getCode(DataManager.changeDevicePassword);
+      sendMessage(_code.replaceAll("NEWPASS", (etDevicePassword.text.toString())));
 
     } else {
       snackbarRed(title: s.error, subtitle: s.thePasswordMustBe4Characters);

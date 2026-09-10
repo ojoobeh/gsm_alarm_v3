@@ -264,12 +264,12 @@ class Core {
         model1: '*PASS*39#VAL#',
         model2: '*PASS*39#VAL#',
       ),
-      CodeModel(
-        id: 26,
-        title: DataManager.changeTheBurglarAlarmPassword, //*تغییر پسورد
-        model1: '*PASS*27#NEWPASS#',
-        model2: '*PASS*27#NEWPASS#',
-      ),
+      // CodeModel(
+      //   id: 26,
+      //   title: DataManager.changeTheBurglarAlarmPassword, //*تغییر پسورد
+      //   model1: '*PASS*27#NEWPASS#',
+      //   model2: '*PASS*27#NEWPASS#',
+      // ),
       CodeModel(
         id: 30,
         title: DataManager.changeZoneName,
@@ -329,6 +329,182 @@ class Core {
         model1: '*PASS*48#IDSTATUS#',
         model2: '*PASS*48#IDSTATUS#',
       ),
+      CodeModel(
+        id: 26,
+        title: DataManager.connectingTheKeypad, //اتصال کی پد
+        model1: '*PASS*52#VAL#',
+        model2: '*PASS*60#VAL#',
+        model3: '*PASS*60#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.rFReceiverActivation, //فعال بودن گیرنده آر اف
+        model1: '*PASS*53#VAL#',
+        model2: '*PASS*53#VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.sendRemainingCharge, //ارسال باقیمانده شارژ
+        model1: '*PASS*55#VAL#',
+        model2: '*PASS*55#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.simCardModuleActivation, //فعال بودن ماژول سیم کارت
+        model1: '*PASS*54#VAL#',
+        model2: '*PASS*54#VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.zone13Masha,//زون۱۳ مشاع
+        model1: '*PASS*57#VAL#',
+        model2: '*PASS*57#VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.doubleProtection,//حفاظت مضاعف
+        model1: '*PASS*58#VAL#',
+        model2: '*PASS*59#VAL#',
+        model3: '*PASS*59#VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.zone14ManualSwitch,//سوییچ دستی زون۱۴
+        model1: '*PASS*59#VAL#',
+        model2: '*PASS*59#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.changeDevicePassword,//تغییر پسورد دستگاه
+        model1: '*PASS*27#NEWPASS#',
+        model2: '*PASS*27#NEWPASS#',
+        model3: '*PASS*27#NEWPASS#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.changingTheVolumeOfTheMainSiren,//تغییر ولوم آژیر اصلی
+        model1: '*PASS*28#1VAL#',
+        model2: '*PASS*28#1VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.changingTheVolumeOfSSingleSiren,//تغییر تک ولوم آژیر
+        model1: '*PASS*28#1VAL#',
+        model2: '*PASS*28#1VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.changeKeypadPassword,//تغییر پسورد کی پد
+        model1: '*PASS*31#NEWPASS#',
+        model2: '*PASS*31#NEWPASS#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.changeOut1ByRemote,//تغییر out1 توسط ریموت
+        model1: '*PASS*45#VAL#',
+        model2: '*PASS*45#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.rejectCallFromUnknownNumber,//رد تماس شماره ناشناس
+        model1: '*PASS*46#VAL#',
+        model2: '*PASS*46#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.deleteRemote,//حذف ریموت
+        model1: '*PASS*47#VAL#',
+        model2: '*PASS*47#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.powerOutageCall,//تماس قطع برق
+        model1: '*PASS*52#VAL#',
+        model2: '*PASS*52#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.lowBatteryWarning,//هشدار باطری ضعیف
+        model1: '*PASS*53#VAL#',
+        model2: '*PASS*53#VAL#',
+      ),      CodeModel(
+        id: 26,
+        title: DataManager.instantaneousOutputTimerBasedOn,//هشدار باطری ضعیف
+        model1: '*PASS*50#VAL#',
+        model2: '*PASS*50#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.internalBellMessage,//پیام زنگ داخلی
+        model1: '*PASS*54#VAL#',
+        model2: '*PASS*54#VAL#',
+      ),
+      CodeModel(
+        id: 26,
+        title: DataManager.chirpPartSet,//چریپ پارت ست
+        model1: '*PASS*55#VAL#',
+        model2: '*PASS*55#VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.disableSIMCardCalls,//غیرفعال کردن تماس با سیم کارت
+        model1: '*PASS*56#VAL#',
+        model2: '*PASS*56#VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.smsFromUnknownNumberCalledMr,//پیامک شماره ناشناس تماس گرفته شده به مستر
+        model1: '*PASS*57#VAL#',
+        model2: '*PASS*57#VAL#',
+      ),
+
+      CodeModel(
+        id: 26,
+        title: DataManager.silencingASingleZone,//سایلنت کردن تک زون
+        model1: '*PASS*57#VAL#',
+        model2: '*PASS*57#VAL#',
+      ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     ],
   );
