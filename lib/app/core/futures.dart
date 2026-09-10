@@ -9,8 +9,10 @@ String getCode(String code) {
     int modelType = Core.selectLocationSettingModel.value.modelType ?? 0;
     if (modelType == 1) {
       res = list.first.model1 ?? '';
+    } else  if (modelType == 2) {
+      res = list.first.model1 ?? '';
     } else  {
-      res = list.first.model2 ?? '';
+      res = list.first.model3 ?? '';
     }
   }
   return res;

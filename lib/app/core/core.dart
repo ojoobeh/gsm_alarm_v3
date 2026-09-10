@@ -169,24 +169,28 @@ class Core {
         title: DataManager.deleteFromMemory,
         model1: '*PASS*MEMORY##',
         model2: '*PASS*MEMORY##',
+        model3: '*PASS*MEMORY##',
       ),
       CodeModel(
         id: 11,
         title: DataManager.showMemory,
         model1: '*PASS*MEMORY#',
         model2: '*PASS*MEMORY#',
+        model3: '*PASS*MEMORY#',
       ),
       CodeModel(
         id: 12,
         title: DataManager.callPriority, //پیشفرض تماس یا پیام
         model1: '*PASS*30#VAL#',
         model2: '*PASS*30#VAL#',
+        model3: '*PASS*30#VAL#',
       ),
       CodeModel(
         id: 27,
         title: DataManager.setZoneSetting, //کنترل زون ها
         model1: '*PASS*49#XY#',
         model2: '*PASS*49#XY#',
+        model3: '*PASS*49#XY#',
       ),
 
       ///********************** OTHERSETTING 2 *************************/
@@ -195,30 +199,35 @@ class Core {
         title: DataManager.alarmSilentExternalSpeaker, //گزارش قطع بلندگو
         model1: '*PASS*43#VAL#',
         model2: '*PASS*43#VAL#',
+        model3: '*PASS*43#VAL#',
       ),
       CodeModel(
         id: 15,
         title: DataManager.alarmOnOffPower, //گزارش قطع برق
         model1: '*PASS*42#VAL#',
         model2: '*PASS*42#VAL#',
+        model3: '*PASS*42#VAL#',
       ),
       CodeModel(
         id: 18,
         title: DataManager.alarmOnOffSmsReceivingReport, //ارسال گزارش تحویل اس ام اس
         model1: '*PASS*33#VAL#',
         model2: '*PASS*33#VAL#',
+        model3: '*PASS*33#VAL#',
       ),
       CodeModel(
         id: 16,
         title: DataManager.alarmOnOffConfidental, //ارسال گزارش روشن و خاموش شدن دزدگیر
         model1: '*PASS*34#VAL#',
         model2: '*PASS*34#VAL#',
+        model3: '*PASS*34#VAL#',
       ),
       CodeModel(
         id: 31,
         title: DataManager.selectSimType, //انتخاب اپراتور
         model1: '*PASS*32#VAL#',
         model2: '*PASS*32#VAL#',
+        model3: '*PASS*32#VAL#',
       ),
 
       ///********************** OTHERSETTING 3 *************************/
@@ -227,42 +236,49 @@ class Core {
         title: DataManager.setupStimulationType, //نوع تحریک
         model1: '*PASS*29#VAL#',
         model2: '*PASS*29#VAL#',
+        model3: '*PASS*29#VAL#',
       ),
       CodeModel(
         id: 20,
         title: DataManager.setupLanguageSMS, //زبان ارسال پیام
         model1: '*PASS*31#VAL#',
         model2: '*PASS*31#VAL#',
+        model3: '*PASS*31#VAL#',
       ),
       CodeModel(
         id: 21,
         title: DataManager.defaultDialingSystem, //پیشفرض سیستم شماره گیری
         model1: '*PASS*36#VAL#',
         model2: '*PASS*36#VAL#',
+        model3: '*PASS*36#VAL#',
       ),
       CodeModel(
         id: 22,
         title: DataManager.remoteControl, //کنترل از راه دور
         model1: '*PASS*37#VAL#',
         model2: '*PASS*37#VAL#',
+        model3: '*PASS*37#VAL#',
       ),
       CodeModel(
         id: 23,
         title: DataManager.setAlarmTime, //مدت زمان آژیر
         model1: '*PASS*40#VAL#',
         model2: '*PASS*40#VAL#',
+        model3: '*PASS*40#VAL#',
       ),
       CodeModel(
         id: 24,
         title: DataManager.singleSirenSetting, //نوع تک آژیر
         model1: '*PASS*41#VAL#',
         model2: '*PASS*41#VAL#',
+        model3: '*PASS*41#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.setArrivalTime, //زمان ورود و خروج
         model1: '*PASS*39#VAL#',
         model2: '*PASS*39#VAL#',
+        model3: '*PASS*39#VAL#',
       ),
       // CodeModel(
       //   id: 26,
@@ -275,6 +291,7 @@ class Core {
         title: DataManager.changeZoneName,
         model1: '*PASS*NUMBER#PARAM#',
         model2: '*PASS*NUMBER#PARAM#',
+        model3: '*PASS*NUMBER#PARAM#',
       ),
 
       ///********************** OTHERSETTING 4 *************************/
@@ -283,36 +300,42 @@ class Core {
         title: DataManager.typeOfFixedLineDialing, //نوع شماره گیری خط ثابت
         model1: '*PASS*35#VAL#',
         model2: '*PASS*35#VAL#',
+        model3: '*PASS*35#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.turnTheDialerOnAndOff, //روشن و خاموش کردن تلفن کننده
         model1: '*PASS*38#VAL#',
         model2: '*PASS*38#VAL#',
+        model3: '*PASS*38#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.singleSirenWhenSemiActivated, //تک آژیر هنگام نیمه فعال شدن
         model1: '*PASS*45#VAL#',
         model2: '*PASS*45#VAL#',
+        model3: '*PASS*45#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.output1AsADoorOpener, //خروجی 1 به عنوان درب بازکن
         model1: '*PASS*44#VAL#',
         model2: '*PASS*44#VAL#',
+        model3: '*PASS*44#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.deviceShutdownReport, //گزارش خاموش ماندن دستگاه
         model1: '*PASS*46#VAL#',
         model2: '*PASS*46#VAL#',
+        model3: '*PASS*46#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.twoStageShutdown, //خاموش کردن دو مرحله ای ( حفاظت مضاعف )
         model1: '*PASS*50#VAL#',
         model2: '*PASS*50#VAL#',
+        model3: '*PASS*50#VAL#',
       ),
 
       ///********************** OUTPUT *************************/
@@ -321,6 +344,7 @@ class Core {
         title: DataManager.output, //روشن شدن خودکار
         model1: '*PASS*48#IDSTATUS#',
         model2: '*PASS*48#IDSTATUS#',
+        model3: '*PASS*48#IDSTATUS#',
       ),
 
       CodeModel(
@@ -328,6 +352,7 @@ class Core {
         title: DataManager.output, //روشن شدن خودکار
         model1: '*PASS*48#IDSTATUS#',
         model2: '*PASS*48#IDSTATUS#',
+        model3: '*PASS*48#IDSTATUS#',
       ),
       CodeModel(
         id: 26,
@@ -341,6 +366,7 @@ class Core {
         title: DataManager.rFReceiverActivation, //فعال بودن گیرنده آر اف
         model1: '*PASS*53#VAL#',
         model2: '*PASS*53#VAL#',
+        model3: '*PASS*53#VAL#',
       ),
 
       CodeModel(
@@ -348,12 +374,14 @@ class Core {
         title: DataManager.sendRemainingCharge, //ارسال باقیمانده شارژ
         model1: '*PASS*55#VAL#',
         model2: '*PASS*55#VAL#',
+        model3: '*PASS*55#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.simCardModuleActivation, //فعال بودن ماژول سیم کارت
         model1: '*PASS*54#VAL#',
         model2: '*PASS*54#VAL#',
+        model3: '*PASS*54#VAL#',
       ),
 
       CodeModel(
@@ -361,6 +389,7 @@ class Core {
         title: DataManager.zone13Masha,//زون۱۳ مشاع
         model1: '*PASS*57#VAL#',
         model2: '*PASS*57#VAL#',
+        model3: '*PASS*57#VAL#',
       ),
 
       CodeModel(
@@ -376,6 +405,7 @@ class Core {
         title: DataManager.zone14ManualSwitch,//سوییچ دستی زون۱۴
         model1: '*PASS*59#VAL#',
         model2: '*PASS*59#VAL#',
+        model3: '*PASS*59#VAL#',
       ),
       CodeModel(
         id: 26,
@@ -390,6 +420,7 @@ class Core {
         title: DataManager.changingTheVolumeOfTheMainSiren,//تغییر ولوم آژیر اصلی
         model1: '*PASS*28#1VAL#',
         model2: '*PASS*28#1VAL#',
+        model3: '*PASS*28#1VAL#',
       ),
 
       CodeModel(
@@ -397,59 +428,69 @@ class Core {
         title: DataManager.changingTheVolumeOfSSingleSiren,//تغییر تک ولوم آژیر
         model1: '*PASS*28#1VAL#',
         model2: '*PASS*28#1VAL#',
+        model3: '*PASS*28#1VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.changeKeypadPassword,//تغییر پسورد کی پد
         model1: '*PASS*31#NEWPASS#',
         model2: '*PASS*31#NEWPASS#',
+        model3: '*PASS*31#NEWPASS#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.changeOut1ByRemote,//تغییر out1 توسط ریموت
         model1: '*PASS*45#VAL#',
         model2: '*PASS*45#VAL#',
+        model3: '*PASS*45#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.rejectCallFromUnknownNumber,//رد تماس شماره ناشناس
         model1: '*PASS*46#VAL#',
         model2: '*PASS*46#VAL#',
+        model3: '*PASS*46#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.deleteRemote,//حذف ریموت
         model1: '*PASS*47#VAL#',
         model2: '*PASS*47#VAL#',
+        model3: '*PASS*47#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.powerOutageCall,//تماس قطع برق
         model1: '*PASS*52#VAL#',
         model2: '*PASS*52#VAL#',
+        model3: '*PASS*52#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.lowBatteryWarning,//هشدار باطری ضعیف
         model1: '*PASS*53#VAL#',
         model2: '*PASS*53#VAL#',
+        model3: '*PASS*53#VAL#',
       ),      CodeModel(
         id: 26,
         title: DataManager.instantaneousOutputTimerBasedOn,//هشدار باطری ضعیف
         model1: '*PASS*50#VAL#',
         model2: '*PASS*50#VAL#',
+        model3: '*PASS*50#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.internalBellMessage,//پیام زنگ داخلی
         model1: '*PASS*54#VAL#',
         model2: '*PASS*54#VAL#',
+        model3: '*PASS*54#VAL#',
       ),
       CodeModel(
         id: 26,
         title: DataManager.chirpPartSet,//چریپ پارت ست
         model1: '*PASS*55#VAL#',
         model2: '*PASS*55#VAL#',
+        model3: '*PASS*55#VAL#',
       ),
 
       CodeModel(
@@ -457,6 +498,7 @@ class Core {
         title: DataManager.disableSIMCardCalls,//غیرفعال کردن تماس با سیم کارت
         model1: '*PASS*56#VAL#',
         model2: '*PASS*56#VAL#',
+        model3: '*PASS*56#VAL#',
       ),
 
       CodeModel(
@@ -464,36 +506,16 @@ class Core {
         title: DataManager.smsFromUnknownNumberCalledMr,//پیامک شماره ناشناس تماس گرفته شده به مستر
         model1: '*PASS*57#VAL#',
         model2: '*PASS*57#VAL#',
+        model3: '*PASS*57#VAL#',
       ),
 
       CodeModel(
         id: 26,
         title: DataManager.silencingASingleZone,//سایلنت کردن تک زون
-        model1: '*PASS*57#VAL#',
-        model2: '*PASS*57#VAL#',
+        model1: '*PASS*56#ZONEVAL#',
+        model2: '*PASS*70#ZONEVAL#',
+        model3: '*PASS*70#ZONEVAL#',
       ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
