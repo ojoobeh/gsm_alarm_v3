@@ -3,6 +3,7 @@ import 'dart:convert';
 class DeviceModel {
   DeviceModel({
     this.id,
+    this.title,
     this.model,
     this.selected,
     this.hasWifi,
@@ -11,6 +12,7 @@ class DeviceModel {
   });
 
    int? id;
+   String? title;
    String? model;
    int? selected;
    int? hasWifi;
@@ -24,6 +26,7 @@ class DeviceModel {
   factory DeviceModel.fromMap(dynamic json) => DeviceModel(
         id: json["id"],
         model: json["model"],
+    title: json["title"],
         selected: json["selected"],
         hasWifi: json["hasWifi"],
         hasMultiPart: json["hasMultiPart"],
@@ -32,6 +35,7 @@ class DeviceModel {
   dynamic toMap() => {
         "id": id,
         "model": model,
+        "title": title,
         "selected": selected,
         "hasWifi": hasWifi,
         "hasMultiPart": hasMultiPart,

@@ -45,17 +45,14 @@ class Core {
   static const int port = 2468;
   final int sdkVersion = 34;
   static List<DeviceModel> deviceModelList = <DeviceModel>[
-    DeviceModel(id: 1, model: Core.model1, selected: 1, hasMultiPart: 1, outputNumber: 4, hasWifi: 0),
-    DeviceModel(id: 2, model: Core.model2, selected: 0, hasMultiPart: 1, outputNumber: 6, hasWifi: 0),
-    DeviceModel(id: 3, model: Core.model3, selected: 0, hasMultiPart: 1, outputNumber: 8, hasWifi: 0),
+    DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, hasWifi: 0),
+    DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 6, hasWifi: 0),
+    DeviceModel(id: 3, model: 'HITEC', selected: 0, hasMultiPart: 1, outputNumber: 8, hasWifi: 0),
     // DeviceModel(id: 4, model: Core.model4, selected: 0, hasMultiPart: 1, hasWifi: 1),
   ];
   static List<PartModel> partModelList = <PartModel>[PartModel(id: 0, title: s.generalPart), PartModel(id: 1, title: s.part1), PartModel(id: 2, title: s.part2)];
 
   static String versionNumber = '2.5.1';
-  static String model1 = 'P3000';
-  static String model2 = 'P3008';
-  static String model3 = 'HITEC';
 
   ///**********************************************************************/
 
