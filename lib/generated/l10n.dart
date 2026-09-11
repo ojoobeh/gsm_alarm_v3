@@ -2734,6 +2734,26 @@ class S {
     );
   }
 
+  /// `Siren on`
+  String get sirenOn {
+    return Intl.message(
+      'Siren on',
+      name: 'sirenOn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Siren off`
+  String get sirenOff {
+    return Intl.message(
+      'Siren off',
+      name: 'sirenOff',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Silencing a single zone`
   String get silencingASingleZone {
     return Intl.message(

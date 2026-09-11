@@ -22,6 +22,7 @@ mixin OtherSettingController {
   final TextEditingController etMemory = TextEditingController();
   final TextEditingController etPhone = TextEditingController();
   final TextEditingController etRemoteNumber = TextEditingController();
+  final TextEditingController etZoneNumber = TextEditingController();
   final TextEditingController etAdminPassword = TextEditingController();
   final TextEditingController etBurglarAlarmPassword = TextEditingController();
   final TextEditingController etDevicePassword = TextEditingController();
@@ -54,7 +55,8 @@ mixin OtherSettingController {
   final remoteControl = 0.obs;
   final setAlarmTime = 0.obs;
   final setZoneStatus = 0.obs;
-  final singleSirenSetting = 0.obs;
+  final setSirenOnStatus = 0.obs;
+  // final singleSirenSetting = 0.obs;
   final outputAdjustment1 = 0.obs;
   final adjustTheTypeOfDingDong = 0.obs;
   final setArrivalTime = 0.obs;
@@ -157,10 +159,13 @@ mixin OtherSettingController {
   void setSetZoneStatus(int _setZoneStatus) {
     this.setZoneStatus(_setZoneStatus);
   }
-
-  void setSingleSirenSetting(int _singleSirenSetting) {
-    this.singleSirenSetting(_singleSirenSetting);
+  void setSetSirenOnStatus(int _setSirenOnStatus) {
+    this.setSirenOnStatus(_setSirenOnStatus);
   }
+
+  // void setSingleSirenSetting(int _singleSirenSetting) {
+  //   this.singleSirenSetting(_singleSirenSetting);
+  // }
 
   void setOutputAdjustment1(int _outputAdjustment1) {
     this.outputAdjustment1(_outputAdjustment1);
@@ -180,7 +185,7 @@ mixin OtherSettingController {
 
   Future<void> sendSetZone() async {
     if ((selectZone.value.id) > 0) {
-      String code = await getCode(DataManager.setZoneSetting);
+      String code = await getCode2(DataManager.setZoneSetting);
       sendMessage(code.replaceAll("X", (selectZone.value.status).toString()).replaceAll("Y", (setZoneStatus.value + 1).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: s.selectYourZoneNumber);
@@ -191,7 +196,7 @@ mixin OtherSettingController {
   Future<void> insertToMemory() async {
     if (etMemory.text.length > 0) {
       if (etPhone.text.length == 11) {
-        String code = await getCode(DataManager.insertToMemory);
+        String code = await getCode2(DataManager.insertToMemory);
         sendMessage(code.replaceAll("MEMORY", etMemory.text).replaceAll("PHONE", etPhone.text));
       } else {
         snackbarRed(title: s.error, subtitle: "Phone is wrong");
@@ -203,7 +208,7 @@ mixin OtherSettingController {
 
   Future<void> deleteFromMemory() async {
     if (etMemory.text.length > 0) {
-      String code = await getCode(DataManager.deleteFromMemory);
+      String code = await getCode2(DataManager.deleteFromMemory);
       sendMessage(await code.replaceAll("MEMORY", etMemory.text));
     } else {
       snackbarRed(title: s.error, subtitle: s.enterTheMemory);
@@ -212,7 +217,7 @@ mixin OtherSettingController {
 
   Future<void> showMemory() async {
     if (etMemory.text.length > 0) {
-      String code = await getCode(DataManager.showMemory);
+      String code = await getCode2(DataManager.showMemory);
       sendMessage(code.replaceAll("MEMORY", etMemory.text));
     } else {
       snackbarRed(title: s.error, subtitle: s.enterTheMemory);
@@ -220,7 +225,7 @@ mixin OtherSettingController {
   }
 
   Future<void> sedCallPriority() async {
-    String code = await getCode(DataManager.callPriority);
+    String code = await getCode2(DataManager.callPriority);
     sendMessage(code.replaceAll("VAL", selectCallPriority.value.id.toString()));
   }
 
@@ -242,12 +247,21 @@ mixin OtherSettingController {
   Future<void> deleteRemote() async {
     String dd=etRemoteNumber.text;
     if (dd.length > 0) {
-      String code = await getCode(DataManager.deleteRemoteNumber);
+      String code = await getCode2(DataManager.deleteRemoteNumber);
       sendMessage(code.replaceAll("VAL", (dd).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: "Enter the remote number");
     }
   }
+  Future<void> silencingASingleZone() async {
+    String dd=etZoneNumber.text;
+    if (dd.length > 0) {
+      String code = await getCode2(DataManager.silencingASingleZone);
+      sendMessage(code.replaceAll("VAL", (setSirenOnStatus.value).toString()).replaceAll("ZONE", (dd).toString()));
+    } else {
+      snackbarRed(title: s.error, subtitle: "Enter the remote number");
+    }
+  }//'*PASS*70#ZONEVAL#',
 
   void changeAdminPassword(BuildContext context) {
     if (etAdminPassword.text.length > 3) {
@@ -272,7 +286,7 @@ mixin OtherSettingController {
 
   void changeTheBurglarAlarmPassword(BuildContext context) {
     if (etBurglarAlarmPassword.text.length > 3) {
-      String _code = getCode(DataManager.changeKeypadPassword);
+      String _code = getCode2(DataManager.changeKeypadPassword);
       sendMessage(_code.replaceAll("NEWPASS", (etBurglarAlarmPassword.text.toString())));
 
     } else {
@@ -282,7 +296,7 @@ mixin OtherSettingController {
 
   void changeDevicePassword(BuildContext context) {
     if (etDevicePassword.text.length > 3) {
-      String _code = getCode(DataManager.changeDevicePassword);
+      String _code = getCode2(DataManager.changeDevicePassword);
       sendMessage(_code.replaceAll("NEWPASS", (etDevicePassword.text.toString())));
 
     } else {
@@ -371,7 +385,7 @@ mixin OtherSettingController {
       if (zone.text.length < 2) {
         snackbarRed(title: s.error, subtitle: s.enterZoneName);
       } else {
-        String code = await getCode(DataManager.changeZoneName);
+        String code = await getCode2(DataManager.changeZoneName);
         sendMessage(code.replaceAll("NUMBER", selectZoneMode.value.id.toString()).replaceAll("PARAM", zone.text));
       }
     } else {

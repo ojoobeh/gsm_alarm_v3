@@ -176,7 +176,7 @@ Widget item({
         button(
           title: s.send,
           onTap: () {
-            String _code = getCode(code);
+            String _code = getCode2(code);
             sendMessage(_code.replaceAll("VAL", (isTrue.value + 1).toString()));
 
             // change(isTrue.value);

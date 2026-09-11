@@ -1,5 +1,9 @@
 import 'dart:convert';
 
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'output.g.dart';
+@HiveType(typeId: 1)
 class OutputModel {
   OutputModel({
     this.deviceId = 0,
@@ -9,33 +13,17 @@ class OutputModel {
     this.status = 0,
     this.isMomentary = 0,
   });
-
-  int deviceId;
+  @HiveField(0)
   int id;
+  @HiveField(1)
+  int deviceId;
+  @HiveField(2)
   String title;
+  @HiveField(3)
   int code;
+  @HiveField(4)
   int status;
+  @HiveField(5)
   int isMomentary;
 
-  factory OutputModel.fromJson(String str) => OutputModel.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory OutputModel.fromMap(dynamic json) => OutputModel(
-    deviceId: json["deviceId"] ?? 0,
-        id: json["id"] ?? 0,
-        title: json["title"] ?? '',
-        code: json["code"] ?? 0,
-        status: json["status"] ?? 0,
-    isMomentary: json["isMomentary"] ?? 0,
-      );
-
-  dynamic toMap() => {
-        "deviceId": deviceId,
-        "id": id,
-        "title": title,
-        "code": code,
-        "status": status,
-        "isMomentary": isMomentary,
-      };
 }

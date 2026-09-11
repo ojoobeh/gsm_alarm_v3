@@ -1,6 +1,21 @@
 part of 'core.dart';
 
-String getCode(String code) {
+
+String getCode(int modelType, CodeModel codeModel) {
+  String res = '';
+  //1
+  if (modelType == 1) {
+    res = codeModel.model1 ?? '';
+  } else if (modelType == 2) {
+    res = codeModel.model2 ?? '';
+  } else {
+    res = codeModel.model3 ?? '';
+  }
+  return res;
+}
+
+
+String getCode2(String code) {
   String _code = code;
   String res = '';
   if (Core.selectLocationSettingModel.value.id != null) {

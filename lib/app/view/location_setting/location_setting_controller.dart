@@ -1,4 +1,5 @@
-import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/model/model.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/models/part/part.dart';
 import 'package:bestdroid/app/view/utils/local_storage.dart';
 import 'package:bestdroid/app/core/core.dart';
@@ -18,6 +19,7 @@ mixin LocationSettingController {
   TextEditingController simNumberController = TextEditingController();
   TextEditingController nameController = TextEditingController();
 
+  List<Model> models = <Model>[];
   List<LocationSettingModel> locationSettingList = <LocationSettingModel>[];
   Rx<LocationSettingModel> selectLocationSettingModel = LocationSettingModel().obs;
   List<DeviceModel> deviceModelList = <DeviceModel>[];
@@ -55,7 +57,7 @@ mixin LocationSettingController {
 
 
         for (int i = 0; i < 24; i++) {
-          await DataManager.insertOutputModel(OutputModel(
+          await DataManager.insertOutputModel(Output2Model(
             deviceId: id + 1,
             id: i + 1,
             title: "${s.output} ${i + 1}",

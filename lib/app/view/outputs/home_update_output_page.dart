@@ -1,4 +1,4 @@
-import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/view/home/outputs_controller.dart';
 import 'package:bestdroid/app/core/assets.dart';
 import 'package:bestdroid/app/core/core.dart';
@@ -102,7 +102,7 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
 
 
   Widget _itemOutput({
-    required final OutputModel outputModel,
+    required final Output2Model outputModel,
     required final int index,
   }) {
     TextEditingController controller = TextEditingController();
@@ -126,7 +126,7 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
                       value: isMomentary.value,
                       onChanged: (value) {
                         isMomentary(value);
-                        OutputModel output = outputModel;
+                        Output2Model output = outputModel;
                         output.isMomentary = value ? 1 : 0;
                         outputList[index].isMomentary = value ? 1 : 0;
                         DataManager.updateOutputs(output);
@@ -151,7 +151,7 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
             titleWidget: Text(s.rename).labelLarge(color: Colors.white),
             onTap: () {
               if (controller.text.length > 1) {
-                OutputModel output = outputModel;
+                Output2Model output = outputModel;
                 output.title = controller.text;
                 outputList[index].title = controller.text;
                 DataManager.updateOutputs(output);

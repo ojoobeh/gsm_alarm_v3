@@ -275,6 +275,8 @@
   "rejectCallFromUnknownNumber": "رد تماس شماره ناشناس",
   "seconds": "ثانیه",
   "minutes": "دقیقه",
+  "sirenOn": "آژیر وصل",
+  "sirenOff": "آژیر قطع",
   "silencingASingleZone": "سایلنت کردن تک زون",
   "smsFromUnknownNumberCalledMr": "پیامک شماره ناشناس تماس گرفته شده به مستر",
   "disableSIMCardCalls": "غیرفعال کردن تماس با سیم کارت",

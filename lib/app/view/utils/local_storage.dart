@@ -1,20 +1,40 @@
-import 'package:get_storage/get_storage.dart';
+import 'package:bestdroid/app/core/core.dart';
+import 'package:hive/hive.dart';
 
-void setData(final String key, final dynamic value) => GetStorage().write(key, value);
+void setData(final String key, final dynamic value) =>
+    Hive.box(AppConstants.hiveLocalStorage).put(key ,value);
+
+int? getInt(final String key) => Hive.box(AppConstants.hiveLocalStorage).get(key);
+
+String? getString(final String key) => Hive.box(AppConstants.hiveLocalStorage).get(key);
+
+bool? getBool(final String key) => Hive.box(AppConstants.hiveLocalStorage).get(key);
+
+double? getDouble(final String key) => Hive.box(AppConstants.hiveLocalStorage).get(key);
+List<String>? getStringList(final String key) => Hive.box(AppConstants.hiveLocalStorage).get(key);
+
+dynamic getData(final String key) => Hive.box(AppConstants.hiveLocalStorage).get(key);
+
+void clearData() => Hive.box(AppConstants.hiveLocalStorage).clear();
 
 
-int? getInt(final String key) => GetStorage().read(key);
+// import 'package:get_storage/get_storage.dart';
 
-String? getString(final String key) => GetStorage().read(key);
-
-bool getBool(final String key) => GetStorage().read(key)??false;
-
-
-double? getDouble(final String key) => GetStorage().read(key);
-
-dynamic getData(final String key) => GetStorage().read(key);
-
-void clearData() => GetStorage().erase();
+// void setData(final String key, final dynamic value) => GetStorage().write(key, value);
+//
+//
+// int? getInt(final String key) => GetStorage().read(key);
+//
+// String? getString(final String key) => GetStorage().read(key);
+//
+// bool getBool(final String key) => GetStorage().read(key)??false;
+//
+//
+// double? getDouble(final String key) => GetStorage().read(key);
+//
+// dynamic getData(final String key) => GetStorage().read(key);
+//
+// void clearData() => GetStorage().erase();
 
 //
 // void setString(final String key, final String value) async {

@@ -7,6 +7,7 @@ class DeviceModel {
     this.selected,
     this.hasWifi,
     this.hasMultiPart,
+    this.outputNumber,
   });
 
    int? id;
@@ -14,6 +15,7 @@ class DeviceModel {
    int? selected;
    int? hasWifi;
    int? hasMultiPart;
+   int? outputNumber;
 
   factory DeviceModel.fromJson(String str) => DeviceModel.fromMap(json.decode(str));
 

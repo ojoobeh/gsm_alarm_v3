@@ -4,10 +4,13 @@ import 'package:bestdroid/app/models/data_manager.dart';
 import 'package:bestdroid/app/models/location_setting/location_settings.dart';
 import 'package:bestdroid/app/models/model_device/device.dart';
 import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/view/utils/local_storage.dart';
 import 'package:bestdroid/app/widgets/widgets.dart';
 
 mixin OutputsController {
+
+
 
   Rx<DeviceModel> selectDeviceMode = DeviceModel().obs;
   final formKey = GlobalKey<FormState>();
@@ -37,9 +40,9 @@ mixin OutputsController {
   }
 
   sendCode(String message) {
-    String code = getCode(message);
+    String code = getCode2(message);
     if (Core.selectLocationSettingModel.value.id != null) {
-      if (getBool('isWifi') ) {
+      if (getBool('isWifi')??false ) {
         sendMessage("${code}W");
       } else {
         sendMessage(code);
@@ -49,7 +52,7 @@ mixin OutputsController {
     }
   }
 
-  final outputList = <OutputModel>[].obs;
+  final outputList = <Output2Model>[].obs;
 
   RxBool isLoaded = true.obs;
 
@@ -66,12 +69,12 @@ mixin OutputsController {
   }
 
   void changeOutput(OutputModel outputModel, int status) async {
-    String pass = Core.selectLocationSettingModel.value.password;
-    String code = await getCode(DataManager.output);
+    String pass = '1111';
+    String code = await getCode(Core.selectedModel.modelId!,Core.output);
     sendMessage(code.replaceAll("PASS", pass).replaceAll("STATUS", status.toString()).replaceAll('ID', outputModel.id.toString()));
   }
 
-  void changeOutputTitle(OutputModel outputModel) {
+  void changeOutputTitle(Output2Model outputModel) {
     String title = '';
     Get.defaultDialog(
       title: outputModel.title,
@@ -118,7 +121,7 @@ mixin OutputsController {
             hoverColor: Colors.transparent,
             onTap: () {
               if (title.length > 3) {
-                OutputModel output = outputModel;
+                Output2Model output = outputModel;
                 output.title = title;
                 DataManager.updateOutputs(output);
                 isLoaded(true);

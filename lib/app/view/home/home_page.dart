@@ -1,3 +1,4 @@
+import 'package:bestdroid/app/models/model/model.dart';
 import 'package:bestdroid/app/view/home/home_emergency_page.dart';
 import 'package:bestdroid/app/view/home/home_main_page.dart';
 import 'package:bestdroid/app/view/home/home_output_page.dart';
@@ -9,7 +10,9 @@ import 'package:bestdroid/app/models/data_manager.dart';
 import 'package:bestdroid/app/view/home/home_controller.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, });
+  const HomePage({this.model,super.key, });
+
+  final Model? model;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -63,15 +66,13 @@ class _HomePageState extends State<HomePage> with HomeController ,OutputsControl
       ),
       page: HomeMainPage(title: s.mainPage,on: on,off: off,partSet: partSet,),
     ));
-
-
     listCurrent.add(NavigationModel(
       bottom: BottomNavigationBarItem(
         activeIcon:  Icon(Icons.output, color: Core.baseColor),
         icon: const Icon(Icons.output_outlined, color: Colors.black54),
         label: s.output,
       ),
-      page: HomeOutputPage(title: s.output),
+      page: HomeOutputPage(title: s.output,model:widget.model!),
     ));
     listCurrent.add(NavigationModel(
       bottom: BottomNavigationBarItem(
@@ -114,53 +115,55 @@ class _HomePageState extends State<HomePage> with HomeController ,OutputsControl
       child: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 500),
-          child: Scaffold(
-                  resizeToAvoidBottomInset: false,
-                  key: scaffoldKey,
-                  bottomNavigationBar: Obx(() => Core.selectLocationSettingModel.value.id != null
-                      ? ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 500),
-                          child: Container(
-                            clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(
-                              boxShadow: <BoxShadow>[
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.35),
-                                  blurRadius: 10,
-                                  offset: const Offset(2, 1),
-                                ),
-                              ],
-                              color: context.theme.cardColor,
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(8),
-                                topLeft: Radius.circular(8),
+          child: SafeArea(
+            child: Scaffold(
+                    resizeToAvoidBottomInset: false,
+                    key: scaffoldKey,
+                    bottomNavigationBar: SafeArea(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 500),
+                        child: Container(
+                          clipBehavior: Clip.hardEdge,
+                          decoration: BoxDecoration(
+                            boxShadow: <BoxShadow>[
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.35),
+                                blurRadius: 10,
+                                offset: const Offset(2, 1),
                               ),
-                            ),
-                            child: BottomNavigationBar(
-                              currentIndex: _currentIndex,
-                              type: BottomNavigationBarType.fixed,
-                              backgroundColor: context.theme.scaffoldBackgroundColor,
-                              selectedFontSize: 12,
-                              unselectedFontSize: 12,
-                              selectedItemColor: Core.baseColor,
-
-                              selectedLabelStyle: context.textTheme.labelLarge!.copyWith(color: Core.baseColor),
-                              unselectedLabelStyle: context.textTheme.labelLarge!.copyWith(color: Core.baseColor),
-
-                              onTap: (final int index) {
-                                setState(() {
-                                  _currentIndex = (index);
-                                });
-                              },
-                              items: listCurrent.map((e) => e.bottom).toList(),
+                            ],
+                            color: context.theme.cardColor,
+                            borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(8),
+                              topLeft: Radius.circular(8),
                             ),
                           ),
-                        )
-                      : const SizedBox()),
-                  backgroundColor: context.theme.scaffoldBackgroundColor,
-                  // drawer: _drawer(),
-                  body: listCurrent.map((e) => e.page).toList()[_currentIndex])
-              .safeArea(),
+                          child: BottomNavigationBar(
+                            currentIndex: _currentIndex,
+                            type: BottomNavigationBarType.fixed,
+                            backgroundColor: context.theme.scaffoldBackgroundColor,
+                            selectedFontSize: 12,
+                            unselectedFontSize: 12,
+                            selectedItemColor: Core.baseColor,
+
+                            selectedLabelStyle: context.textTheme.labelLarge!.copyWith(color: Core.baseColor),
+                            unselectedLabelStyle: context.textTheme.labelLarge!.copyWith(color: Core.baseColor),
+
+                            onTap: (final int index) {
+                              setState(() {
+                                _currentIndex = (index);
+                              });
+                            },
+                            items: listCurrent.map((e) => e.bottom).toList(),
+                          ),
+                        ),
+                      ),
+                    ),
+                    backgroundColor: context.theme.scaffoldBackgroundColor,
+                    // drawer: _drawer(),
+                    body: listCurrent.map((e) => e.page).toList()[_currentIndex])
+                .safeArea(),
+          ),
         ),
       ),
     );

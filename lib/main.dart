@@ -1,13 +1,17 @@
 import 'dart:io';
+import 'package:bestdroid/app/manager/model_manager.dart';
+import 'package:bestdroid/app/manager/output_manager.dart';
+import 'package:bestdroid/app/models/model/model.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:bestdroid/app/core/core.dart';
 import 'package:bestdroid/app/view/splash/splash_page.dart';
 import 'package:bestdroid/app/view/utils/local_storage.dart';
 import 'package:bestdroid/generated/l10n.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'background_task.dart';
-
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -17,39 +21,14 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();//
+  WidgetsFlutterBinding.ensureInitialized(); //
 
-  // if (isAndroid) {
-  //   await AndroidAlarmManager.initialize();
-  // }
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // // ثبت دومین وظیفه برای ساعت 10:30
-  // Workmanager().registerPeriodicTask(
-  //   "2",
-  //   "sendSmsTask2",
-  //   frequency: Duration(hours: 24), // اجرا هر 24 ساعت
-  //   initialDelay: Duration(hours: 10, minutes: 30), // اجرا در ساعت 10:30
-  // );
-
-  await GetStorage.init();
-  if (getData("locale") == null) setData("locale", Core.defaultLocal);
-  HttpOverrides.global = MyHttpOverrides();
-  // Workmanager().initialize(
-  //   callbackDispatcher,
-  //   isInDebugMode: false,
-  // );
-  //
-  // Workmanager().registerPeriodicTask(
-  //   "1",
-  //   "sendSmsTask",
-  //   frequency: const Duration(minutes: 20), // اجرا هر 24 ساعت
-  //   // initialDelay: const Duration(hours: 15,minutes: 27), // اجرا در ساعت 10:00
-  // );
-
-  if (isAndroid) {
-    // initializeService();
-  }
-
+  await Hive.initFlutter();
+  await Hive.openBox(AppConstants.hiveLocalStorage);
+  await ModelManager.init();
+  await OutputManager.init();
   runApp(const MyApp());
 }
 

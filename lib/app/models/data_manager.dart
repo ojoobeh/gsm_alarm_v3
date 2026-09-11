@@ -2,7 +2,7 @@ import 'package:bestdroid/app/models/location_setting/location_settings.dart';
 import 'package:bestdroid/app/models/location_setting/tb_location_setting.dart';
 import 'package:bestdroid/app/models/model_device/device.dart';
 import 'package:bestdroid/app/models/model_device/tb_model_devise.dart';
-import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/models/output/tb_output.dart';
 import 'package:bestdroid/app/view/utils/local_storage.dart';
 
@@ -187,9 +187,9 @@ class DataManager {
     // debugPrint("DDD");
   }
 
-  static Future<void> insertOutputModel(OutputModel model) async {
+  static Future<void> insertOutputModel(Output2Model model) async {
     TbOutputModel tb = await getTbOutputModel();
-    List<OutputModel> list = tb.list ?? <OutputModel>[];
+    List<Output2Model> list = tb.list ?? <Output2Model>[];
     int lastId = list.length;
     model.id = lastId + 1;
     list.add(model);
@@ -215,17 +215,17 @@ class DataManager {
     return list;
   }
 
-  static Future<List<OutputModel>> getOutputModelList() async {
+  static Future<List<Output2Model>> getOutputModelList() async {
     TbOutputModel tb = await getTbOutputModel();
 
-    List<OutputModel> list = tb.list ?? <OutputModel>[];
+    List<Output2Model> list = tb.list ?? <Output2Model>[];
     return list;
   }
 
-  static Future<List<OutputModel>> getOutputModelListByDeviceId(int id) async {
+  static Future<List<Output2Model>> getOutputModelListByDeviceId(int id) async {
     TbOutputModel tb = await getTbOutputModel();
 
-    List<OutputModel> list = tb.list?.where((element) => element.deviceId == id).toList() ?? <OutputModel>[];
+    List<Output2Model> list = tb.list?.where((element) => element.deviceId == id).toList() ?? <Output2Model>[];
     return list;
   }
 
@@ -261,10 +261,10 @@ class DataManager {
     setData(_tbLocationSetting, tb.toMap());
   }
 
-  static Future<void> updateOutputs(OutputModel model) async {
+  static Future<void> updateOutputs(Output2Model model) async {
     TbOutputModel tb = await getTbOutputModel();
 
-    List<OutputModel> list = tb.list ?? <OutputModel>[];
+    List<Output2Model> list = tb.list ?? <Output2Model>[];
 
     for (int i = 0; i < list.length; i++) {
       if (list[i].id == model.id) {

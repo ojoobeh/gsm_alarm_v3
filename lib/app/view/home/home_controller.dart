@@ -1,4 +1,5 @@
 import 'package:bestdroid/app/core/core.dart';
+import 'package:bestdroid/app/models/code_list/code.dart';
 import 'package:bestdroid/app/models/data_manager.dart';
 import 'package:bestdroid/app/models/location_setting/location_settings.dart';
 import 'package:bestdroid/app/models/model_device/device.dart';
@@ -32,11 +33,20 @@ mixin HomeController {
   }
 
   sendCode(String message){
-    String code=getCode(message);
+    String code=getCode2(message);
       if (Core.selectLocationSettingModel.value.id != null) {
         sendMessage(code);
       } else {
         snackbarRed(title: s.error, subtitle: s.pleaseSelectDeviceModel);
       }
+  }
+
+  sendCode2(CodeModel model)async{
+
+    String pass = Core.selectedModel.password??'';
+    String code =  getCode(Core.selectedModel.modelId!,model);
+    String _code=code.replaceAll("PASS", pass);
+    debugPrint(_code);
+    sendMessage(_code);
   }
 }

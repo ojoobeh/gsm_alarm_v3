@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 
 class TbOutputModel {
   TbOutputModel({
@@ -11,7 +11,7 @@ class TbOutputModel {
 
   final int? id;
   final String? title;
-  List<OutputModel>? list;
+  List<Output2Model>? list;
 
   factory TbOutputModel.fromJson(String str) => TbOutputModel.fromMap(json.decode(str));
 
@@ -20,7 +20,7 @@ class TbOutputModel {
   factory TbOutputModel.fromMap(dynamic json) => TbOutputModel(
         id: json["id"],
         title: json["title"],
-        list: json["list"] == null ? null : List<OutputModel>.from(json["list"].cast<dynamic>().map(OutputModel.fromMap)).toList(),
+        list: json["list"] == null ? null : List<Output2Model>.from(json["list"].cast<dynamic>().map(Output2Model.fromMap)).toList(),
       );
 
   dynamic toMap() => {

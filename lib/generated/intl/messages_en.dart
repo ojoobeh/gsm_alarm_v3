@@ -391,6 +391,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Single siren volume control"),
         "singleSirenWhenSemiActivated": MessageLookupByLibrary.simpleMessage(
             "Single siren when semi-activated"),
+        "sirenOff": MessageLookupByLibrary.simpleMessage("Siren off"),
+        "sirenOn": MessageLookupByLibrary.simpleMessage("Siren on"),
         "smart": MessageLookupByLibrary.simpleMessage("Smart"),
         "sms": MessageLookupByLibrary.simpleMessage("SMS"),
         "smsFromUnknownNumberCalledMr": MessageLookupByLibrary.simpleMessage(

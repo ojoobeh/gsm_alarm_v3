@@ -176,6 +176,77 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
               ],
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                appTextFormField(
+                  title: s.silencingASingleZone,
+                  inputType: TextInputType.number,
+                  maxLength: 1,
+                  controller: etZoneNumber,
+                  hint: s.remoteZone,
+                ),
+                const SizedBox(height: 8),
+                Obx(
+                   () {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          children: [
+                            Radio(
+                              value: 0,
+                              groupValue: setSirenOnStatus.value,
+                              onChanged: (value) => setSetSirenOnStatus(0),
+                            ),
+                            Text(
+                              s.sirenOn,
+                              style: const TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Radio(
+                              value: 1,
+                              groupValue: setSirenOnStatus.value,
+                              onChanged: (value) => setSetSirenOnStatus(1),
+                            ),
+                            Text(
+                              s.sirenOff,
+                              style: const TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    );
+                  }
+                ),
+                const SizedBox(height: 8),
+                button(
+                  title: s.send,
+                  onTap: () {
+                    silencingASingleZone();
+                  },
+                )
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: context.theme.scaffoldBackgroundColor,
+              boxShadow: [
+                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
+              ],
+            ),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(s.setZones).bodyMedium().marginOnly(bottom: 4, top: 20),

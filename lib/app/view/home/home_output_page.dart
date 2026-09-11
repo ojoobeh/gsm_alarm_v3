@@ -1,4 +1,6 @@
+import 'package:bestdroid/app/models/model/model.dart';
 import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/view/home/outputs_controller.dart';
 import 'package:bestdroid/app/core/assets.dart';
 import 'package:bestdroid/app/core/core.dart';
@@ -7,9 +9,10 @@ import 'package:bestdroid/app/view/utils/local_storage.dart';
 import 'package:bestdroid/app/widgets/widgets.dart';
 
 class HomeOutputPage extends StatefulWidget {
-  const HomeOutputPage({required this.title, super.key});
+  const HomeOutputPage({required this.title, required this.model, super.key});
 
   final String title;
+  final Model model;
 
   @override
   State<HomeOutputPage> createState() => _HomeOutputPageState();
@@ -52,8 +55,9 @@ class _HomeOutputPageState extends State<HomeOutputPage> with OutputsController 
           Obx(() => !isLoading.value
               ? GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisExtent: 130, crossAxisSpacing: 8),
-                  itemCount: int.parse(getString(AppConstants.countOfOutput) ?? '4'),
-                  itemBuilder: (context, index) => _itemOutput(outputModel: outputList[index], index: index),
+                  itemCount: widget.model.outputModels!.length,
+                  // itemCount: int.parse(getString(AppConstants.countOfOutput) ?? '4'),
+                  itemBuilder: (context, index) => _itemOutput2(outputModel: widget.model.outputModels![index], index: index),
                 ).marginSymmetric(horizontal: 8)
               : const Center(
                   child: CircularProgressIndicator(),
@@ -101,7 +105,7 @@ class _HomeOutputPageState extends State<HomeOutputPage> with OutputsController 
   // itemCount: widget.team.length,
   // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisExtent: 180),
 
-  Widget _itemOutput({
+    Widget _itemOutput2({
     required final OutputModel outputModel,
     required final int index,
   }) {
@@ -160,4 +164,6 @@ class _HomeOutputPageState extends State<HomeOutputPage> with OutputsController 
       ),
     );
   }
+
+
 }

@@ -2,7 +2,7 @@ import 'package:bestdroid/app/extensions/extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:bestdroid/app/core/assets.dart';
-import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/view/outputs/outputs_controller.dart';
 import 'package:bestdroid/app/widgets/widgets.dart';
 
@@ -46,7 +46,7 @@ class _OutputsPageState extends State<OutputsPage> with OutputsController {
   }
 
   Widget _items({
-    required OutputModel outputModel,
+    required Output2Model outputModel,
   }) =>
       SizedBox(
         height: 50,

@@ -376,6 +376,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("کنترل ولوم تک آژیر"),
         "singleSirenWhenSemiActivated":
             MessageLookupByLibrary.simpleMessage("تک آژیر هنگام نیمه فعال شدن"),
+        "sirenOff": MessageLookupByLibrary.simpleMessage("آژیر قطع"),
+        "sirenOn": MessageLookupByLibrary.simpleMessage("آژیر وصل"),
         "smart": MessageLookupByLibrary.simpleMessage("هوشمند"),
         "sms": MessageLookupByLibrary.simpleMessage("اس ام اس"),
         "smsFromUnknownNumberCalledMr": MessageLookupByLibrary.simpleMessage(

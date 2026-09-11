@@ -2,14 +2,14 @@ import 'package:bestdroid/app/core/core.dart';
 import 'package:bestdroid/app/extensions/extension.dart';
 import 'package:bestdroid/app/models/data_manager.dart';
 import 'package:bestdroid/app/models/location_setting/location_settings.dart';
-import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/widgets/widgets.dart';
 
 mixin OutputsController {
   final formKey = GlobalKey<FormState>();
   LocationSettingModel selectLocationSettingModel=LocationSettingModel();
 
-  final outputList = <OutputModel>[].obs;
+  final outputList = <Output2Model>[].obs;
 
   RxBool isLoaded = true.obs;
 
@@ -30,9 +30,9 @@ mixin OutputsController {
     debugPrint("DDD");
   }
 
-  void changeOutput(OutputModel outputModel, int status) async {
+  void changeOutput(Output2Model outputModel, int status) async {
     String pass = selectLocationSettingModel.password;
-    String code = await getCode(DataManager.output);
+    String code = await getCode2(DataManager.output);
     sendMessage(code.replaceAll("PASS", pass).replaceAll("STATUS", status.toString()).replaceAll('ID', outputModel.id.toString()));
 
     // String param = DataManager.Output.replaceAll("ID", outputModel.code.toString());
@@ -41,7 +41,7 @@ mixin OutputsController {
     // sendSms(param, outputModel, status);
   }
 
-  void changeOutputTitle(OutputModel outputModel) {
+  void changeOutputTitle(Output2Model outputModel) {
     String title = '';
     Get.defaultDialog(
       title: outputModel.title,
@@ -88,7 +88,7 @@ mixin OutputsController {
             hoverColor: Colors.transparent,
             onTap: () {
               if (title.length > 3) {
-                OutputModel output = outputModel;
+                Output2Model output = outputModel;
                 output.title = title;
                 DataManager.updateOutputs(output);
                 isLoaded(true);

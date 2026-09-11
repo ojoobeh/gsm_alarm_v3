@@ -270,6 +270,8 @@
   "instantaneousOutputTimerBasedOn": "Instantaneous output timer based on",
   "seconds": "Seconds",
   "minutes": "Minutes",
+  "sirenOn": "Siren on",
+  "sirenOff": "Siren off",
   "silencingASingleZone": "Silencing a single zone",
   "smsFromUnknownNumberCalledMr": "SMS from unknown number called Mr.",
   "disableSIMCardCalls": "Disable SIM card calls",
