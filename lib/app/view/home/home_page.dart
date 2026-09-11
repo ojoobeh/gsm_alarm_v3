@@ -25,22 +25,11 @@ class _HomePageState extends State<HomePage> with HomeController ,OutputsControl
   List<Widget> listCurrentIndex = <Widget>[];
   List<NavigationModel> listCurrent = <NavigationModel>[];
 
-  String on=DataManager.on;
-  String off=DataManager.off;
-  String partSet=DataManager.partSet;
 
 
 
   @override
   void initState() {
-    if (Core.selectLocationSettingModel.value.partType == 1) {
-      on = DataManager.onP1;
-      off = DataManager.offP1;
-    }
-    if (Core.selectLocationSettingModel.value.partType == 2) {
-      on = DataManager.onP2;
-      off = DataManager.offP2;
-    }
 
 
     init(
@@ -64,7 +53,7 @@ class _HomePageState extends State<HomePage> with HomeController ,OutputsControl
         label: s.mainPage,
 
       ),
-      page: HomeMainPage(title: s.mainPage,on: on,off: off,partSet: partSet,),
+      page: HomeMainPage(title: s.mainPage,),
     ));
     listCurrent.add(NavigationModel(
       bottom: BottomNavigationBarItem(

@@ -123,7 +123,7 @@ void showYesOrNoDialog({required String title, required final String description
 }
 
 void simCardCharge(String key) {
-  String message = getCode2(DataManager.chargeCode).replaceAll('SHARGE', key);
+  String message = getCode(Core.chargeCode).replaceAll('SHARGE', key);
 
   sendMessage(message);
 }

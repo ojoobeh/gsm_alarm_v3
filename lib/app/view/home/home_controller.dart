@@ -32,14 +32,14 @@ mixin HomeController {
     action();
   }
 
-  sendCode(String message){
-    String code=getCode2(message);
-      if (Core.selectLocationSettingModel.value.id != null) {
-        sendMessage(code);
-      } else {
-        snackbarRed(title: s.error, subtitle: s.pleaseSelectDeviceModel);
-      }
-  }
+  // sendCode(String message){
+  //   String code=getCode(message);
+  //     if (Core.selectLocationSettingModel.value.id != null) {
+  //       sendMessage(code);
+  //     } else {
+  //       snackbarRed(title: s.error, subtitle: s.pleaseSelectDeviceModel);
+  //     }
+  // }
 
   sendCode2(CodeModel model)async{
 

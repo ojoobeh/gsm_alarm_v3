@@ -14,12 +14,9 @@ import 'package:bestdroid/app/widgets/widgets.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeMainPage extends StatefulWidget {
-  const HomeMainPage({required this.title, required this.on, required this.partSet, required this.off, super.key});
+  const HomeMainPage({required this.title,super.key});
 
   final String title;
-  final String on;
-  final String off;
-  final String partSet;
 
   @override
   State<HomeMainPage> createState() => _HomeMainPageState();
@@ -106,7 +103,6 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                                 }),
                               ],
                             ),
-                          if (widget.partSet == DataManager.partSet)
                             _itemH(
                                   icon: Assets.emergency,
                                   title: s.emergencySiren,
@@ -150,7 +146,6 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                               }).expanded(),
                             ],
                           ).marginOnly(bottom: 20),
-                          if (widget.partSet == DataManager.partSet)
                             _itemH(
                                   icon: Assets.alarmPart,
                                   title: s.partialArm,

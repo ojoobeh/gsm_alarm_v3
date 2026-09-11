@@ -187,101 +187,101 @@ Widget item({
     ),
   );
 }
-Widget item2({
-  required String title,
-  required String code,
-   int? defaultParamIndex,
-  List<String>? params,
-  // required Function(int status) change,
-}) {
-  RxInt isTrue =(defaultParamIndex?? 0).obs;
-  return Container(
-    padding: const EdgeInsets.all(8),
-    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-    width: double.infinity,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(8),
-      color: context.theme.scaffoldBackgroundColor,
-      boxShadow: [
-        BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-      ],
-    ),
-    child: Column(
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 12,
-            color: context.theme.dividerColor,
-          ),
-        ).marginOnly(bottom: 4, top: 20),
-        Obx(() {
-          return Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              border: Border.all(color: context.theme.dividerColor.withOpacity(0.8), width: 1),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: params != null
-                ? Container(
-                    width: double.infinity,
-                    child: Wrap(
-                        alignment: WrapAlignment.spaceEvenly,
-                        children: params
-                            .mapIndexed((index, String item) => Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Radio(
-                                      value: index,
-                                      groupValue: isTrue.value,
-                                      onChanged: (value) => isTrue(index),
-                                    ),
-                                    Text(item),
-                                  ],
-                                ))
-                            .toList()),
-                  )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
-                        children: [
-                          Radio(
-                            value: 0,
-                            groupValue: isTrue.value,
-                            onChanged: (value) => isTrue(0),
-                          ),
-                          Text(s.active),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Radio(
-                            value: 1,
-                            groupValue: isTrue.value,
-                            onChanged: (value) => isTrue(1),
-                          ),
-                          Text(s.inactive),
-                        ],
-                      )
-                    ],
-                  ),
-          );
-        }),
-        const SizedBox(height: 8),
-        button(
-          title: s.send,
-          onTap: () {
-            String _code = getCode2(code);
-            sendMessage(_code.replaceAll("VAL", (isTrue.value + 1).toString()));
-
-            // change(isTrue.value);
-          },
-        ),
-      ],
-    ),
-  );
-}
+// Widget item2({
+//   required String title,
+//   required String code,
+//    int? defaultParamIndex,
+//   List<String>? params,
+//   // required Function(int status) change,
+// }) {
+//   RxInt isTrue =(defaultParamIndex?? 0).obs;
+//   return Container(
+//     padding: const EdgeInsets.all(8),
+//     margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+//     width: double.infinity,
+//     decoration: BoxDecoration(
+//       borderRadius: BorderRadius.circular(8),
+//       color: context.theme.scaffoldBackgroundColor,
+//       boxShadow: [
+//         BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
+//       ],
+//     ),
+//     child: Column(
+//       children: [
+//         Text(
+//           title,
+//           style: TextStyle(
+//             fontSize: 12,
+//             color: context.theme.dividerColor,
+//           ),
+//         ).marginOnly(bottom: 4, top: 20),
+//         Obx(() {
+//           return Container(
+//             width: double.infinity,
+//             decoration: BoxDecoration(
+//               border: Border.all(color: context.theme.dividerColor.withOpacity(0.8), width: 1),
+//               borderRadius: BorderRadius.circular(8),
+//             ),
+//             child: params != null
+//                 ? Container(
+//                     width: double.infinity,
+//                     child: Wrap(
+//                         alignment: WrapAlignment.spaceEvenly,
+//                         children: params
+//                             .mapIndexed((index, String item) => Row(
+//                                   mainAxisSize: MainAxisSize.min,
+//                                   children: [
+//                                     Radio(
+//                                       value: index,
+//                                       groupValue: isTrue.value,
+//                                       onChanged: (value) => isTrue(index),
+//                                     ),
+//                                     Text(item),
+//                                   ],
+//                                 ))
+//                             .toList()),
+//                   )
+//                 : Row(
+//                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                     children: [
+//                       Row(
+//                         children: [
+//                           Radio(
+//                             value: 0,
+//                             groupValue: isTrue.value,
+//                             onChanged: (value) => isTrue(0),
+//                           ),
+//                           Text(s.active),
+//                         ],
+//                       ),
+//                       Row(
+//                         children: [
+//                           Radio(
+//                             value: 1,
+//                             groupValue: isTrue.value,
+//                             onChanged: (value) => isTrue(1),
+//                           ),
+//                           Text(s.inactive),
+//                         ],
+//                       )
+//                     ],
+//                   ),
+//           );
+//         }),
+//         const SizedBox(height: 8),
+//         button(
+//           title: s.send,
+//           onTap: () {
+//             String _code = getCode(code);
+//             sendMessage(_code.replaceAll("VAL", (isTrue.value + 1).toString()));
+//
+//             // change(isTrue.value);
+//           },
+//         ),
+//       ],
+//     ),
+//   );
+// }
 
 // class ModelButtons{
 //   String title,

@@ -39,18 +39,18 @@ mixin OutputsController {
     action();
   }
 
-  sendCode(String message) {
-    String code = getCode2(message);
-    if (Core.selectLocationSettingModel.value.id != null) {
-      if (getBool('isWifi')??false ) {
-        sendMessage("${code}W");
-      } else {
-        sendMessage(code);
-      }
-    } else {
-      snackbarRed(title: s.error, subtitle: s.pleaseSelectDeviceModel);
-    }
-  }
+  // sendCode(String message) {
+  //   String code = getCode2(message);
+  //   if (Core.selectLocationSettingModel.value.id != null) {
+  //     if (getBool('isWifi')??false ) {
+  //       sendMessage("${code}W");
+  //     } else {
+  //       sendMessage(code);
+  //     }
+  //   } else {
+  //     snackbarRed(title: s.error, subtitle: s.pleaseSelectDeviceModel);
+  //   }
+  // }
 
   final outputList = <OutputModel>[].obs;
 

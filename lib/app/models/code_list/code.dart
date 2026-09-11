@@ -3,7 +3,6 @@ import 'dart:convert';
 class CodeModel {
   CodeModel({
     this.id,
-    this.title,
     this.persianTitle,
     this.deviceModelId,
     this.model1,
@@ -17,7 +16,6 @@ class CodeModel {
   });
 
   final int? id;
-  final String? title;
   final String? persianTitle;
   final int? deviceModelId;
   final String? model1;
@@ -35,7 +33,6 @@ class CodeModel {
 
   factory CodeModel.fromMap(dynamic json) => CodeModel(
         id: json["id"],
-        title: json["title"],
         persianTitle: json["persian_title"],
         deviceModelId: json["device_model_id"],
         model1: json["model1"],
@@ -50,7 +47,6 @@ class CodeModel {
 
   dynamic toMap() => {
         "id": id,
-        "title": title,
         "persian_title": persianTitle,
         "device_model_id": deviceModelId,
         "model1": model1,

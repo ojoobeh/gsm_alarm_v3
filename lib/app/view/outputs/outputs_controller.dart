@@ -32,7 +32,7 @@ mixin OutputsController {
 
   void changeOutput(Output2Model outputModel, int status) async {
     String pass = selectLocationSettingModel.password;
-    String code = await getCode2(DataManager.output);
+    String code = await getCode(Core.output);
     sendMessage(code.replaceAll("PASS", pass).replaceAll("STATUS", status.toString()).replaceAll('ID', outputModel.id.toString()));
 
     // String param = DataManager.Output.replaceAll("ID", outputModel.code.toString());
