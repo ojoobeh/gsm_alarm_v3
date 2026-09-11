@@ -1,10 +1,10 @@
 import 'package:bestdroid/app/core/core.dart';
 import 'package:bestdroid/app/extensions/extension.dart';
+import 'package:bestdroid/app/manager/output_manager.dart';
 import 'package:bestdroid/app/models/data_manager.dart';
 import 'package:bestdroid/app/models/location_setting/location_settings.dart';
 import 'package:bestdroid/app/models/model_device/device.dart';
 import 'package:bestdroid/app/models/output/output.dart';
-import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/view/utils/local_storage.dart';
 import 'package:bestdroid/app/widgets/widgets.dart';
 
@@ -52,7 +52,7 @@ mixin OutputsController {
     }
   }
 
-  final outputList = <Output2Model>[].obs;
+  final outputList = <OutputModel>[].obs;
 
   RxBool isLoaded = true.obs;
 
@@ -64,17 +64,17 @@ mixin OutputsController {
 
   void get({required final VoidCallback action}) async {
     outputList.clear();
-    outputList(await DataManager.getOutputModelListByDeviceId(Core.selectLocationSettingModel.value.id??0));
+    outputList( Core.selectedModel.outputModels??<OutputModel>[]);
     action();
   }
 
   void changeOutput(OutputModel outputModel, int status) async {
     String pass = '1111';
-    String code = await getCode(Core.selectedModel.modelId!,Core.output);
+    String code = await getCode(Core.output);
     sendMessage(code.replaceAll("PASS", pass).replaceAll("STATUS", status.toString()).replaceAll('ID', outputModel.id.toString()));
   }
 
-  void changeOutputTitle(Output2Model outputModel) {
+  void changeOutputTitle(OutputModel outputModel) {
     String title = '';
     Get.defaultDialog(
       title: outputModel.title,
@@ -121,9 +121,10 @@ mixin OutputsController {
             hoverColor: Colors.transparent,
             onTap: () {
               if (title.length > 3) {
-                Output2Model output = outputModel;
+                OutputModel output = outputModel;
                 output.title = title;
-                DataManager.updateOutputs(output);
+                OutputManager.update(output);
+                // DataManager.updateOutputs(output);
                 isLoaded(true);
                 get(
                   action: () {},

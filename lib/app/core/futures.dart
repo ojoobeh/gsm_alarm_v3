@@ -1,9 +1,11 @@
 part of 'core.dart';
 
 
-String getCode(int modelType, CodeModel codeModel) {
+String getCode( CodeModel codeModel) {
   String res = '';
   //1
+  int modelType=Core.selectedModel.modelId??0;
+  debugPrint('ddd');
   if (modelType == 1) {
     res = codeModel.model1 ?? '';
   } else if (modelType == 2) {

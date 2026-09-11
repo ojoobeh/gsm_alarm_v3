@@ -80,7 +80,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                                 Container(
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
-                                    color: (getBool(AppConstants.isWifi)??false) ? Colors.red.withOpacity(0.5) : Colors.transparent,
+                                    color: (getBool(AppConstants.isWifi) ?? false) ? Colors.red.withOpacity(0.5) : Colors.transparent,
                                     border: Border.all(color: Colors.red.withOpacity(0.5)),
                                   ),
                                   width: 80,
@@ -118,7 +118,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                                   opacity: 0.9,
                                 )
                                 .onTap(() {
-                              sendCode2(Core.emergencySiren);
+                                  sendCode2(Core.emergencySiren);
                                 })
                                 .marginOnly(bottom: 16),
                           Row(
@@ -162,7 +162,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                                   opacity: 0.9,
                                 )
                                 .onTap(() {
-                              sendCode2(Core.partSet);
+                                  sendCode2(Core.partSet);
                                 })
                                 .marginOnly(bottom: 48),
                           Row(
@@ -294,25 +294,21 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                       icon: Assets.locationSetting,
                       text: s.otherSetting,
                       onTap: () {
-                        if (Core.selectLocationSettingModel.value.id != null) {
-                          if (isDebugMode) {
-                            push(const OtherSettingView());
-                          } else {
-                            getParamDialog(
-                              title: s.password,
-                              inputType: TextInputType.number,
-                              result: (param) {
-                                if (param == (getString(DataManager.adminPassword) ?? AppConstants.defaultAdminPassword)) {
-                                  back();
-                                  push(const OtherSettingView());
-                                } else {
-                                  snackbarRed(title: s.warning, subtitle: s.wrongPassword);
-                                }
-                              },
-                            );
-                          }
+                        if (isDebugMode) {
+                          push(const OtherSettingView());
                         } else {
-                          snackbarRed(title: s.error, subtitle: s.selectedInstallationLocation);
+                          getParamDialog(
+                            title: s.password,
+                            inputType: TextInputType.number,
+                            result: (param) {
+                              if (param == (getString(DataManager.adminPassword) ?? AppConstants.defaultAdminPassword)) {
+                                back();
+                                push(const OtherSettingView());
+                              } else {
+                                snackbarRed(title: s.warning, subtitle: s.wrongPassword);
+                              }
+                            },
+                          );
                         }
 
                         // Get.toNamed(Routes.LOCATIONSETTING);

@@ -185,7 +185,7 @@ mixin OtherSettingController {
 
   Future<void> sendSetZone() async {
     if ((selectZone.value.id) > 0) {
-      String code = await getCode2(DataManager.setZoneSetting);
+      String code =  getCode(Core.setZoneSetting);
       sendMessage(code.replaceAll("X", (selectZone.value.status).toString()).replaceAll("Y", (setZoneStatus.value + 1).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: s.selectYourZoneNumber);
@@ -196,7 +196,7 @@ mixin OtherSettingController {
   Future<void> insertToMemory() async {
     if (etMemory.text.length > 0) {
       if (etPhone.text.length == 11) {
-        String code = await getCode2(DataManager.insertToMemory);
+        String code = await getCode(Core.insertToMemory);
         sendMessage(code.replaceAll("MEMORY", etMemory.text).replaceAll("PHONE", etPhone.text));
       } else {
         snackbarRed(title: s.error, subtitle: "Phone is wrong");
@@ -208,7 +208,7 @@ mixin OtherSettingController {
 
   Future<void> deleteFromMemory() async {
     if (etMemory.text.length > 0) {
-      String code = await getCode2(DataManager.deleteFromMemory);
+      String code =  getCode(Core.deleteFromMemory);
       sendMessage(await code.replaceAll("MEMORY", etMemory.text));
     } else {
       snackbarRed(title: s.error, subtitle: s.enterTheMemory);
@@ -217,7 +217,7 @@ mixin OtherSettingController {
 
   Future<void> showMemory() async {
     if (etMemory.text.length > 0) {
-      String code = await getCode2(DataManager.showMemory);
+      String code =  getCode(Core.showMemory);
       sendMessage(code.replaceAll("MEMORY", etMemory.text));
     } else {
       snackbarRed(title: s.error, subtitle: s.enterTheMemory);
@@ -225,7 +225,7 @@ mixin OtherSettingController {
   }
 
   Future<void> sedCallPriority() async {
-    String code = await getCode2(DataManager.callPriority);
+    String code =  getCode(Core.callPriority);
     sendMessage(code.replaceAll("VAL", selectCallPriority.value.id.toString()));
   }
 
@@ -247,7 +247,7 @@ mixin OtherSettingController {
   Future<void> deleteRemote() async {
     String dd=etRemoteNumber.text;
     if (dd.length > 0) {
-      String code = await getCode2(DataManager.deleteRemoteNumber);
+      String code =  getCode(Core.deleteRemoteNumber);
       sendMessage(code.replaceAll("VAL", (dd).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: "Enter the remote number");
@@ -256,7 +256,7 @@ mixin OtherSettingController {
   Future<void> silencingASingleZone() async {
     String dd=etZoneNumber.text;
     if (dd.length > 0) {
-      String code = await getCode2(DataManager.silencingASingleZone);
+      String code =  getCode(Core.silencingASingleZone);
       sendMessage(code.replaceAll("VAL", (setSirenOnStatus.value).toString()).replaceAll("ZONE", (dd).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: "Enter the remote number");
@@ -286,7 +286,7 @@ mixin OtherSettingController {
 
   void changeTheBurglarAlarmPassword(BuildContext context) {
     if (etBurglarAlarmPassword.text.length > 3) {
-      String _code = getCode2(DataManager.changeKeypadPassword);
+      String _code = getCode(Core.changeKeypadPassword);
       sendMessage(_code.replaceAll("NEWPASS", (etBurglarAlarmPassword.text.toString())));
 
     } else {
@@ -296,7 +296,7 @@ mixin OtherSettingController {
 
   void changeDevicePassword(BuildContext context) {
     if (etDevicePassword.text.length > 3) {
-      String _code = getCode2(DataManager.changeDevicePassword);
+      String _code = getCode(Core.changeDevicePassword);
       sendMessage(_code.replaceAll("NEWPASS", (etDevicePassword.text.toString())));
 
     } else {
@@ -385,7 +385,7 @@ mixin OtherSettingController {
       if (zone.text.length < 2) {
         snackbarRed(title: s.error, subtitle: s.enterZoneName);
       } else {
-        String code = await getCode2(DataManager.changeZoneName);
+        String code =  getCode(Core.changeZoneName);
         sendMessage(code.replaceAll("NUMBER", selectZoneMode.value.id.toString()).replaceAll("PARAM", zone.text));
       }
     } else {

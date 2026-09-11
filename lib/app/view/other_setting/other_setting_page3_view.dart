@@ -29,15 +29,15 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
       backgroundColor: context.theme.scaffoldBackgroundColor,
       body: ListView(
         children: [
-          item(title: s.setupStimulationType, params: <String>[ s.momentary,s.surface], code: DataManager.setupStimulationType),
-          item(title: s.setupLanguageSMS, params: <String>[s.english, s.persian], code: DataManager.setupLanguageSMS,defaultParamIndex: 1),
-          item(title: s.defaultDialingSystem, params: <String>[s.simCard, s.fixedLine], code: DataManager.defaultDialingSystem),
-          item(title: s.remoteControl, params: <String>[ s.on,s.off], code: DataManager.remoteControl,defaultParamIndex: 1),
-          item(title: s.setAlarmTime, params: <String>[s.oneMinute, s.twoMinute], code: DataManager.setAlarmTime),
-          item(title: s.singleSirenSetting, params: <String>[s.all, s.internalSpeaker], code: DataManager.singleSirenSetting),
-          // item(title: s.adjustTheTypeOfDingDong, params: <String>[s.welcome,s.melody], code: DataManager.adjustTheTypeOfDingDong),
-          // item(title: s.outputControl2WithMuteButton, params: <String>[s.welcome,s.melody], code: DataManager.outputControl2WithMuteButton),
-          item(title: s.setCheckInAndCheckOutTime, params: <String>[s.seconds30, s.seconds60], code: DataManager.setArrivalTime),
+          item(title: s.setupStimulationType, params: <String>[ s.momentary,s.surface], code: Core.setupStimulationType),
+          item(title: s.setupLanguageSMS, params: <String>[s.english, s.persian], code: Core.setupLanguageSMS,defaultParamIndex: 1),
+          item(title: s.defaultDialingSystem, params: <String>[s.simCard, s.fixedLine], code: Core.defaultDialingSystem),
+          item(title: s.remoteControl, params: <String>[ s.on,s.off], code: Core.remoteControl,defaultParamIndex: 1),
+          item(title: s.setAlarmTime, params: <String>[s.oneMinute, s.twoMinute], code: Core.setAlarmTime),
+          item(title: s.singleSirenSetting, params: <String>[s.all, s.internalSpeaker], code: Core.singleSirenSetting),
+          // item(title: s.adjustTheTypeOfDingDong, params: <String>[s.welcome,s.melody], code: Core.adjustTheTypeOfDingDong),
+          // item(title: s.outputControl2WithMuteButton, params: <String>[s.welcome,s.melody], code: Core.outputControl2WithMuteButton),
+          item(title: s.setCheckInAndCheckOutTime, params: <String>[s.seconds30, s.seconds60], code: Core.setArrivalTime),
 
           Container(
             padding: const EdgeInsets.all(8),

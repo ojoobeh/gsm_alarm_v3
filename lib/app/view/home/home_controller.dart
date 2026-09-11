@@ -44,7 +44,7 @@ mixin HomeController {
   sendCode2(CodeModel model)async{
 
     String pass = Core.selectedModel.password??'';
-    String code =  getCode(Core.selectedModel.modelId!,model);
+    String code =  getCode(model);
     String _code=code.replaceAll("PASS", pass);
     debugPrint(_code);
     sendMessage(_code);

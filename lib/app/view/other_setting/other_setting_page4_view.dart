@@ -26,12 +26,12 @@ class _OtherSettingPage4ViewState extends State<OtherSettingPage4View> with Othe
       backgroundColor: context.theme.scaffoldBackgroundColor,
       body: ListView(
         children: [
-          item(title: s.typeOfFixedLineDialing, params: <String>[ s.ton,s.pulse], code: DataManager.typeOfFixedLineDialing),
-          item(title: s.turnTheDialerOnAndOff, params: <String>[ s.on,s.off], code: DataManager.turnTheDialerOnAndOff),
-          item(title: s.singleSirenWhenSemiActivated, params: <String>[ s.on,s.off], code: DataManager.singleSirenWhenSemiActivated,defaultParamIndex: 1),
-          item(title: s.output1AsADoorOpener, params: <String>[ s.on,s.off], code: DataManager.output1AsADoorOpener,defaultParamIndex: 1),
-          item(title: s.deviceShutdownReport, params: <String>[ s.off,s.on], code: DataManager.deviceShutdownReport),
-          item(title: s.twoStageShutdown, params: <String>[ s.on,s.off], code: DataManager.twoStageShutdown,defaultParamIndex: 1),
+          item(title: s.typeOfFixedLineDialing, params: <String>[ s.ton,s.pulse], code: Core.typeOfFixedLineDialing),
+          item(title: s.turnTheDialerOnAndOff, params: <String>[ s.on,s.off], code: Core.turnTheDialerOnAndOff),
+          item(title: s.singleSirenWhenSemiActivated, params: <String>[ s.on,s.off], code: Core.singleSirenWhenSemiActivated,defaultParamIndex: 1),
+          item(title: s.output1AsADoorOpener, params: <String>[ s.on,s.off], code: Core.output1AsADoorOpener,defaultParamIndex: 1),
+          item(title: s.deviceShutdownReport, params: <String>[ s.off,s.on], code: Core.deviceShutdownReport),
+          item(title: s.twoStageShutdown, params: <String>[ s.on,s.off], code: Core.twoStageShutdown,defaultParamIndex: 1),
           // item(title: s.contactTheManagerThroughAFixedLine, code: DataManager.contactTheManagerThroughAFixedLine),
           // item(title: s.fixedLineDialingType,params:<String>[ s.ton,s.pulse], code: DataManager.fixedLineDialingType),
           // item(title: s.deviceShutdownReport, code: DataManager.deviceShutdownReport),

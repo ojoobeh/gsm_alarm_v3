@@ -1,3 +1,5 @@
+import 'package:bestdroid/app/manager/output_manager.dart';
+import 'package:bestdroid/app/models/output/output.dart';
 import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/view/home/outputs_controller.dart';
 import 'package:bestdroid/app/core/assets.dart';
@@ -21,9 +23,7 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
   void initState() {
     init(
       action: () {
-        get(
-          action: () => isLoading(false),
-        );
+        get(action: () => isLoading(false));
       },
     );
     super.initState();
@@ -42,16 +42,8 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
           }),
         ),
         actions: [Center(child: const Text('').bodyLarge()).marginSymmetric(horizontal: 8)],
-        title: Obx(() {
-          return !isLoading.value && selectLocationSettingModel.value.name != null
-              ? Text(
-                  selectLocationSettingModel.value.name ?? '',
-                ).displayLarge()
-              : Text(s.installationLocation).displayLarge();
-        }).onTap(() async {
-          bool isChange = await Get.to(
-            const LocationSettingPage(),
-          );
+        title: Text(Core.selectedModel.title ?? '').displayLarge().onTap(() async {
+          bool isChange = await Get.to(const LocationSettingPage());
           if (isChange) {
             init(
               action: () {
@@ -61,50 +53,30 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
           }
         }),
         centerTitle: true,
-      ),
+      ), //
       // drawer: _drawer(),
       body: Stack(
         children: [
-          SizedBox(width: screenWidth, child: image(Assets.backgroundImage, fit: BoxFit.cover)),
-          Container(
-            color: Colors.brown.withOpacity(0.6),
+          SizedBox(
             width: screenWidth,
-            height: screenHeight,
+            child: image(Assets.backgroundImage, fit: BoxFit.cover),
           ),
-          Obx(() => !isLoading.value
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Text(s.countOfOutput).bodyLarge().paddingSymmetric(vertical: 8).marginSymmetric(horizontal: 32),
-                    // Obx(() => DropDownWidget(
-                    //       backgroundColor: context.theme.scaffoldBackgroundColor,
-                    //       title: selectCountOfOutput.value,
-                    //       items: const ['4', '8', '16', '24'],
-                    //       itemSelected: (items) {
-                    //         setData(AppConstants.countOfOutput, items.first);
-                    //         selectCountOfOutput(items.first);
-                    //       },
-                    //     )).marginSymmetric(horizontal: 32),
-                    Obx(() => ListView.builder(
-                          itemCount: int.parse(selectCountOfOutput.value),
-                          itemBuilder: (context, index) => _itemOutput(outputModel: outputList[index], index: index),
-                        ).marginSymmetric(horizontal: 32)).expanded(),
-                  ],
-                )
-              : const Center(
-                  child: CircularProgressIndicator(),
-                )),
+          Container(color: Colors.brown.withOpacity(0.6), width: screenWidth, height: screenHeight),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ListView.builder(
+                itemCount: Core.selectedModel.outputModels?.length ?? 0,
+                itemBuilder: (context, index) => _itemOutput(outputModel: Core.selectedModel.outputModels![index], index: index),
+              ).marginSymmetric(horizontal: 32).expanded(),
+            ],
+          ),
         ],
       ),
     );
   }
 
-
-
-  Widget _itemOutput({
-    required final Output2Model outputModel,
-    required final int index,
-  }) {
+  Widget _itemOutput({required final OutputModel outputModel, required final int index}) {
     TextEditingController controller = TextEditingController();
     controller.text = outputModel.title != '' ? outputModel.title : '${s.output} ${index + 1}';
     RxBool isMomentary = (outputModel.isMomentary == 1).obs;
@@ -122,28 +94,28 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
               Row(
                 children: [
                   Text(s.surface),
-                  Obx(() => Switch(
+                  Obx(
+                    () => Switch(
                       value: isMomentary.value,
                       onChanged: (value) {
                         isMomentary(value);
-                        Output2Model output = outputModel;
+                        OutputModel output = outputModel;
                         output.isMomentary = value ? 1 : 0;
                         outputList[index].isMomentary = value ? 1 : 0;
-                        DataManager.updateOutputs(output);
+                        OutputManager.update(output);
+                        // DataManager.updateOutputs(output);
                         snackbarGreen(title: s.success, subtitle: s.renameIsSuccess);
-                      })),
+                      },
+                    ),
+                  ),
                   Text(s.momentary),
                 ],
-              )
+              ),
             ],
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              appTextFormField(
-                controller: controller,
-              ).marginSymmetric(horizontal: 8).expanded(),
-            ],
+            children: [appTextFormField(controller: controller).marginSymmetric(horizontal: 8).expanded()],
           ).marginOnly(bottom: 8),
           button(
             width: screenWidth,
@@ -151,10 +123,11 @@ class _HomeUpdateOutputPageState extends State<HomeUpdateOutputPage> with Output
             titleWidget: Text(s.rename).labelLarge(color: Colors.white),
             onTap: () {
               if (controller.text.length > 1) {
-                Output2Model output = outputModel;
+                OutputModel output = outputModel;
                 output.title = controller.text;
                 outputList[index].title = controller.text;
-                DataManager.updateOutputs(output);
+                OutputManager.update(output);
+                // DataManager.updateOutputs(output);
                 isLoaded(true);
                 FocusManager.instance.primaryFocus!.unfocus();
                 snackbarGreen(title: s.success, subtitle: s.renameIsSuccess);
