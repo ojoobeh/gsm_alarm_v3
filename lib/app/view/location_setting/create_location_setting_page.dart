@@ -129,22 +129,22 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                               ),
                             ),
                           const SizedBox(height: 16),
-                          if (Core.partModelList.length > 1)
-                            Obx(
-                              () => selectDeviceModel.value.hasMultiPart == 1
-                                  ? DropDownWidget(
-                                      lable: s.part,
-                                      showSearch: false,
-                                      showRadioButton: false,
-                                      multiSelect: false,
-                                      title: selectPartModel.value.title ?? s.part,
-                                      items: Core.partModelList.map((e) => e.title ?? '').toList(),
-                                      itemSelected: (List<String> items) {
-                                        selectPartModel(Core.partModelList.where((element) => element.title == items.first).toList().first);
-                                      },
-                                    )
-                                  : const SizedBox(),
-                            ),
+                          // if (Core.partModelList.length > 1)
+                          //   Obx(
+                          //     () => selectDeviceModel.value.hasMultiPart == 1
+                          //         ? DropDownWidget(
+                          //             lable: s.part,
+                          //             showSearch: false,
+                          //             showRadioButton: false,
+                          //             multiSelect: false,
+                          //             title: selectPartModel.value.title ?? s.part,
+                          //             items: Core.partModelList.map((e) => e.title ?? '').toList(),
+                          //             itemSelected: (List<String> items) {
+                          //               selectPartModel(Core.partModelList.where((element) => element.title == items.first).toList().first);
+                          //             },
+                          //           )
+                          //         : const SizedBox(),
+                          //   ),
                           const SizedBox(height: 16),
                           widget.model == null
                               ? button(
@@ -176,7 +176,7 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                                       // setData(AppConstants.modelId, selectPartModel.value.id);
                                       // setData(AppConstants.modelId, selectPartModel.value.id);
                                       Model model = Model(
-                                        id: ModelManager.getList().lastOrNull?.id ?? 0,
+                                        id: widget.model!.id,
                                         title: nameController.text,
                                         phone: simNumberController.text,
                                         password: passwordController.text,

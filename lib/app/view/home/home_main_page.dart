@@ -14,7 +14,7 @@ import 'package:bestdroid/app/widgets/widgets.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeMainPage extends StatefulWidget {
-  const HomeMainPage({required this.title,super.key});
+  const HomeMainPage({required this.title, super.key});
 
   final String title;
 
@@ -98,18 +98,18 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                       ],
                     ),
                   _itemH(
-                    icon: Assets.emergency,
-                    title: s.emergencySiren,
-                    startColor: Color(0xff0068bd),
-                    endColor: Color(0xff277ecb),
-                    //
-                    itemColor: Color(0xffffffff),
-                    width: screenWidth - 30,
-                    opacity: 0.9,
-                  )
+                        icon: Assets.emergency,
+                        title: s.emergencySiren,
+                        startColor: Color(0xff0068bd),
+                        endColor: Color(0xff277ecb),
+                        //
+                        itemColor: Color(0xffffffff),
+                        width: screenWidth - 30,
+                        opacity: 0.9,
+                      )
                       .onTap(() {
-                    sendCode2(Core.emergencySiren);
-                  })
+                        sendCode2(Core.emergencySiren);
+                      })
                       .marginOnly(bottom: 16),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,7 +139,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                         sendCode2(Core.off);
                       }).expanded(),
                     ],
-                  ).marginOnly(bottom: 20),
+                  ),
                   _itemH(
                     icon: Assets.alarmPart,
                     title: s.partialArm,
@@ -149,11 +149,61 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                     //
                     itemColor: Color(0xffffffff),
                     opacity: 0.9,
-                  )
-                      .onTap(() {
+                  ).onTap(() {
                     sendCode2(Core.partSet);
-                  })
-                      .marginOnly(bottom: 48),
+                  }),
+
+                  ///***************************************/
+                  Container(
+                    decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.3), borderRadius: BorderRadius.circular(8)),
+                    padding: EdgeInsets.all(4),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            _item(
+                              icon: Assets.alarmOn,
+                              height: 85,
+                              title: s.partArm,
+                              opacity: 0.9,
+                              startColor: Color(0xffff0000),
+                              endColor: Color(0xfff82020),
+                              itemColor: Color(0xffffffff), //
+                            ).onTap(() {
+                              showPopup(0);
+                            }).expanded(),
+                            const SizedBox(width: 16),
+                            _item(
+                              icon: Assets.alarmOff,
+                              height: 85,
+                              title: s.partDisarm,
+                              startColor: Color(0xff055b00),
+                              endColor: Color(0xff217c1b),
+                              itemColor: Color(0xffffffff),
+                              opacity: 0.9,
+                            ).onTap(() {
+                              showPopup(1);
+                            }).expanded(),
+                          ],
+                        ),
+                        _itemH(
+                          icon: Assets.alarmPart,
+                          title: s.partPartialArm,
+                          width: screenWidth - 30,
+                          startColor: Color(0xff0068bd),
+                          endColor: Color(0xff277ecb),
+                          //
+                          itemColor: Color(0xffffffff),
+                          opacity: 0.9,
+                        ).onTap(() {
+                          showPopup(2);
+                        }),
+                      ],
+                    ),
+                  ),
+
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -431,5 +481,127 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
         ],
       ),
     ),
+  );
+
+  void showPopup(int status) => Get.dialog(
+    Dialog(
+      child: Container(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          spacing: 8,
+          children: [
+            Text('انتخاب پارت'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              spacing: 8,
+              children: [
+                _itemPopupDialog('Part 1').onTap(() {
+                  sendCode3(
+                    status == 0
+                        ? Core.partOn
+                        : status == 1
+                        ? Core.partOff
+                        : Core.partPartialArm,
+                    1,
+                  );
+                }).expanded(),
+                _itemPopupDialog('Part 2').onTap(() {
+                  sendCode3(
+                    status == 0
+                        ? Core.partOn
+                        : status == 1
+                        ? Core.partOff
+                        : Core.partPartialArm,
+                    2,
+                  );
+                }).expanded(),
+                _itemPopupDialog('Part 3').onTap(() {
+                  sendCode3(
+                    status == 0
+                        ? Core.partOn
+                        : status == 1
+                        ? Core.partOff
+                        : Core.partPartialArm,
+                    3,
+                  );
+                }).expanded(),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              spacing: 8,
+              children: [
+                _itemPopupDialog('Part 4').onTap(() {
+                  sendCode3(
+                    status == 0
+                        ? Core.partOn
+                        : status == 1
+                        ? Core.partOff
+                        : Core.partPartialArm,
+                    4,
+                  );
+                }).expanded(),
+                _itemPopupDialog('Part 5').onTap(() {
+                  sendCode3(
+                    status == 0
+                        ? Core.partOn
+                        : status == 1
+                        ? Core.partOff
+                        : Core.partPartialArm,
+                    5,
+                  );
+                }).expanded(),
+                if (Core.selectedModel.modelId != 1)
+                _itemPopupDialog('Part 6').onTap(() {
+                  sendCode3(
+                    status == 0
+                        ? Core.partOn
+                        : status == 1
+                        ? Core.partOff
+                        : Core.partPartialArm,
+                    5,
+                  );
+                }).expanded(),
+              ],
+            ),
+            if (Core.selectedModel.modelId == 3)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                spacing: 8,
+                children: [
+                  _itemPopupDialog('Part 7').onTap(() {
+                    sendCode3(
+                      status == 0
+                          ? Core.partOn
+                          : status == 1
+                          ? Core.partOff
+                          : Core.partPartialArm,
+                      7,
+                    );
+                  }).expanded(),
+                  _itemPopupDialog('Part 8').onTap(() {
+                    sendCode3(
+                      status == 0
+                          ? Core.partOn
+                          : status == 1
+                          ? Core.partOff
+                          : Core.partPartialArm,
+                      8,
+                    );
+                  }).expanded(),
+                ],
+              ),
+          ],
+        ),
+      ),
+    ),
+  );
+
+  Widget _itemPopupDialog(String title) => Container(
+    //
+    padding: EdgeInsets.all(8),
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: Colors.blue),
+    child: Center(child: Text(title).bodyLarge(color: Colors.white)),
   );
 }

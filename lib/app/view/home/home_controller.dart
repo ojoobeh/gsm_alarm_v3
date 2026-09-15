@@ -18,4 +18,14 @@ mixin HomeController {
     debugPrint(_code);
     sendMessage(_code);
   }
+    sendCode3(CodeModel model,int part)async{
+
+    String pass = Core.selectedModel.password??'';
+    String code =  getCode(model);
+    String _code=code.replaceAll("PASS", pass).replaceAll('X', part.toString());
+    debugPrint(_code);
+    sendMessage(_code);
+  }
+
+
 }

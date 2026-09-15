@@ -29,10 +29,10 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
       backgroundColor: context.theme.scaffoldBackgroundColor,
       body: ListView(
         children: [
-          item(title: s.setupStimulationType, params: <String>[ s.momentary,s.surface], code: Core.setupStimulationType),
-          item(title: s.setupLanguageSMS, params: <String>[s.english, s.persian], code: Core.setupLanguageSMS,defaultParamIndex: 1),
+          item(title: s.setupStimulationType, params: <String>[s.momentary, s.surface], code: Core.setupStimulationType),
+          item(title: s.setupLanguageSMS, params: <String>[s.english, s.persian], code: Core.setupLanguageSMS, defaultParamIndex: 1),
           item(title: s.defaultDialingSystem, params: <String>[s.simCard, s.fixedLine], code: Core.defaultDialingSystem),
-          item(title: s.remoteControl, params: <String>[ s.on,s.off], code: Core.remoteControl,defaultParamIndex: 1),
+          item(title: s.remoteControl, params: <String>[s.on, s.off], code: Core.remoteControl, defaultParamIndex: 1),
           item(title: s.setAlarmTime, params: <String>[s.oneMinute, s.twoMinute], code: Core.setAlarmTime),
           item(title: s.singleSirenSetting, params: <String>[s.all, s.internalSpeaker], code: Core.singleSirenSetting),
           // item(title: s.adjustTheTypeOfDingDong, params: <String>[s.welcome,s.melody], code: Core.adjustTheTypeOfDingDong),
@@ -46,117 +46,111 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-               Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-
-                   Text(s.changeZoneName).bodyMedium().marginOnly(bottom: 4, top: 20),
-                   SizedBox(
-                     width: double.infinity,
-                     child: Row(
-                       children: [
-                         SizedBox(
-                           width: 100,
-                           child: Obx(() => DropDownWidget(
-                             title: selectZoneMode.value.title ?? s.zoneNumber,
-                             items: zoneList.map((element) => element.title ?? '').toList(),
-                             itemSelected: (List<String> items) {
-                               selectZoneMode(zoneList.where((element) => element.title == items.first).toList().first);
-                             },
-                           )),
-                         ),
-                         const SizedBox(width: 8),
-                         Expanded(child: appTextFormField(
-                           controller: zone,
-                           maxLength: 10,
-                           hint: s.zoneName,
-                         )),
-
-                       ],
-                     ),
-                   ),
-                 ],
-               ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(s.changeZoneName).bodyMedium().marginOnly(bottom: 4, top: 20),
+                    SizedBox(
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 100,
+                            child: Obx(
+                              () => DropDownWidget(
+                                title: selectZoneMode.value.title ?? s.zoneNumber,
+                                items: zoneList.map((element) => element.title ?? '').toList(),
+                                itemSelected: (List<String> items) {
+                                  selectZoneMode(zoneList.where((element) => element.title == items.first).toList().first);
+                                },
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: appTextFormField(controller: zone, maxLength: 10, hint: s.zoneName),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 8),
                 button(
                   title: s.send,
                   onTap: () {
                     changeZoneName();
                   },
-                )
+                ),
               ],
             ),
           ),
 
-      Container(
-            padding: const EdgeInsets.all(8),
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+          if (Core.selectedModel.modelId != 1)
+            Container(
+              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.theme.scaffoldBackgroundColor,
+                boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(s.changeKeypadPassword).bodyMedium().marginOnly(bottom: 4, top: 20),
+                  appTextFormField(
+                    inputType: TextInputType.number,
+                    controller: etBurglarAlarmPassword,
+                    // textAlign: TextAlignVertical.center,
+                    hint: s.enterPassword,
+                  ),
+                  const SizedBox(height: 8),
+                  button(
+                    title: s.save,
+                    onTap: () {
+                      changeTheBurglarAlarmPassword(context);
+                    },
+                  ),
+                ],
+              ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(s.changeKeypadPassword).bodyMedium().marginOnly(bottom: 4, top: 20),
-                appTextFormField(
-                  inputType: TextInputType.number,
-                  controller: etBurglarAlarmPassword,
-                  // textAlign: TextAlignVertical.center,
-                  hint: s.enterPassword,
-                ),
-                const SizedBox(height: 8),
-                button(
-                  title: s.save,
-                  onTap: () {
-                    changeTheBurglarAlarmPassword(context);
-                  },
-                ),
-              ],
+          if (Core.selectedModel.modelId != 1)
+            Container(
+              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.theme.scaffoldBackgroundColor,
+                boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(s.changeDevicePassword).bodyMedium().marginOnly(bottom: 4, top: 20),
+                  appTextFormField(
+                    inputType: TextInputType.number,
+                    controller: etDevicePassword,
+                    // textAlign: TextAlignVertical.center,
+                    hint: s.enterPassword,
+                  ),
+                  const SizedBox(height: 8),
+                  button(
+                    title: s.save,
+                    onTap: () {
+                      changeDevicePassword(context);
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-      Container(
-            padding: const EdgeInsets.all(8),
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(s.changeDevicePassword).bodyMedium().marginOnly(bottom: 4, top: 20),
-                appTextFormField(
-                  inputType: TextInputType.number,
-                  controller: etDevicePassword,
-                  // textAlign: TextAlignVertical.center,
-                  hint: s.enterPassword,
-                ),
-                const SizedBox(height: 8),
-                button(
-                  title: s.save,
-                  onTap: () {
-                    changeDevicePassword(context);
-                  },
-                ),
-              ],
-            ),
-          ),
 
           Container(
             padding: const EdgeInsets.all(8),
@@ -165,9 +159,7 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -197,11 +189,7 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(s.applicationLoginPassword).bodyMedium().marginOnly(bottom: 4, top: 20),
-                appTextFormField(
-                  inputType: TextInputType.number,
-                  controller: etAppPassword,
-                  hint: s.enterPassword,
-                ),
+                appTextFormField(inputType: TextInputType.number, controller: etAppPassword, hint: s.enterPassword),
                 const SizedBox(height: 8),
                 button(
                   title: s.save,
@@ -217,13 +205,13 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
     );
   }
 
-// Widget _remoteRename() {
-//   return Obx(() => DropDownWidget(
-//         title: "${selectRemoteMode.value.title}  ",
-//         items: remoteModelList.map((element) => element.title).toList(),
-//         itemSelected: (items) {
-//           selectRemoteMode(remoteModelList.where((p0) => p0.title == items.first).toList().first);
-//         },
-//       ));
-// }
+  // Widget _remoteRename() {
+  //   return Obx(() => DropDownWidget(
+  //         title: "${selectRemoteMode.value.title}  ",
+  //         items: remoteModelList.map((element) => element.title).toList(),
+  //         itemSelected: (items) {
+  //           selectRemoteMode(remoteModelList.where((p0) => p0.title == items.first).toList().first);
+  //         },
+  //       ));
+  // }
 }

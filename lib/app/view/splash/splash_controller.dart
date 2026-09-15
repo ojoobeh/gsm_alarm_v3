@@ -58,7 +58,7 @@ mixin SplashController {
   // }
 
   Future<void> login() async {
-    if (passwordController.text == (getString(DataManager.password) ?? AppConstants.defaultLoginPassword)) {
+    if (isDebugMode ||(passwordController.text == (getString(DataManager.password) ?? AppConstants.defaultLoginPassword))) {
       offAll(const LocationSettingPage());
     } else {
       snackbarRed(title: s.error, subtitle: s.wrongPassword);

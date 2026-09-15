@@ -100,7 +100,8 @@ Widget item({
   // required Function(int status) change,
 }) {
   RxInt isTrue =(defaultParamIndex?? 0).obs;
-  return Container(
+  String _code = getCode(code);
+  return _code =='-'?isDebugMode?Container(padding:EdgeInsets.all(2),color: Colors.red,child: Text(title),):Container():Container(
     padding: const EdgeInsets.all(8),
     margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
     width: double.infinity,
@@ -114,7 +115,7 @@ Widget item({
     child: Column(
       children: [
         Text(
-          title,
+          "$title ${isDebugMode?_code:''}",
           style: TextStyle(
             fontSize: 12,
             color: context.theme.dividerColor,
@@ -177,7 +178,7 @@ Widget item({
         button(
           title: s.send,
           onTap: () {
-            String _code = getCode(code);
+
             sendMessage(_code.replaceAll("VAL", (isTrue.value + 1).toString()));
 
             // change(isTrue.value);
@@ -187,6 +188,21 @@ Widget item({
     ),
   );
 }
+
+//
+// Widget globalRadio({
+//   required int value,
+//   required int groupValue,
+//   required ValueChanged<int> onChanged,
+//
+// })=>Row(
+//   children: [
+//     Radio<int>(value: value, groupValue: groupValue, onChanged:(value) =>  onChanged(value)),
+//     Text(s.normal, style: const TextStyle(fontSize: 12)),
+//   ],
+// );
+
+
 // Widget item2({
 //   required String title,
 //   required String code,

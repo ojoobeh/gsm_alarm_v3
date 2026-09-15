@@ -243,6 +243,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "part2": MessageLookupByLibrary.simpleMessage("پارت 2"),
         "part3": MessageLookupByLibrary.simpleMessage("پارت 3"),
         "part4": MessageLookupByLibrary.simpleMessage("پارت 4"),
+        "partArm": MessageLookupByLibrary.simpleMessage("فعال کردن پارت"),
+        "partDisarm":
+            MessageLookupByLibrary.simpleMessage("غیر فعال کردن پارت"),
+        "partPartSet": MessageLookupByLibrary.simpleMessage("نیمه فعال"),
+        "partPartialArm":
+            MessageLookupByLibrary.simpleMessage("نیمه فعال کردن پارت"),
         "partSet": MessageLookupByLibrary.simpleMessage("نیمه فعال"),
         "partSet1": MessageLookupByLibrary.simpleMessage("پارت 1 نیمه فعال"),
         "partSet2": MessageLookupByLibrary.simpleMessage("پارت 2 نیمه فعال"),
@@ -278,8 +284,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("شماره سیم کارت را وارد کنید"),
         "pleaseSelectDeviceModel": MessageLookupByLibrary.simpleMessage(
             "مدل دستگاه خود را انتخاب کنید"),
-        "powerOutageCall":
-            MessageLookupByLibrary.simpleMessage("تغییر پسورد دستگاه"),
+        "powerOutageCall": MessageLookupByLibrary.simpleMessage("تماس قطع برق"),
         "projector": MessageLookupByLibrary.simpleMessage("پروژکتور"),
         "pulse": MessageLookupByLibrary.simpleMessage("پالس"),
         "rFReceiverActivation":

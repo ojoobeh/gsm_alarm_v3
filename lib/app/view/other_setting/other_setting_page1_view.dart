@@ -34,44 +34,22 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  s.setupCallMemoryAndSMS,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: context.theme.dividerColor,
-                  ),
-                ).marginOnly(bottom: 4, top: 20),
+                Text(s.setupCallMemoryAndSMS, style: TextStyle(fontSize: 12, color: context.theme.dividerColor)).marginOnly(bottom: 4, top: 20),
                 Row(
                   children: [
                     SizedBox(
                       width: 100,
-                      child: appTextFormField(
-                        height: 50,
-                        controller: etMemory,
-                        inputType: TextInputType.number,
-                        textAlign: TextAlign.center,
-                        hint: s.memory,
-                      ),
+                      child: appTextFormField(height: 50, controller: etMemory, inputType: TextInputType.number, textAlign: TextAlign.center, hint: s.memory),
                     ),
-                    const SizedBox(
-                      width: 8,
-                    ),
+                    const SizedBox(width: 8),
                     Expanded(
-                      child: appTextFormField(
-                        height: 50,
-                        inputType: TextInputType.number,
-                        controller: etPhone,
-                        hint: s.simCardNumber,
-                      ),
+                      child: appTextFormField(height: 50, inputType: TextInputType.number, controller: etPhone, hint: s.simCardNumber),
                     ),
-
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -108,28 +86,28 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Obx(() => DropDownWidget(
-                      lable: s.callPriorityBy,
-                      title: selectCallPriority.value.title ?? s.callPriorityBy,
-                      items: callPriorityList.map((element) => element.title ?? '').toList(),
-                      itemSelected: (items) {
-                        selectCallPriority(callPriorityList.where((p0) => p0.title == items.first).toList().first);
-                      },
-                    )),
+                Obx(
+                  () => DropDownWidget(
+                    lable: s.callPriorityBy,
+                    title: selectCallPriority.value.title ?? s.callPriorityBy,
+                    items: callPriorityList.map((element) => element.title ?? '').toList(),
+                    itemSelected: (items) {
+                      selectCallPriority(callPriorityList.where((p0) => p0.title == items.first).toList().first);
+                    },
+                  ),
+                ),
                 const SizedBox(height: 8),
                 button(
                   title: s.send,
                   onTap: () {
                     sedCallPriority();
                   },
-                )
+                ),
               ],
             ),
           ),
@@ -140,27 +118,19 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                appTextFormField(
-                  title: s.deleteRemote,
-                  inputType: TextInputType.number,
-                  maxLength: 1,
-                  controller: etRemoteNumber,
-                  hint: s.enterTheRemoteNumberFrom1To9,
-                ),
+                appTextFormField(title: s.deleteRemote, inputType: TextInputType.number, maxLength: 1, controller: etRemoteNumber, hint: s.enterTheRemoteNumberFrom1To9),
                 const SizedBox(height: 8),
                 button(
                   title: s.send,
                   onTap: () {
                     deleteRemote();
                   },
-                )
+                ),
               ],
             ),
           ),
@@ -171,67 +141,39 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                appTextFormField(
-                  title: s.silencingASingleZone,
-                  inputType: TextInputType.number,
-                  maxLength: 1,
-                  controller: etZoneNumber,
-                  hint: s.remoteZone,
-                ),
+                appTextFormField(title: s.silencingASingleZone, inputType: TextInputType.number, maxLength: 1, controller: etZoneNumber, hint: s.remoteZone),
                 const SizedBox(height: 8),
-                Obx(
-                   () {
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Row(
-                          children: [
-                            Radio(
-                              value: 0,
-                              groupValue: setSirenOnStatus.value,
-                              onChanged: (value) => setSetSirenOnStatus(0),
-                            ),
-                            Text(
-                              s.sirenOn,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Radio(
-                              value: 1,
-                              groupValue: setSirenOnStatus.value,
-                              onChanged: (value) => setSetSirenOnStatus(1),
-                            ),
-                            Text(
-                              s.sirenOff,
-                              style: const TextStyle(
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    );
-                  }
-                ),
+                Obx(() {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        children: [
+                          Radio(value: 0, groupValue: setSirenOnStatus.value, onChanged: (value) => setSetSirenOnStatus(0)),
+                          Text(s.sirenOn, style: const TextStyle(fontSize: 12)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Radio(value: 1, groupValue: setSirenOnStatus.value, onChanged: (value) => setSetSirenOnStatus(1)),
+                          Text(s.sirenOff, style: const TextStyle(fontSize: 12)),
+                        ],
+                      ),
+                    ],
+                  );
+                }),
                 const SizedBox(height: 8),
                 button(
                   title: s.send,
                   onTap: () {
                     silencingASingleZone();
                   },
-                )
+                ),
               ],
             ),
           ),
@@ -242,12 +184,10 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(s.setZones).bodyMedium().marginOnly(bottom: 4, top: 20),
                 Obx(() {
@@ -258,61 +198,37 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         // const OtherSettingSpinnerZoneWidget(),
-                        Obx(() => DropDownWidget(
-                              title: selectZone.value.title ?? s.zoneNumber,
-                              items: zoneList.map((element) => element.title ?? '').toList(),
-                              itemSelected: (List<String> items) {
-                                selectZone(zoneList.where((element) => element.title == items.first).toList().first);
-                              },
-                            )),
+                        Obx(
+                          () => DropDownWidget(
+                            title: selectZone.value.title ?? s.zoneNumber,
+                            items: zoneList.map((element) => element.title ?? '').toList(),
+                            itemSelected: (List<String> items) {
+                              selectZone(zoneList.where((element) => element.title == items.first).toList().first);
+                            },
+                          ),
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Row(
                               children: [
-                                Radio(
-                                  value: 0,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(0),
-                                ),
-                                Text(
-                                  s.normal,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                Radio(value: 0, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(0)),
+                                Text(s.normal, style: const TextStyle(fontSize: 12)),
                               ],
                             ),
                             Row(
                               children: [
-                                Radio(
-                                  value: 1,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(1),
-                                ),
-                                Text(
-                                  s.fireAlarm,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                Radio(value: 1, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(1)),
+                                Text(s.fireAlarm, style: const TextStyle(fontSize: 12)),
                               ],
                             ),
                             Row(
                               children: [
-                                Radio(
-                                  value: 2,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(2),
-                                ),
-                                Text(
-                                  s.smart,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                Radio(value: 2, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(2)),
+                                Text(s.smart, style: const TextStyle(fontSize: 12)),
                               ],
                             ),
                           ],
@@ -321,104 +237,78 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-
                             Row(
                               children: [
-                                Radio(
-                                  value: 3,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(3),
-                                ),
-                                Text(
-                                  s.timer,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                Radio(value: 3, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(3)),
+                                Text(s.timer, style: const TextStyle(fontSize: 12)),
                               ],
                             ),
                             Row(
                               children: [
-                                Radio(
-                                  value: 4,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(4),
-                                ),
-                                Text(
-                                  s.hour24,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                Radio(value: 4, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(4)),
+                                Text(s.hour24, style: const TextStyle(fontSize: 12)),
                               ],
                             ),
                             Row(
                               children: [
-                                Radio(
-                                  value: 5,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(5),
-                                ),
-                                Text(
-                                  s.hide,
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
+                                Radio(value: 5, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(5)),
+                                Text(s.hide, style: const TextStyle(fontSize: 12)),
                               ],
                             ),
                           ],
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Row(
-                              children: [
-                                Radio(
-                                  value: 6,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(6),
-                                ),
-                                Text(
-                                  s.parting,
-                                  style: const TextStyle(
-                                    fontSize: 12,
+                        Core.selectedModel.modelId == 1
+                            ? Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Radio(value: 6, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(6)),
+                                      Text(s.parting, style: const TextStyle(fontSize: 12)),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Radio(
-                                  value: 7,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(7),
-                                ),
-                                Text(
-                                  s.chaim,
-                                  style: const TextStyle(
-                                    fontSize: 12,
+                                  Row(
+                                    children: [
+                                      Radio(value: 7, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(7)),
+                                      Text(s.chaim, style: const TextStyle(fontSize: 12)),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Radio(
-                                  value: 8,
-                                  groupValue: setZoneStatus.value,
-                                  onChanged: (value) => setSetZoneStatus(8),
-                                ),
-                                Text(
-                                  s.delete,
-                                  style: const TextStyle(
-                                    fontSize: 12,
+                                  Row(
+                                    children: [
+                                      Radio(value: 8, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(8)),
+                                      Text(s.delete, style: const TextStyle(fontSize: 12)),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
+                                ],
+                              )
+                            : SizedBox(),
+                        Core.selectedModel.modelId != 1
+                            ? Row(
+                                children: [
+                                  Radio(value: 6, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(6)),
+                                  Text('Normal Cloud & Normal OPEN', style: const TextStyle(fontSize: 12)),
+                                ],
+                              )
+                            : SizedBox(),
+                        Core.selectedModel.modelId != 1
+                            ? Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Radio(value: 7, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(7)),
+                                      Text(s.chaim, style: const TextStyle(fontSize: 12)),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Radio(value: 8, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(8)),
+                                      Text(s.delete, style: const TextStyle(fontSize: 12)),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            : SizedBox(),
                       ],
                     ),
                   );
@@ -429,7 +319,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                   onTap: () {
                     sendSetZone();
                   },
-                )
+                ),
               ],
             ),
           ),
@@ -469,11 +359,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                 () => Row(
                   children: [
                     Text(buttons[index].title ?? ''),
-                    Radio(
-                      value: value.value,
-                      groupValue: value.value,
-                      onChanged: (val) => value(index),
-                    ),
+                    Radio(value: value.value, groupValue: value.value, onChanged: (val) => value(index)),
                   ],
                 ),
               ),
@@ -518,11 +404,7 @@ class AlignedGrid extends StatelessWidget {
   final List<KeyStringModel> list;
   final Function(KeyStringModel selected) onClick;
 
-  const AlignedGrid({
-    super.key,
-    required this.list,
-    required this.onClick,
-  });
+  const AlignedGrid({super.key, required this.list, required this.onClick});
 
   @override
   Widget build(BuildContext context) {
@@ -533,11 +415,7 @@ class AlignedGrid extends StatelessWidget {
         spacing: spacing,
         alignment: WrapAlignment.center,
         children: List.generate(listSize, (index) {
-          return Container(
-            width: w,
-            height: w,
-            color: Colors.green[200],
-          );
+          return Container(width: w, height: w, color: Colors.green[200]);
         }),
       ),
     );

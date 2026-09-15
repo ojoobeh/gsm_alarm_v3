@@ -350,16 +350,6 @@ class S {
     );
   }
 
-  /// `ARM`
-  String get arm {
-    return Intl.message(
-      'ARM',
-      name: 'arm',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `PARTIAL ARM`
   String get partialArm {
     return Intl.message(
@@ -370,11 +360,61 @@ class S {
     );
   }
 
+  /// `PART PARTIAL ARM`
+  String get partPartialArm {
+    return Intl.message(
+      'PART PARTIAL ARM',
+      name: 'partPartialArm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ARM`
+  String get arm {
+    return Intl.message(
+      'ARM',
+      name: 'arm',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `DISARM`
   String get disarm {
     return Intl.message(
       'DISARM',
       name: 'disarm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PART ARM`
+  String get partArm {
+    return Intl.message(
+      'PART ARM',
+      name: 'partArm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PART DISARM`
+  String get partDisarm {
+    return Intl.message(
+      'PART DISARM',
+      name: 'partDisarm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Part part set`
+  String get partPartSet {
+    return Intl.message(
+      'Part part set',
+      name: 'partPartSet',
       desc: '',
       args: [],
     );
