@@ -7,7 +7,6 @@ import 'package:bestdroid/app/view/location_setting/location_setting_page.dart';
 import 'package:bestdroid/app/core/core.dart';
 import 'package:bestdroid/app/models/location_setting/location_settings.dart';
 import 'package:bestdroid/app/view/location_setting/location_setting_controller.dart';
-import 'package:bestdroid/app/view/utils/local_storage.dart';
 import 'package:bestdroid/app/widgets/custom_dropdown.dart';
 import 'package:bestdroid/app/widgets/widgets.dart';
 
@@ -33,8 +32,6 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     //   selectDeviceModel(Core.deviceModelList.first);
     // }
 
-    List<OutputModel> listOutput = OutputManager.getList();
-    debugPrint('dddd');
 
     selectDeviceModel(Core.deviceModelList.first);
     nameController.text = widget.model?.title ?? '';
@@ -212,7 +209,13 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     //
     if (widget.model == null) {
       for (int i = 0; i < (selectDeviceModel.value.outputNumber ?? 4); i++) {
-        OutputModel outputModel = OutputModel(id: (OutputManager.getList().lastOrNull?.id ?? 0)+1, title: 'خروجی ${i + 1}', deviceId: model.id ?? 0, isMomentary: 0, status: 0);
+        OutputModel outputModel = OutputModel(
+          id: (OutputManager.getList().lastOrNull?.id ?? 0) + 1,
+          title: 'خروجی ${i + 1}',
+          deviceId: model.id ?? 0,
+          isMomentary: 0,
+          status: 0,
+        );
         await OutputManager.add(outputModel);
       }
     }

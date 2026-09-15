@@ -29,7 +29,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
   void initState() {
     init(
       action: () {
-        isLoading(false);
+        // isLoading(false);
       },
     );
     super.initState();
@@ -47,168 +47,160 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
             height: screenHeight,
             child: image(Assets.backgroundImage, fit: BoxFit.cover),
           ),
-          Container(color: Colors.brown.withOpacity(0.6), width: screenWidth, height: screenHeight),
-          Obx(
-            () => !isLoading.value
-                ? Column(
-                    children: [
-                      Obx(() {
-                        return !isLoading.value && selectLocationSettingModel.value.name != null
-                            ? Text(selectLocationSettingModel.value.name ?? '').displayLarge()
-                            : Text(s.installationLocation).displayLarge();
-                      }).onTap(() async {
-                        bool isChange = await Get.to(const LocationSettingPage());
-                        if (isChange) {
-                          init(
-                            action: () {
-                              isLoading(false);
-                            },
-                          );
-                        }
-                      }),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          if (Core.selectDeviceModel.value.hasWifi == 1)
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: (getBool(AppConstants.isWifi) ?? false) ? Colors.red.withOpacity(0.5) : Colors.transparent,
-                                    border: Border.all(color: Colors.red.withOpacity(0.5)),
-                                  ),
-                                  width: 80,
-                                  height: 30,
-                                  child: const Center(child: Text('WIFI')),
-                                ).onTap(() {
-                                  setData(AppConstants.isWifi, true);
-                                  setState(() {});
-                                }),
-                                const SizedBox(width: 8),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
-                                    color: (getBool(AppConstants.isWifi) ?? false) ? Colors.red.withValues(alpha: 0.5) : Colors.transparent,
-                                    border: Border.all(color: Colors.red.withOpacity(0.5)),
-                                  ),
-                                  width: 80,
-                                  height: 30,
-                                  child: const Center(child: Text('SMS')),
-                                ).onTap(() {
-                                  setData(AppConstants.isWifi, false);
-                                  setState(() {});
-                                }),
-                              ],
-                            ),
-                            _itemH(
-                                  icon: Assets.emergency,
-                                  title: s.emergencySiren,
-                                  startColor: Color(0xff0068bd),
-                                  endColor: Color(0xff277ecb),
-                                  //
-                                  itemColor: Color(0xffffffff),
-                                  width: screenWidth - 30,
-                                  opacity: 0.9,
-                                )
-                                .onTap(() {
-                                  sendCode2(Core.emergencySiren);
-                                })
-                                .marginOnly(bottom: 16),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              _item(
-                                icon: Assets.alarmOn,
-                                height: 85,
-                                title: s.arm,
-                                opacity: 0.9,
-                                startColor: Color(0xffff0000),
-                                endColor: Color(0xfff82020),
-                                itemColor: Color(0xffffffff), //
-                              ).onTap(() {
-                                sendCode2(Core.on);
-                              }).expanded(),
-                              const SizedBox(width: 16),
-                              _item(
-                                icon: Assets.alarmOff,
-                                height: 85,
-                                title: s.disarm,
-                                startColor: Color(0xff055b00),
-                                endColor: Color(0xff217c1b),
-                                itemColor: Color(0xffffffff),
-                                opacity: 0.9,
-                              ).onTap(() {
-                                sendCode2(Core.off);
-                              }).expanded(),
-                            ],
-                          ).marginOnly(bottom: 20),
-                            _itemH(
-                                  icon: Assets.alarmPart,
-                                  title: s.partialArm,
-                                  width: screenWidth - 30,
-                                  startColor: Color(0xff0068bd),
-                                  endColor: Color(0xff277ecb),
-                                  //
-                                  itemColor: Color(0xffffffff),
-                                  opacity: 0.9,
-                                )
-                                .onTap(() {
-                                  sendCode2(Core.partSet);
-                                })
-                                .marginOnly(bottom: 48),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              _item(
-                                height: 100,
-                                icon: Assets.status,
-                                title: s.status,
-                                startColor: Color(0xff0068bd),
-                                endColor: Color(0xff277ecb),
-                                //
-                                itemColor: Color(0xffffffff),
-                                opacity: 0.7,
-                              ).onTap(() {
-                                sendCode2(Core.deviceReport);
-                              }).expanded(),
-                              const SizedBox(width: 8),
-                              _item(
-                                height: 100,
-                                icon: Assets.setting,
-                                title: s.setting,
-                                startColor: Color(0xff0068bd),
-                                endColor: Color(0xff277ecb),
-                                //
-                                itemColor: Color(0xffffffff),
-                                opacity: 0.7,
-                              ).onTap(() {
-                                scaffoldKey.currentState!.openDrawer();
-                              }).expanded(),
-                              const SizedBox(width: 8),
-                              _item(
-                                height: 100,
-                                icon: Assets.callback,
-                                title: s.stopDialing,
-                                startColor: Color(0xff0068bd),
-                                endColor: Color(0xff277ecb),
-                                //
-                                itemColor: Color(0xffffffff),
-                                opacity: 0.7,
-                              ).onTap(() {
-                                sendCode2(Core.stopDialing);
-                              }).expanded(),
-                            ],
+          Container(color: Colors.brown.withValues(alpha: 0.6), width: screenWidth, height: screenHeight),
+          Column(
+            children: [
+              Text(Core.selectedModel.title ?? '').displayLarge().onTap(() async {
+                bool isChange = await Get.to(const LocationSettingPage());
+                if (isChange) {
+                  init(
+                    action: () {
+                      // isLoading(false);
+                    },
+                  );
+                }
+              }),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  if (Core.selectDeviceModel.value.hasWifi == 1)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: (getBool(AppConstants.isWifi) ?? false) ? Colors.red.withValues(alpha: 0.5) : Colors.transparent,
+                            border: Border.all(color: Colors.red.withValues(alpha: 0.5)),
                           ),
-                        ],
-                      ).marginSymmetric(horizontal: 32).expanded(),
-                    ],
+                          width: 80,
+                          height: 30,
+                          child: const Center(child: Text('WIFI')),
+                        ).onTap(() {
+                          setData(AppConstants.isWifi, true);
+                          setState(() {});
+                        }),
+                        const SizedBox(width: 8),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: (getBool(AppConstants.isWifi) ?? false) ? Colors.red.withValues(alpha: 0.5) : Colors.transparent,
+                            border: Border.all(color: Colors.red.withValues(alpha: 0.5)),
+                          ),
+                          width: 80,
+                          height: 30,
+                          child: const Center(child: Text('SMS')),
+                        ).onTap(() {
+                          setData(AppConstants.isWifi, false);
+                          setState(() {});
+                        }),
+                      ],
+                    ),
+                  _itemH(
+                    icon: Assets.emergency,
+                    title: s.emergencySiren,
+                    startColor: Color(0xff0068bd),
+                    endColor: Color(0xff277ecb),
+                    //
+                    itemColor: Color(0xffffffff),
+                    width: screenWidth - 30,
+                    opacity: 0.9,
                   )
-                : const Center(child: CircularProgressIndicator()),
+                      .onTap(() {
+                    sendCode2(Core.emergencySiren);
+                  })
+                      .marginOnly(bottom: 16),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _item(
+                        icon: Assets.alarmOn,
+                        height: 85,
+                        title: s.arm,
+                        opacity: 0.9,
+                        startColor: Color(0xffff0000),
+                        endColor: Color(0xfff82020),
+                        itemColor: Color(0xffffffff), //
+                      ).onTap(() {
+                        sendCode2(Core.on);
+                      }).expanded(),
+                      const SizedBox(width: 16),
+                      _item(
+                        icon: Assets.alarmOff,
+                        height: 85,
+                        title: s.disarm,
+                        startColor: Color(0xff055b00),
+                        endColor: Color(0xff217c1b),
+                        itemColor: Color(0xffffffff),
+                        opacity: 0.9,
+                      ).onTap(() {
+                        sendCode2(Core.off);
+                      }).expanded(),
+                    ],
+                  ).marginOnly(bottom: 20),
+                  _itemH(
+                    icon: Assets.alarmPart,
+                    title: s.partialArm,
+                    width: screenWidth - 30,
+                    startColor: Color(0xff0068bd),
+                    endColor: Color(0xff277ecb),
+                    //
+                    itemColor: Color(0xffffffff),
+                    opacity: 0.9,
+                  )
+                      .onTap(() {
+                    sendCode2(Core.partSet);
+                  })
+                      .marginOnly(bottom: 48),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _item(
+                        height: 100,
+                        icon: Assets.status,
+                        title: s.status,
+                        startColor: Color(0xff0068bd),
+                        endColor: Color(0xff277ecb),
+                        //
+                        itemColor: Color(0xffffffff),
+                        opacity: 0.7,
+                      ).onTap(() {
+                        sendCode2(Core.deviceReport);
+                      }).expanded(),
+                      const SizedBox(width: 8),
+                      _item(
+                        height: 100,
+                        icon: Assets.setting,
+                        title: s.setting,
+                        startColor: Color(0xff0068bd),
+                        endColor: Color(0xff277ecb),
+                        //
+                        itemColor: Color(0xffffffff),
+                        opacity: 0.7,
+                      ).onTap(() {
+                        scaffoldKey.currentState!.openDrawer();
+                      }).expanded(),
+                      const SizedBox(width: 8),
+                      _item(
+                        height: 100,
+                        icon: Assets.callback,
+                        title: s.stopDialing,
+                        startColor: Color(0xff0068bd),
+                        endColor: Color(0xff277ecb),
+                        //
+                        itemColor: Color(0xffffffff),
+                        opacity: 0.7,
+                      ).onTap(() {
+                        sendCode2(Core.stopDialing);
+                      }).expanded(),
+                    ],
+                  ),
+                ],
+              ).marginSymmetric(horizontal: 32).expanded(),
+            ],
           ),
         ],
       ),
@@ -222,7 +214,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           gradient: LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: [startColor ?? Color(0xff2a2a2a), endColor ?? Color(0xff5d5c5d)]),
-          // color: Colors.white.withOpacity(opacity ?? 0.8),
+          // color: Colors.white.withValues(alpha: opacity ?? 0.8),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -246,7 +238,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           gradient: LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: [startColor ?? Color(0xff2a2a2a), endColor ?? Color(0xff5d5c5d)]),
-          // color: Colors.white.withOpacity(opacity ?? 0.8),
+          // color: Colors.white.withValues(alpha: opacity ?? 0.8),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -279,7 +271,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                         if (isChange) {
                           init(
                             action: () {
-                              isLoading(false);
+                              // isLoading(false);
                             },
                           );
                         }
@@ -433,8 +425,8 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
       child: Row(
         children: [
-          image(icon, width: 22, color: context.theme.dividerColor.withOpacity(0.8)),
-          Container(margin: const EdgeInsets.symmetric(horizontal: 12), width: 1, height: 24, color: context.theme.focusColor.withOpacity(0.2)),
+          image(icon, width: 22, color: context.theme.dividerColor.withValues(alpha: 0.8)),
+          Container(margin: const EdgeInsets.symmetric(horizontal: 12), width: 1, height: 24, color: context.theme.focusColor.withValues(alpha: 0.2)),
           Expanded(child: Text(text).bodyMedium(fontSize: 14)),
         ],
       ),
