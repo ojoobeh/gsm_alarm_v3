@@ -100,6 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactTheManagerThroughAFixedLine":
             MessageLookupByLibrary.simpleMessage(
                 "Contact the manager through a fixed line"),
+        "convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn":
+            MessageLookupByLibrary.simpleMessage(
+                "Converting remote out1 to negative output when the device is turned on"),
         "countOfOutput":
             MessageLookupByLibrary.simpleMessage("Count of output"),
         "defaultDialingSystem":
@@ -220,6 +223,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "news": MessageLookupByLibrary.simpleMessage("New"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "normal": MessageLookupByLibrary.simpleMessage("Normal"),
+        "notificationOfDeviceNotTurningOnAfterTwoHours":
+            MessageLookupByLibrary.simpleMessage(
+                "Notification of device not turning on after two hours"),
         "off": MessageLookupByLibrary.simpleMessage("Off"),
         "offP1": MessageLookupByLibrary.simpleMessage("Off part 1"),
         "offP2": MessageLookupByLibrary.simpleMessage("Off part 2"),
@@ -446,10 +452,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Password is Wrong"),
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "zone13Masha": MessageLookupByLibrary.simpleMessage("Zone 13, Masha"),
-        "zone14ManualSwitch":
-            MessageLookupByLibrary.simpleMessage("Zone 14 manual switch"),
         "zone24Hour2Stage":
             MessageLookupByLibrary.simpleMessage("24-hour 2-stage zone"),
+        "zoneManualSwitch":
+            MessageLookupByLibrary.simpleMessage("Zone # manual switch"),
         "zoneName": MessageLookupByLibrary.simpleMessage("Zone name"),
         "zoneNumber": MessageLookupByLibrary.simpleMessage("Zone number"),
         "zoon": MessageLookupByLibrary.simpleMessage("Zoon")

@@ -2684,11 +2684,11 @@ class S {
     );
   }
 
-  /// `Zone 14 manual switch`
-  String get zone14ManualSwitch {
+  /// `Zone # manual switch`
+  String get zoneManualSwitch {
     return Intl.message(
-      'Zone 14 manual switch',
-      name: 'zone14ManualSwitch',
+      'Zone # manual switch',
+      name: 'zoneManualSwitch',
       desc: '',
       args: [],
     );
@@ -2859,6 +2859,26 @@ class S {
     return Intl.message(
       'Power outage call',
       name: 'powerOutageCall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notification of device not turning on after two hours`
+  String get notificationOfDeviceNotTurningOnAfterTwoHours {
+    return Intl.message(
+      'Notification of device not turning on after two hours',
+      name: 'notificationOfDeviceNotTurningOnAfterTwoHours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Converting remote out1 to negative output when the device is turned on`
+  String get convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn {
+    return Intl.message(
+      'Converting remote out1 to negative output when the device is turned on',
+      name: 'convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn',
       desc: '',
       args: [],
     );

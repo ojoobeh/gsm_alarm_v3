@@ -4,6 +4,7 @@ import 'package:bestdroid/app/manager/model_manager.dart';
 import 'package:bestdroid/app/manager/output_manager.dart';
 import 'package:bestdroid/app/manager/part_manager.dart';
 import 'package:bestdroid/app/models/model/model.dart';
+import 'package:bestdroid/app/models/other/call.dart';
 import 'package:bestdroid/app/models/output/output.dart';
 import 'package:bestdroid/app/models/part/part.dart';
 import 'package:bestdroid/app/view/home/home_page.dart';
@@ -150,6 +151,7 @@ class _LocationSettingPageState extends State<LocationSettingPage> with Location
         List<PartModel> listPart = PartManager.getList().where((element) => element.isActive==11).toList();
         _model.outputModels=listOutput;
         _model.partModels=listPart;
+        _model.deviceModel=(Core.deviceModelList.where((element) => element.id==_model.modelId).toList().firstOrNull);
         debugPrint('dddd');
         Core.selectedModel=_model;
         push(HomePage(model: _model));

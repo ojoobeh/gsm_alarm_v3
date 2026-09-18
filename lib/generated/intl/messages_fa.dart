@@ -95,6 +95,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactTheManagerThroughAFixedLine":
             MessageLookupByLibrary.simpleMessage(
                 "تماس از طریق خط ثابت با مدیر"),
+        "convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn":
+            MessageLookupByLibrary.simpleMessage(
+                "تبدیل out1 ریموت به خروجی منفی با روشن شدن دستگاه"),
         "countOfOutput": MessageLookupByLibrary.simpleMessage("تعداد خروجی"),
         "defaultDialingSystem":
             MessageLookupByLibrary.simpleMessage("پیشفرض سیستم شماره گیری"),
@@ -205,6 +208,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "news": MessageLookupByLibrary.simpleMessage("جدید"),
         "no": MessageLookupByLibrary.simpleMessage("خیر"),
         "normal": MessageLookupByLibrary.simpleMessage("نرمال"),
+        "notificationOfDeviceNotTurningOnAfterTwoHours":
+            MessageLookupByLibrary.simpleMessage(
+                "اطلاع روشن نکردن دستگاه بعداز دو ساعت"),
         "off": MessageLookupByLibrary.simpleMessage("خاموش"),
         "offP1": MessageLookupByLibrary.simpleMessage("پارت 1 خاموش"),
         "offP2": MessageLookupByLibrary.simpleMessage("پارت 2 خاموش"),
@@ -431,10 +437,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("رمز عبور اشتباه است"),
         "yes": MessageLookupByLibrary.simpleMessage("بلی"),
         "zone13Masha": MessageLookupByLibrary.simpleMessage("زون۱۳ مشاع"),
-        "zone14ManualSwitch":
-            MessageLookupByLibrary.simpleMessage("سوییچ دستی زون۱۴"),
         "zone24Hour2Stage":
             MessageLookupByLibrary.simpleMessage("زون  24ساعته  2مرحله اي"),
+        "zoneManualSwitch":
+            MessageLookupByLibrary.simpleMessage("سوییچ دستی زون#"),
         "zoneName": MessageLookupByLibrary.simpleMessage("نام زون"),
         "zoneNumber": MessageLookupByLibrary.simpleMessage("شماره زون"),
         "zoon": MessageLookupByLibrary.simpleMessage("زون")

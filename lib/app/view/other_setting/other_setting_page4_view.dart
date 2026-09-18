@@ -30,6 +30,7 @@ class _OtherSettingPage4ViewState extends State<OtherSettingPage4View> with Othe
           item(title: s.turnTheDialerOnAndOff, params: <String>[ s.on,s.off], code: Core.turnTheDialerOnAndOff),
           item(title: s.singleSirenWhenSemiActivated, params: <String>[ s.on,s.off], code: Core.singleSirenWhenSemiActivated,defaultParamIndex: 1),
           item(title: s.output1AsADoorOpener, params: <String>[ s.on,s.off], code: Core.output1AsADoorOpener,defaultParamIndex: 1),
+          item(title: s.convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn, params: <String>[ s.on,s.off], code: Core.convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn,defaultParamIndex: 1),
           item(title: s.deviceShutdownReport, params: <String>[ s.off,s.on], code: Core.deviceShutdownReport),
           item(title: s.twoStageShutdown, params: <String>[ s.on,s.off], code: Core.twoStageShutdown,defaultParamIndex: 1),
           // item(title: s.contactTheManagerThroughAFixedLine, code: DataManager.contactTheManagerThroughAFixedLine),

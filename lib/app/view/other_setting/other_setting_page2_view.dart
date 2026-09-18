@@ -15,6 +15,8 @@ class _OtherSettingPage2ViewState extends State<OtherSettingPage2View> with Othe
   void initState() {
     super.initState();
     setZoneParam();
+    var dd=Core.selectedModel;
+    debugPrint('d');
 
     setRemoteZoneName();
     setCallPriorityParam();
@@ -38,8 +40,9 @@ class _OtherSettingPage2ViewState extends State<OtherSettingPage2View> with Othe
           item(title: s.sendRemainingCharge, code: Core.sendRemainingCharge,defaultParamIndex: 1),
           item(title: s.zone13Masha, code: Core.zone13Masha,defaultParamIndex: 1),
           item(title: s.doubleProtection, code: Core.doubleProtection,defaultParamIndex: 1),
-          item(title: s.zone14ManualSwitch, code: Core.zone14ManualSwitch,defaultParamIndex: 1),
+          item(title: (s.zoneManualSwitch).replaceAll('#', (Core.selectedModel.deviceModel?.zoneNumber??1).toString()), code: Core.zone14ManualSwitch,defaultParamIndex: 1),
           item(title: s.rejectCallFromUnknownNumber, code: Core.rejectCallFromUnknownNumber,defaultParamIndex: 1),
+          item(title: s.notificationOfDeviceNotTurningOnAfterTwoHours, code: Core.notificationOfDeviceNotTurningOnAfterTwoHours,defaultParamIndex: 1),
           item(title: s.instantaneousOutputTimerBasedOn, params: <String>[s.seconds,s.minutes], code: Core.instantaneousOutputTimerBasedOn,defaultParamIndex: 1),
           // item(title: s.changeDevicePassword, code: Core.changeDevicePassword,defaultParamIndex: 1),
           item(title: s.lowBatteryWarning, code: Core.lowBatteryWarning,defaultParamIndex: 1),
