@@ -286,7 +286,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                             ? Row(
                                 children: [
                                   Radio(value: 6, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(6)),
-                                  Text('Normal Cloud & Normal OPEN', style: const TextStyle(fontSize: 12)),
+                                  Text('Normal CLOSE & Normal OPEN', style: const TextStyle(fontSize: 12)),
                                 ],
                               )
                             : SizedBox(),

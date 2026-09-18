@@ -376,7 +376,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "simCardNumber": MessageLookupByLibrary.simpleMessage("شماره سیمکارت"),
         "simCardType": MessageLookupByLibrary.simpleMessage("نوع سیم کارت"),
         "singleSirenSetting":
-            MessageLookupByLibrary.simpleMessage("تنظیم آژیر تک"),
+            MessageLookupByLibrary.simpleMessage("تنظیم تک آژیر"),
         "singleSirenVolumeControl":
             MessageLookupByLibrary.simpleMessage("کنترل ولوم تک آژیر"),
         "singleSirenWhenSemiActivated":

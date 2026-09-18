@@ -182,7 +182,7 @@
   "setExternal speaker mute alert": "تنظیم هشدار قطع بلندگوی خارجی",
   "setPowerOffAndOn alert": "تنظیم هشدار قطع و وصل برق",
   "setToSendSmsReceivingReports": "تنظیم ارسال گزارش دریافت اس ام اس",
-  "singleSirenSetting": "تنظیم آژیر تک",
+  "singleSirenSetting": "تنظیم تک آژیر",
   "confidentialOnAndOffReport": "گزارش روشن و خاموش محرمانه",
   "active": "فعال",
   "scanYourFingerForAuthentication": "برای احراز هویت انگشت خود را اسکن کنید",

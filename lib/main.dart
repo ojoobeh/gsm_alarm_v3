@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:bestdroid/app/manager/model_manager.dart';
 import 'package:bestdroid/app/manager/output_manager.dart';
+import 'package:bestdroid/app/manager/part_manager.dart';
 import 'package:bestdroid/app/models/model/model.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_storage/get_storage.dart';
@@ -29,6 +30,7 @@ void main() async {
   await Hive.openBox(AppConstants.hiveLocalStorage);
   await ModelManager.init();
   await OutputManager.init();
+  await PartManager.init();
   runApp(const MyApp());
 }
 

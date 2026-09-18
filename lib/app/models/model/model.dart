@@ -2,13 +2,14 @@ import 'dart:convert';
 
 import 'package:bestdroid/app/models/model_device/device.dart';
 import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/part/part.dart';
 import 'package:hive/hive.dart';
 
 part 'model.g.dart';
 
 @HiveType(typeId: 0)
 class Model {
-  Model({this.id, this.title, this.modelId, this.phone, this.password, this.deviceModel, this.partId, this.outputModels});
+  Model({this.id, this.title, this.modelId, this.phone, this.password, this.deviceModel, this.partId, this.outputModels, this.partModels});
 
   @HiveField(0)
   int? id;
@@ -24,4 +25,5 @@ class Model {
   int? partId;
   DeviceModel? deviceModel;
   List<OutputModel>? outputModels;
+  List<PartModel>? partModels;
 }

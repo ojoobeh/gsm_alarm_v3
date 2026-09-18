@@ -1,3 +1,4 @@
+import 'package:bestdroid/app/manager/model_manager.dart';
 import 'package:bestdroid/app/models/model/model.dart';
 import 'package:bestdroid/app/models/output/output2.dart';
 import 'package:bestdroid/app/models/part/part.dart';
@@ -14,6 +15,8 @@ mixin LocationSettingController {
 
   RxBool part1IsOn = false.obs;
   RxBool part2IsOn = false.obs;
+  RxList<PartModel> partSelected=<PartModel>[].obs;
+  RxList<PartModel> partList=<PartModel>[].obs;
 
   TextEditingController passwordController = TextEditingController();
   TextEditingController simNumberController = TextEditingController();
@@ -28,54 +31,25 @@ mixin LocationSettingController {
   Rx<PartModel> selectPartModel = PartModel(title: s.generalPart,id: 0).obs;
 
 
+  void setPartList(int length){
+    partList.clear();
+    for (int i = 0; i < length; i++) {
+      partList.add(
+        PartModel(
+          id: (i + 1),
+          title: 'Part ${i + 1}',
+          isActive: 0,
+          deviceId: ModelManager.getList().length + 1,
+        ),
+      );
 
-
-  Future<void> insertNewLocation({required final VoidCallback action}) async {
-    if (nameController.text != s.news) {
-      List<LocationSettingModel> locationList=await DataManager.getLocationSettingModelList();
-      if(!locationList.map((e) => e.name).toList().contains(nameController.text)){
-        List list = await DataManager.getLocationSettingModelList();
-        int id = list.length;
-        LocationSettingModel locationSettingModel = LocationSettingModel(
-          name: nameController.text,
-          modelType: selectDeviceModel.value.id,
-          partType: selectPartModel.value.id,
-          modelName: selectDeviceModel.value.model,
-          password: passwordController.text,
-          selected: 1,
-          simNumber: simNumberController.text,
-        );
-        await DataManager.insertLocationSetting(locationSettingModel);
-        setData(AppConstants.deviceModelId, selectDeviceModel.value.id);
-        setData(AppConstants.deviceModelId, selectDeviceModel.value.id);
-        setData(AppConstants.partModelId, selectPartModel.value.id);
-        setData(AppConstants.isWifi, isWifi.value);
-        setData(AppConstants.locationSettingModelId, id + 1);
-
-        await DataManager.resetLocationSettingSelected(id);
-        updateSelectDeviceModel(action: () => action());
-
-
-        for (int i = 0; i < 24; i++) {
-          await DataManager.insertOutputModel(Output2Model(
-            deviceId: id + 1,
-            id: i + 1,
-            title: "${s.output} ${i + 1}",
-            code: i + 1,
-            status: 0,
-            isMomentary: 0,
-          ));
-        }
-
-      }else{
-        snackbarRed(title: s.warning, subtitle: s.theNameIsRepeated);
-      }
-
-
-    } else {
-      snackbarRed(title: s.warning, subtitle: s.nameIsNotValid);
     }
+    partList.refresh();
+
   }
+
+
+
 
   bool isValidParam() {
     if (nameController.text.isNotEmpty) {
@@ -91,44 +65,6 @@ mixin LocationSettingController {
     }
   }
 
-  Future<void> updateLocation({required VoidCallback action}) async {
-    if (nameController.text != s.news) {
-      if (selectLocationSettingModel.value.id != null) {
-        List<LocationSettingModel> locationList=await DataManager.getLocationSettingModelList();
-        if(!locationList.map((e) => e.name).toList().contains(nameController.text)||nameController.text==selectLocationSettingModel.value.name){
-          LocationSettingModel locationSettingModel = LocationSettingModel(
-            id: selectLocationSettingModel.value.id,
-            name: nameController.text,
-            modelType: selectDeviceModel.value.id,
-            partType: selectPartModel.value.id,
-            modelName: selectDeviceModel.value.model,
-            password: passwordController.text,
-            simNumber: simNumberController.text,
-            isMultiPart: selectLocationSettingModel.value.isMultiPart,
-            isWifi: selectLocationSettingModel.value.isWifi,
-            selected: selectLocationSettingModel.value.selected,
-            simType: selectLocationSettingModel.value.simType,
-          );
-          await DataManager.updateLocationSetting(locationSettingModel);
-          setData(AppConstants.deviceModelId, selectDeviceModel.value.id);
-          setData(AppConstants.partModelId, selectPartModel.value.id);
-          setData(AppConstants.isWifi, isWifi.value);
-          setData(AppConstants.locationSettingModelId, selectLocationSettingModel.value.id);
-
-          await DataManager.resetLocationSettingSelected(selectLocationSettingModel.value.id ?? 0);
-          updateSelectDeviceModel(action: () =>  action());
-        }else{
-          snackbarRed(title: s.warning, subtitle: s.theNameIsRepeated);
-        }
-
-
-      }
-    } else {
-      snackbarRed(title: s.warning, subtitle: s.nameIsNotValid);
-    }
-
-    debugPrint('DDDDD');
-  }
 
   void updateSimCardTypeIndex(int id) {}
 

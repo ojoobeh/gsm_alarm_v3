@@ -44,9 +44,9 @@ class Core {
   static const int port = 2468;
   final int sdkVersion = 34;
   static List<DeviceModel> deviceModelList = <DeviceModel>[
-    DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, hasWifi: 0),
-    DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 6, hasWifi: 0),
-    DeviceModel(id: 3, model: 'HITEC', selected: 0, hasMultiPart: 1, outputNumber: 8, hasWifi: 0),
+    DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, partNumber: 0,zoneNumber:14, hasWifi: 0),
+    DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 4, partNumber: 8,zoneNumber:8, hasWifi: 0),
+    DeviceModel(id: 3, model: 'HITEC', selected: 0, hasMultiPart: 1, outputNumber: 2, partNumber: 5,zoneNumber:5, hasWifi: 0),
   ];
   static List<PartModel> partModelList = <PartModel>[PartModel(id: 0, title: s.generalPart), PartModel(id: 1, title: s.part1), PartModel(id: 2, title: s.part2)];
 
@@ -106,7 +106,7 @@ class Core {
   static CodeModel connectingTheKeypad = CodeModel(id: 26, model1: '*PASS*52#VAL#', model2: '*PASS*60#VAL#', model3: '*PASS*60#VAL#');
   static CodeModel rFReceiverActivation = CodeModel(id: 26, model1: '*PASS*53#VAL#', model2: '-', model3: '-');
   static CodeModel sendRemainingCharge = CodeModel(id: 26, model1: '*PASS*55#VAL#', model2: '-', model3: '-');
-  static CodeModel simCardModuleActivation = CodeModel(id: 26, model1: '*PASS*54#VAL#', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
+  static CodeModel simCardModuleActivation = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
   static CodeModel zone13Masha = CodeModel(id: 26, model1: '*PASS*57#VAL#', model2: '-', model3: '-');
   static CodeModel doubleProtection = CodeModel(id: 26, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
   static CodeModel zone14ManualSwitch = CodeModel(id: 26, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
@@ -118,21 +118,21 @@ class Core {
   static CodeModel rejectCallFromUnknownNumber = CodeModel(id: 26, model1: '-', model2: '*PASS*46#VAL#', model3: '*PASS*46#VAL#');
   static CodeModel deleteRemote = CodeModel(id: 26, model1: '*PASS*47#VAL#', model2: '*PASS*47#VAL#', model3: '*PASS*47#VAL#');
   static CodeModel powerOutageCall = CodeModel(id: 26, model1: '*PASS*52#VAL#', model2: '*PASS*52#VAL#', model3: '*PASS*52#VAL#');
-  static CodeModel lowBatteryWarning = CodeModel(id: 26, model1: '*-', model2: '*PASS*53#VAL#', model3: '*PASS*53#VAL#');
+  static CodeModel lowBatteryWarning = CodeModel(id: 26, model1: '-', model2: '*PASS*53#VAL#', model3: '*PASS*53#VAL#');
   static CodeModel instantaneousOutputTimerBasedOn = CodeModel(id: 26, model1: '-', model2: '*PASS*50#VAL#', model3: '*PASS*50#VAL#');
   static CodeModel internalBellMessage = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
   static CodeModel chirpPartSet = CodeModel(id: 26, model1: '-', model2: '*PASS*55#VAL#', model3: '*PASS*55#VAL#');
-  static CodeModel disableSIMCardCalls = CodeModel(id: 26, model1: '*PASS*56#VAL#', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
+  static CodeModel disableSIMCardCalls = CodeModel(id: 26, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
   static CodeModel smsFromUnknownNumberCalledMr = CodeModel(
     id: 26,
     //پیامک شماره ناشناس تماس گرفته شده به مستر
-    model1: '*PASS*57#VAL#',
+    model1: '-',
     model2: '*PASS*57#VAL#',
     model3: '*PASS*57#VAL#',
   );
   static CodeModel silencingASingleZone = CodeModel(id: 26, model1: '*PASS*56#ZONEVAL#', model2: '*PASS*70#ZONEVAL#', model3: '*PASS*70#ZONEVAL#');
 
-  static Rx<LocationSettingModel> selectLocationSettingModel = LocationSettingModel().obs;
+  // static Rx<LocationSettingModel> selectLocationSettingModel = LocationSettingModel().obs;
 
   static String automaticSmsLocationName = 'automaticSmsLocationName';
   static String automaticSmsLocationPhone = 'automaticSmsLocationPhone';

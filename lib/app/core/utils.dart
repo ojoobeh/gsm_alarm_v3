@@ -150,26 +150,20 @@ void sendMessage(String message) {
           InkWell(
             hoverColor: Colors.transparent, //
             onTap: () async {
-              if (Core.selectLocationSettingModel.value.id != null) {
+              if (Core.selectedModel.id != null) {
                 if (message != '-') {
-                  updateSelectDeviceModel(
-                    action: () async {
-                      if (Core.selectDeviceModel.value.hasWifi == 1 && (getBool(AppConstants.isWifi) ?? false)) {
-                        try {
-                          Socket socket = await Socket.connect(Core.ip, Core.port);
-                          socket.add(utf8.encode(body));
-                          debugPrint("RRRR");
-                        } catch (_) {}
+                  if (Core.selectDeviceModel.value.hasWifi == 1 && (getBool(AppConstants.isWifi) ?? false)) {
+                    try {
+                      Socket socket = await Socket.connect(Core.ip, Core.port);
+                      socket.add(utf8.encode(body));
+                      debugPrint("RRRR");
+                    } catch (_) {}
 
-                        back();
-                      } else {
-                        back();
-                        sendSms(body: body, phone: Core.selectLocationSettingModel.value.simNumber ?? '');
-                      }
-                    },
-                  );
-
-                  // snackbarGreen(title: s.error, subtitle: result);
+                    back();
+                  } else {
+                    back();
+                    sendSms(body: body, phone: Core.selectedModel.phone ?? '');
+                  }
                 }
               } else {
                 snackbarRed(title: s.error, subtitle: s.selectedInstallationLocation);

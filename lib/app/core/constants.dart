@@ -4,6 +4,7 @@ class AppConstants {
   static const String hiveLocalStorage = "hiveLocalStorage";
   static const String hiveModel = "hiveModel";
   static const String hiveOutput = "hiveOutput";
+  static const String hivePart = "hivePart";
   static const String modelId = "modelId";
   static const String theme = "theme";
   static const String darkTheme = "darkTheme";

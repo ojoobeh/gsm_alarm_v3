@@ -19,7 +19,7 @@ class _SplashPageState extends State<SplashPage> with SplashController {
       action: () {
         insertDeviceModel(
           action: () {
-            updateSelectDeviceModel(action: () {});
+
           },
         );
       },

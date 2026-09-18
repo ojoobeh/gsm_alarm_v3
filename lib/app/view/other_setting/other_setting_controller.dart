@@ -265,7 +265,7 @@ mixin OtherSettingController {
     String dd = etZoneNumber.text;
     if (dd.length > 0) {
       String code = getCode(Core.silencingASingleZone);
-      sendMessage(code.replaceAll("VAL", (setSirenOnStatus.value).toString()).replaceAll("ZONE", (dd).toString()));
+      sendMessage(code.replaceAll("VAL", (setSirenOnStatus.value+(Core.selectedModel.modelId==1?0:1)).toString()).replaceAll("ZONE", (dd).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: "Enter the remote number");
     }
@@ -386,7 +386,7 @@ mixin OtherSettingController {
   // }
 
   Future<void> changeZoneName() async {
-    if (Core.selectLocationSettingModel.value.id != null) {
+    if (Core.selectedModel.id != null) {
       if (zone.text.length < 2) {
         snackbarRed(title: s.error, subtitle: s.enterZoneName);
       } else {

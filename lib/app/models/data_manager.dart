@@ -10,7 +10,6 @@ class DataManager {
   /// ****************************** TBS ********************************************
   static const String _tbLocationSetting = 'locationSetting';
   static const String _tbDeviceModel = 'modelDevice';
-  static const String _tbOutputModel = 'output';
   static const String adminPassword = 'adminPassword';
   static const String password = 'password';
 
@@ -138,15 +137,6 @@ class DataManager {
     return tb;
   }
 
-  static Future<TbOutputModel> getTbOutputModel() async {
-    var tt = await getData(_tbOutputModel);
-    TbOutputModel tb = TbOutputModel();
-    if (tt != null) {
-      tb = TbOutputModel.fromMap(tt);
-    }
-    return tb;
-  }
-
   static Future<TbDeviceModel> getTbDeviceModel() async {
     var tt = await getData(_tbDeviceModel);
     TbDeviceModel tb = TbDeviceModel();
@@ -187,15 +177,6 @@ class DataManager {
     // debugPrint("DDD");
   }
 
-  static Future<void> insertOutputModel(Output2Model model) async {
-    TbOutputModel tb = await getTbOutputModel();
-    List<Output2Model> list = tb.list ?? <Output2Model>[];
-    int lastId = list.length;
-    model.id = lastId + 1;
-    list.add(model);
-    tb.list = list;
-    setData(_tbOutputModel, tb.toMap());
-  }
 
   /// ************************************* LIST ***********************************************
   static Future<List<LocationSettingModel>> getLocationSettingModelList() async {
@@ -215,19 +196,7 @@ class DataManager {
     return list;
   }
 
-  static Future<List<Output2Model>> getOutputModelList() async {
-    TbOutputModel tb = await getTbOutputModel();
 
-    List<Output2Model> list = tb.list ?? <Output2Model>[];
-    return list;
-  }
-
-  static Future<List<Output2Model>> getOutputModelListByDeviceId(int id) async {
-    TbOutputModel tb = await getTbOutputModel();
-
-    List<Output2Model> list = tb.list?.where((element) => element.deviceId == id).toList() ?? <Output2Model>[];
-    return list;
-  }
 
   /// ************************************ OBJECT ***********************************************
   static Future<LocationSettingModel?> getLocationSettingModelById({required int id}) async {
@@ -261,20 +230,7 @@ class DataManager {
     setData(_tbLocationSetting, tb.toMap());
   }
 
-  static Future<void> updateOutputs(Output2Model model) async {
-    TbOutputModel tb = await getTbOutputModel();
 
-    List<Output2Model> list = tb.list ?? <Output2Model>[];
-
-    for (int i = 0; i < list.length; i++) {
-      if (list[i].id == model.id) {
-        list.removeAt(i);
-        list.insert(i, model);
-      }
-    }
-    tb.list = list;
-    setData(_tbOutputModel, tb.toMap());
-  }
 
   static Future<void> updateSetting(LocationSettingModel model) async {
     TbLocationSettingModel tb = await getTbLocationSettingModel();

@@ -9,6 +9,8 @@ class DeviceModel {
     this.hasWifi,
     this.hasMultiPart,
     this.outputNumber,
+    this.zoneNumber,
+    this.partNumber,
   });
 
    int? id;
@@ -18,6 +20,8 @@ class DeviceModel {
    int? hasWifi;
    int? hasMultiPart;
    int? outputNumber;
+   int? zoneNumber;
+   int? partNumber;
 
   factory DeviceModel.fromJson(String str) => DeviceModel.fromMap(json.decode(str));
 

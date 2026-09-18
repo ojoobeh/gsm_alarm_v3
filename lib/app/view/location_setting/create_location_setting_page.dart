@@ -1,8 +1,10 @@
 import 'package:bestdroid/app/core/assets.dart';
 import 'package:bestdroid/app/manager/model_manager.dart';
 import 'package:bestdroid/app/manager/output_manager.dart';
+import 'package:bestdroid/app/manager/part_manager.dart';
 import 'package:bestdroid/app/models/model/model.dart';
 import 'package:bestdroid/app/models/output/output.dart';
+import 'package:bestdroid/app/models/part/part.dart';
 import 'package:bestdroid/app/view/location_setting/location_setting_page.dart';
 import 'package:bestdroid/app/core/core.dart';
 import 'package:bestdroid/app/models/location_setting/location_settings.dart';
@@ -32,7 +34,6 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     //   selectDeviceModel(Core.deviceModelList.first);
     // }
 
-
     selectDeviceModel(Core.deviceModelList.first);
     nameController.text = widget.model?.title ?? '';
     passwordController.text = widget.model?.password ?? '';
@@ -40,6 +41,21 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     if (widget.model != null) {
       selectDeviceModel(Core.deviceModelList.where((element) => element.id == widget.model?.modelId).toList().firstOrNull);
       selectPartModel(Core.partModelList.where((element) => element.id == widget.model?.partId).toList().firstOrNull);
+      partList(widget.model?.partModels ?? []);
+      debugPrint('dddd');
+    } else {
+      partList.clear();
+      for (int i = 0; i < (Core.deviceModelList.first.partNumber ?? 0); i++) {
+        partList.add(
+          PartModel(
+            id: (i + 1),
+            title: 'Part ${i + 1}',
+            isActive: 0,
+            deviceId: ModelManager.getList().length + 1,
+          ),
+        );
+      }
+      debugPrint('dddd');
     }
 
     super.initState();
@@ -74,12 +90,12 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
               // ),
               Center(
                 child: SizedBox(
-                  height: 510,
                   child: Card(
                     color: AppColors.grey,
                     child: Container(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           // Text(s.enterPassword).marginOnly(bottom: 4, top: 20),
                           TextField(
@@ -123,29 +139,65 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                                     selectDeviceModel(Core.deviceModelList.where((element) => element.model == items.first).toList().first);
                                   }
 
+                                  setPartList(selectDeviceModel.value.partNumber ?? 0);
                                   List<OutputModel> list = OutputManager.getList();
                                   debugPrint(list.length.toString());
                                 },
                               ),
                             ),
                           const SizedBox(height: 16),
-                          // if (Core.partModelList.length > 1)
-                          //   Obx(
-                          //     () => selectDeviceModel.value.hasMultiPart == 1
-                          //         ? DropDownWidget(
-                          //             lable: s.part,
-                          //             showSearch: false,
-                          //             showRadioButton: false,
-                          //             multiSelect: false,
-                          //             title: selectPartModel.value.title ?? s.part,
-                          //             items: Core.partModelList.map((e) => e.title ?? '').toList(),
-                          //             itemSelected: (List<String> items) {
-                          //               selectPartModel(Core.partModelList.where((element) => element.title == items.first).toList().first);
-                          //             },
-                          //           )
-                          //         : const SizedBox(),
-                          //   ),
-                          const SizedBox(height: 16),
+
+                          Obx(() {
+                            final parts = partList;
+                            final selected = partSelected;
+
+                            if (parts.isEmpty) {
+                              return const SizedBox();
+                            }
+
+                            return GridView.builder(
+                              padding: EdgeInsets.zero,
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 16 / 6),
+                              itemCount: parts.length,
+                              itemBuilder: (context, index) {
+                                final part = parts[index];
+
+                                final isSelected = selected.any((item) => item.id == part.id);
+
+                                return Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                                  child: Row(
+                                    spacing: 8,
+                                    children: [
+                                      SizedBox(
+                                        width: 16,
+                                        height: 16,
+                                        child: Checkbox(
+                                          value: parts[index].isActive == 1,
+                                          onChanged: (value) {
+                                            if (parts[index].isActive == 1) {
+                                              parts[index].isActive = (0);
+                                            } else {
+                                              if (parts.where((PartModel item) => item.isActive == 1).toList().length > 1) {
+                                                snackbarRed(title: s.warning, subtitle: 'تعداد پارت انتخابی نباید بیش از 2 پارت باشد');
+                                              } else {
+                                                parts[index].isActive = (1);
+                                              }
+                                            }
+                                            parts.refresh();
+                                          },
+                                        ),
+                                      ),
+                                      Text(part.title ?? 'Part $index'),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          }),
+
                           widget.model == null
                               ? button(
                                   title: s.save,
@@ -161,7 +213,9 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                                         password: passwordController.text,
                                         modelId: selectDeviceModel.value.id,
                                         partId: selectPartModel.value.id,
+                                        partModels: partList,
                                       );
+                                      setNewPart(model);
                                       await ModelManager.add(model);
                                       setOutput(model);
                                       offAll(const LocationSettingPage());
@@ -182,8 +236,9 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                                         password: passwordController.text,
                                         modelId: selectDeviceModel.value.id,
                                         partId: selectPartModel.value.id,
+                                        partModels: partList,
                                       );
-
+                                      updatePart(model);
                                       await ModelManager.update(model);
 
                                       debugPrint('dddd'); //
@@ -192,6 +247,7 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                                     }
                                   },
                                 ),
+                          const SizedBox(height: 16),
                         ],
                       ).paddingSymmetric(horizontal: 32),
                     ),
@@ -203,6 +259,37 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
         ),
       ),
     );
+  }
+
+  void setPart(Model model) async {
+    for (int i = 0; i < partList.length; i++) {
+      PartModel outputModel = PartModel(
+        id: (PartManager.getList().lastOrNull?.id ?? 0) + 1,
+        title: 'Part ${i + 1}',
+        deviceId: model.id ?? 0,
+        isActive: partList[i].isActive,
+      );
+      await PartManager.add(outputModel);
+    }
+  }
+
+  void setNewPart(Model model) async {
+    for (int i = 0; i < partList.length; i++) {
+      PartModel outputModel = PartModel(
+        id: (PartManager.getList().lastOrNull?.id ?? 0) + 1,
+        title: 'Part ${i + 1}',
+        deviceId: model.id ?? 0,
+        isActive: partList[i].isActive,
+      );
+      await PartManager.add(outputModel);
+    }
+    debugPrint('ddd');
+  }
+
+  void updatePart(Model model) async {
+    for (int i = 0; i < partList.length; i++) {
+      await PartManager.update(partList[i]);
+    }
   }
 
   void setOutput(Model model) async {

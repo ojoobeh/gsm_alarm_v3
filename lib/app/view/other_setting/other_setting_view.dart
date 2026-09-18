@@ -53,7 +53,7 @@ class _OtherSettingViewState extends State<OtherSettingView> with OtherSettingCo
                 color: context.theme.dividerColor, //change your color here
               ),
               title: Text(
-                s.otherSetting,
+                '${s.otherSetting}${isDebugMode?'--${Core.selectedModel.modelId}':''}',
                 style: TextStyle(
                   fontSize: 14,
                   color: context.theme.dividerColor,

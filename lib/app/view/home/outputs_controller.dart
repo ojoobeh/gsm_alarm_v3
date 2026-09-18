@@ -22,22 +22,11 @@ mixin OutputsController {
     List<LocationSettingModel> list = await DataManager.getLocationSettingModelList();
     if (list.isNotEmpty) {
       selectLocationSettingModel(list.where((element) => element.selected == 1).toList().first);
-      Core.selectLocationSettingModel(list.where((element) => element.selected == 1).toList().first);
     }
     selectCountOfOutput(getString(AppConstants.countOfOutput));
     action();
   }
 
-  Future<void> initAppSetting({required final VoidCallback action}) async {
-    List<LocationSettingModel> list = await DataManager.getLocationSettingModelList();
-    if (list.isNotEmpty) {
-      selectLocationSettingModel(list.where((element) => element.selected == 1).toList().first);
-      Core.selectLocationSettingModel(list.where((element) => element.selected == 1).toList().first);
-    }
-
-
-    action();
-  }
 
   // sendCode(String message) {
   //   String code = getCode2(message);
