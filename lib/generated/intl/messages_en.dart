@@ -278,6 +278,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password changed successfully"),
         "passwordIsNotTrue":
             MessageLookupByLibrary.simpleMessage("Password number is not true"),
+        "periodicSendingOfRemainingCharge":
+            MessageLookupByLibrary.simpleMessage(
+                "Periodic sending of remaining charge"),
         "persian": MessageLookupByLibrary.simpleMessage("Persian"),
         "phoneIsWrong": MessageLookupByLibrary.simpleMessage("Phone is wrong"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
@@ -434,8 +437,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "twoMinute": MessageLookupByLibrary.simpleMessage("Two minute"),
         "twoStageShutdown": MessageLookupByLibrary.simpleMessage(
             "Two-stage shutdown (double protection)"),
-        "twoStageShutdownOfTheDevice": MessageLookupByLibrary.simpleMessage(
-            "Two-stage shutdown of the device (double protection)"),
         "typeOfCommunication":
             MessageLookupByLibrary.simpleMessage("Type of communication"),
         "typeOfFixedLineDialing":

@@ -155,13 +155,13 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                       Row(
                         children: [
                           Radio(value: 0, groupValue: setSirenOnStatus.value, onChanged: (value) => setSetSirenOnStatus(0)),
-                          Text(s.sirenOn, style: const TextStyle(fontSize: 12)),
+                          Text(Core.selectedModel.modelId == 1 ? s.sirenOff : s.sirenOn, style: const TextStyle(fontSize: 12)),
                         ],
-                      ),
+                      ), //
                       Row(
                         children: [
                           Radio(value: 1, groupValue: setSirenOnStatus.value, onChanged: (value) => setSetSirenOnStatus(1)),
-                          Text(s.sirenOff, style: const TextStyle(fontSize: 12)),
+                          Text(Core.selectedModel.modelId == 1 ? s.sirenOn : s.sirenOff, style: const TextStyle(fontSize: 12)),
                         ],
                       ),
                     ],
@@ -218,19 +218,19 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                                 Radio(value: 0, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(0)),
                                 Text(s.normal, style: const TextStyle(fontSize: 12)),
                               ],
-                            ),
+                            ).expanded(),
                             Row(
                               children: [
                                 Radio(value: 1, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(1)),
                                 Text(s.fireAlarm, style: const TextStyle(fontSize: 12)),
                               ],
-                            ),
+                            ).expanded(),
                             Row(
                               children: [
                                 Radio(value: 2, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(2)),
                                 Text(s.smart, style: const TextStyle(fontSize: 12)),
                               ],
-                            ),
+                            ).expanded(),
                           ],
                         ),
 
@@ -242,48 +242,48 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                                 Radio(value: 3, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(3)),
                                 Text(s.timer, style: const TextStyle(fontSize: 12)),
                               ],
-                            ),
+                            ).expanded(),
                             Row(
                               children: [
                                 Radio(value: 4, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(4)),
                                 Text(s.hour24, style: const TextStyle(fontSize: 12)),
                               ],
-                            ),
+                            ).expanded(),
                             Row(
                               children: [
                                 Radio(value: 5, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(5)),
                                 Text(s.hide, style: const TextStyle(fontSize: 12)),
                               ],
-                            ),
+                            ).expanded(),
                           ],
                         ),
                         Core.selectedModel.modelId == 1
                             ? Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Row(
                                     children: [
                                       Radio(value: 6, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(6)),
                                       Text(s.parting, style: const TextStyle(fontSize: 12)),
                                     ],
-                                  ),
+                                  ).expanded(),
                                   Row(
                                     children: [
                                       Radio(value: 7, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(7)),
                                       Text(s.chaim, style: const TextStyle(fontSize: 12)),
                                     ],
-                                  ),
+                                  ).expanded(),
                                   Row(
                                     children: [
                                       Radio(value: 8, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(8)),
                                       Text(s.delete, style: const TextStyle(fontSize: 12)),
                                     ],
-                                  ),
+                                  ).expanded(),
                                 ],
                               )
                             : SizedBox(),
                         Core.selectedModel.modelId != 1
                             ? Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Radio(value: 6, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(6)),
                                   Text('Normal CLOSE & Normal OPEN', style: const TextStyle(fontSize: 12)),
@@ -299,13 +299,14 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                                       Radio(value: 7, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(7)),
                                       Text(s.chaim, style: const TextStyle(fontSize: 12)),
                                     ],
-                                  ),
+                                  ).expanded(),
+                                  SizedBox().expanded(),
                                   Row(
                                     children: [
                                       Radio(value: 8, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(8)),
                                       Text(s.delete, style: const TextStyle(fontSize: 12)),
                                     ],
-                                  ),
+                                  ).expanded(),
                                 ],
                               )
                             : SizedBox(),

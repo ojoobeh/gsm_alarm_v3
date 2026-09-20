@@ -37,7 +37,7 @@ class _OtherSettingPage2ViewState extends State<OtherSettingPage2View> with Othe
           item(title: s.connectingTheKeypad, code: Core.connectingTheKeypad,defaultParamIndex: 1),
           item(title: s.rFReceiverActivation, code: Core.rFReceiverActivation,defaultParamIndex: 1),
           item(title: s.simCardModuleActivation, code: Core.simCardModuleActivation,defaultParamIndex: 1),
-          item(title: s.sendRemainingCharge, code: Core.sendRemainingCharge,defaultParamIndex: 1),
+          item(title:Core.selectedModel.modelId==1?s.periodicSendingOfRemainingCharge: s.sendRemainingCharge, code: Core.sendRemainingCharge,defaultParamIndex: 1),
           item(title: s.zone13Masha, code: Core.zone13Masha,defaultParamIndex: 1),
           item(title: s.doubleProtection, code: Core.doubleProtection,defaultParamIndex: 1),
           item(title: (s.zoneManualSwitch).replaceAll('#', (Core.selectedModel.deviceModel?.zoneNumber??1).toString()), code: Core.zone14ManualSwitch,defaultParamIndex: 1),

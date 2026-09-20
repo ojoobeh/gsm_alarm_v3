@@ -265,6 +265,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "رمز عبور با موفقیت تغییر کرد"),
         "passwordIsNotTrue":
             MessageLookupByLibrary.simpleMessage("رمز عبور معتبرنیست"),
+        "periodicSendingOfRemainingCharge":
+            MessageLookupByLibrary.simpleMessage("ارسال باقیمانده شارژ"),
         "persian": MessageLookupByLibrary.simpleMessage("فارسی"),
         "phoneIsWrong":
             MessageLookupByLibrary.simpleMessage("شماره معتبر نیست"),
@@ -342,8 +344,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendMessage": MessageLookupByLibrary.simpleMessage("ارسال پیامک"),
         "sendNumberInputDial":
             MessageLookupByLibrary.simpleMessage("ارسال شماره ورودی"),
-        "sendRemainingCharge":
-            MessageLookupByLibrary.simpleMessage("ارسال باقیمانده شارژ"),
+        "sendRemainingCharge": MessageLookupByLibrary.simpleMessage(
+            "ارسال دوره ای باقیمانده شارژ"),
         "setAlarmTime": MessageLookupByLibrary.simpleMessage("تنظیم زمان آژیر"),
         "setArrivalTime":
             MessageLookupByLibrary.simpleMessage("تنظیم زمان ورود"),
@@ -419,8 +421,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "twoMinute": MessageLookupByLibrary.simpleMessage("دو دقیقه"),
         "twoStageShutdown": MessageLookupByLibrary.simpleMessage(
             "خاموش کردن دو مرحله ای ( حفاظت مضاعف )"),
-        "twoStageShutdownOfTheDevice": MessageLookupByLibrary.simpleMessage(
-            "خاموش کردن دو مرحله ای دستگاه(حفاظت مضاعف)"),
         "typeOfCommunication":
             MessageLookupByLibrary.simpleMessage("نوع ارتباط"),
         "typeOfFixedLineDialing":

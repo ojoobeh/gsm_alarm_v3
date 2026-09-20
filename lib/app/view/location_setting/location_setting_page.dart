@@ -150,10 +150,12 @@ class _LocationSettingPageState extends State<LocationSettingPage> with Location
         List<OutputModel> listOutput = OutputManager.getList().where((element) => element.deviceId==model.id).toList();
         List<PartModel> listPart = PartManager.getList().where((element) => element.isActive==11).toList();
         _model.outputModels=listOutput;
-        _model.partModels=listPart;
         _model.deviceModel=(Core.deviceModelList.where((element) => element.id==_model.modelId).toList().firstOrNull);
         debugPrint('dddd');
         Core.selectedModel=_model;
+
+        List<PartModel> p=PartManager.getList();
+        _model.partModels=p.where((element) => element.deviceId==model.id).toList();
         push(HomePage(model: _model));
 
         // List<LocationSettingModel> list = locationSettingList.where((element) => element.name == model.title).toList();

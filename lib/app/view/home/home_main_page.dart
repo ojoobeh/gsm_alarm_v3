@@ -1,3 +1,5 @@
+import 'package:bestdroid/app/models/model/model.dart';
+import 'package:bestdroid/app/models/part/part.dart';
 import 'package:bestdroid/app/view/help/help_page.dart';
 import 'package:bestdroid/app/view/home/home_page.dart';
 import 'package:bestdroid/app/view/location_setting/location_setting_page.dart';
@@ -14,9 +16,10 @@ import 'package:bestdroid/app/widgets/widgets.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeMainPage extends StatefulWidget {
-  const HomeMainPage({required this.title, super.key});
+  const HomeMainPage({required this.title, required this.model, super.key});
 
   final String title;
+  final Model model;
 
   @override
   State<HomeMainPage> createState() => _HomeMainPageState();
@@ -39,7 +42,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      drawer: _drawer(), //
+      drawer: _drawer(model: widget.model), //
       body: Stack(
         children: [
           SizedBox(
@@ -100,10 +103,10 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                   _itemH(
                         icon: Assets.emergency,
                         title: s.emergencySiren,
-                        startColor: Color(0xff0068bd),
-                        endColor: Color(0xff277ecb),
+                        startColor: const Color(0xff0068bd),
+                        endColor: const Color(0xff277ecb),
                         //
-                        itemColor: Color(0xffffffff),
+                        itemColor: const Color(0xffffffff),
                         width: screenWidth - 30,
                         opacity: 0.9,
                       )
@@ -111,99 +114,11 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                         sendCode2(Core.emergencySiren);
                       })
                       .marginOnly(bottom: 16),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      _item(
-                        icon: Assets.alarmOn,
-                        height: 85,
-                        title: s.arm,
-                        opacity: 0.9,
-                        startColor: Color(0xffff0000),
-                        endColor: Color(0xfff82020),
-                        itemColor: Color(0xffffffff), //
-                      ).onTap(() {
-                        sendCode2(Core.on);
-                      }).expanded(),
-                      const SizedBox(width: 16),
-                      _item(
-                        icon: Assets.alarmOff,
-                        height: 85,
-                        title: s.disarm,
-                        startColor: Color(0xff055b00),
-                        endColor: Color(0xff217c1b),
-                        itemColor: Color(0xffffffff),
-                        opacity: 0.9,
-                      ).onTap(() {
-                        sendCode2(Core.off);
-                      }).expanded(),
-                    ],
-                  ),
-                  _itemH(
-                    icon: Assets.alarmPart,
-                    title: s.partialArm,
-                    width: screenWidth - 30,
-                    startColor: Color(0xff0068bd),
-                    endColor: Color(0xff277ecb),
-                    //
-                    itemColor: Color(0xffffffff),
-                    opacity: 0.9,
-                  ).onTap(() {
-                    sendCode2(Core.partSet);
-                  }),
+
+                  _setAllPart(model: widget.model),
 
                   ///***************************************/
-                  Container(
-                    decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.3), borderRadius: BorderRadius.circular(8)),
-                    padding: EdgeInsets.all(4),
-                    child: Column(
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            _item(
-                              icon: Assets.alarmOn,
-                              height: 85,
-                              title: s.partArm,
-                              opacity: 0.9,
-                              startColor: Color(0xffff0000),
-                              endColor: Color(0xfff82020),
-                              itemColor: Color(0xffffffff), //
-                            ).onTap(() {
-                              showPopup(0);
-                            }).expanded(),
-                            const SizedBox(width: 16),
-                            _item(
-                              icon: Assets.alarmOff,
-                              height: 85,
-                              title: s.partDisarm,
-                              startColor: Color(0xff055b00),
-                              endColor: Color(0xff217c1b),
-                              itemColor: Color(0xffffffff),
-                              opacity: 0.9,
-                            ).onTap(() {
-                              showPopup(1);
-                            }).expanded(),
-                          ],
-                        ),
-                        _itemH(
-                          icon: Assets.alarmPart,
-                          title: s.partPartialArm,
-                          width: screenWidth - 30,
-                          startColor: Color(0xff0068bd),
-                          endColor: Color(0xff277ecb),
-                          //
-                          itemColor: Color(0xffffffff),
-                          opacity: 0.9,
-                        ).onTap(() {
-                          showPopup(2);
-                        }),
-                      ],
-                    ),
-                  ),
-
+                  _setParts(model: widget.model),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -212,10 +127,10 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                         height: 100,
                         icon: Assets.status,
                         title: s.status,
-                        startColor: Color(0xff0068bd),
-                        endColor: Color(0xff277ecb),
+                        startColor: const Color(0xff0068bd),
+                        endColor: const Color(0xff277ecb),
                         //
-                        itemColor: Color(0xffffffff),
+                        itemColor: const Color(0xffffffff),
                         opacity: 0.7,
                       ).onTap(() {
                         sendCode2(Core.deviceReport);
@@ -225,10 +140,10 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                         height: 100,
                         icon: Assets.setting,
                         title: s.setting,
-                        startColor: Color(0xff0068bd),
-                        endColor: Color(0xff277ecb),
+                        startColor: const Color(0xff0068bd),
+                        endColor: const Color(0xff277ecb),
                         //
-                        itemColor: Color(0xffffffff),
+                        itemColor: const Color(0xffffffff),
                         opacity: 0.7,
                       ).onTap(() {
                         scaffoldKey.currentState!.openDrawer();
@@ -238,10 +153,10 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                         height: 100,
                         icon: Assets.callback,
                         title: s.stopDialing,
-                        startColor: Color(0xff0068bd),
-                        endColor: Color(0xff277ecb),
+                        startColor: const Color(0xff0068bd),
+                        endColor: const Color(0xff277ecb),
                         //
-                        itemColor: Color(0xffffffff),
+                        itemColor: const Color(0xffffffff),
                         opacity: 0.7,
                       ).onTap(() {
                         sendCode2(Core.stopDialing);
@@ -263,7 +178,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
         height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          gradient: LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: [startColor ?? Color(0xff2a2a2a), endColor ?? Color(0xff5d5c5d)]),
+          gradient: LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: [startColor ?? const Color(0xff2a2a2a), endColor ?? const Color(0xff5d5c5d)]),
           // color: Colors.white.withValues(alpha: opacity ?? 0.8),
         ),
         child: Column(
@@ -287,7 +202,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
         height: height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          gradient: LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: [startColor ?? Color(0xff2a2a2a), endColor ?? Color(0xff5d5c5d)]),
+          gradient: LinearGradient(begin: Alignment.bottomRight, end: Alignment.topLeft, colors: [startColor ?? const Color(0xff2a2a2a), endColor ?? const Color(0xff5d5c5d)]),
           // color: Colors.white.withValues(alpha: opacity ?? 0.8),
         ),
         child: Row(
@@ -301,7 +216,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
         ),
       );
 
-  Widget _drawer() => Drawer(
+  Widget _drawer({required Model model}) => Drawer(
     child: Container(
       padding: const EdgeInsets.all(0),
       child: Column(
@@ -403,7 +318,11 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                           Get.updateLocale(const Locale("fa"));
                           setData("locale", "fa");
                         }
-                        offAll(const HomePage());
+                        offAll(
+                          HomePage(
+                            model: model,
+                          ),
+                        );
                       },
                     ),
 
@@ -419,7 +338,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                       icon: Assets.help,
                       text: s.help,
                       onTap: () {
-                        push(HelpView());
+                        push(const HelpView());
                       },
                     ),
                     _drawerItems(
@@ -486,12 +405,12 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
   void showPopup(int status) => Get.dialog(
     Dialog(
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           spacing: 8,
           children: [
-            Text('انتخاب پارت'),
+            const Text('انتخاب پارت'),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               spacing: 8,
@@ -553,16 +472,16 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                   );
                 }).expanded(),
                 if (Core.selectedModel.modelId != 1)
-                _itemPopupDialog('Part 6').onTap(() {
-                  sendCode3(
-                    status == 0
-                        ? Core.partOn
-                        : status == 1
-                        ? Core.partOff
-                        : Core.partPartialArm,
-                    5,
-                  );
-                }).expanded(),
+                  _itemPopupDialog('Part 6').onTap(() {
+                    sendCode3(
+                      status == 0
+                          ? Core.partOn
+                          : status == 1
+                          ? Core.partOff
+                          : Core.partPartialArm,
+                      5,
+                    );
+                  }).expanded(),
               ],
             ),
             if (Core.selectedModel.modelId == 3)
@@ -600,8 +519,177 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
 
   Widget _itemPopupDialog(String title) => Container(
     //
-    padding: EdgeInsets.all(8),
+    padding: const EdgeInsets.all(8),
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: Colors.blue),
     child: Center(child: Text(title).bodyLarge(color: Colors.white)),
   );
+
+  Widget _setParts({required Model model}) {
+    List<PartModel> activeParts = model.partModels!.where((element) => element.isActive == 1).toList();
+    return Column(
+      children: [
+        if (activeParts.isNotEmpty)
+          Container(
+            decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.3), borderRadius: BorderRadius.circular(8)),
+            padding: const EdgeInsets.all(4),
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _item(
+                      icon: Assets.alarmOn,
+                      height: 85,
+                      title: '${s.partArm} ${activeParts.first.partNumber}',
+                      opacity: 0.9,
+                      startColor: const Color(0xffff0000),
+                      endColor: const Color(0xfff82020),
+                      itemColor: const Color(0xffffffff), //
+                    ).onTap(() {
+                      sendCode3(Core.partOn, activeParts.first.partNumber!);
+                      // sendCode3(activeParts.first.partNumber==1?Core.on:Core.partOn, activeParts.first.partNumber!);
+                    }).expanded(),
+                    const SizedBox(width: 16),
+                    _item(
+                      icon: Assets.alarmOff,
+                      height: 85,
+                      title: '${s.partDisarm} ${activeParts.first.partNumber}',
+                      startColor: const Color(0xff055b00),
+                      endColor: const Color(0xff217c1b),
+                      itemColor: const Color(0xffffffff),
+                      opacity: 0.9,
+                    ).onTap(() {
+                      sendCode3(Core.partOff, activeParts.first.partNumber!);
+                      // sendCode3(activeParts.first.partNumber==1?Core.off:Core.partOff, activeParts.first.partNumber!);
+                    }).expanded(),
+                  ],
+                ),
+                _itemH(
+                  icon: Assets.alarmPart,
+                  title: '${s.partPartialArm} ${activeParts.first.partNumber}',
+                  width: screenWidth - 30,
+                  startColor: const Color(0xff0068bd),
+                  endColor: const Color(0xff277ecb),
+                  //
+                  itemColor: const Color(0xffffffff),
+                  opacity: 0.9,
+                ).onTap(() {
+                  sendCode3(Core.partPartialArm, activeParts.first.partNumber!);
+                  // sendCode3(activeParts.first.partNumber==1?Core.partSet:Core.partPartialArm, activeParts.first.partNumber!);
+                }),
+              ],
+            ),
+          ),
+        if (activeParts.length > 1)
+          Container(
+            decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.3), borderRadius: BorderRadius.circular(8)),
+            padding: const EdgeInsets.all(4),
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _item(
+                      icon: Assets.alarmOn,
+                      height: 85,
+                      title: '${s.partArm} ${activeParts.last.partNumber}',
+                      opacity: 0.9,
+                      startColor: const Color(0xffff0000),
+                      endColor: const Color(0xfff82020),
+                      itemColor: const Color(0xffffffff),
+                    ).onTap(() {
+                      // sendCode3(activeParts.last.partNumber==1?Core.on:Core.partOn, activeParts.last.partNumber!);
+                      sendCode3(Core.partOn, activeParts.last.partNumber!);
+                    }).expanded(),
+                    const SizedBox(width: 16),
+                    _item(
+                      icon: Assets.alarmOff,
+                      height: 85,
+                      title: '${s.partDisarm} ${activeParts.last.partNumber}',
+                      startColor: const Color(0xff055b00),
+                      endColor: const Color(0xff217c1b),
+                      itemColor: const Color(0xffffffff),
+                      opacity: 0.9,
+                    ).onTap(() {
+                      // sendCode3(activeParts.last.partNumber==1?Core.off:Core.partOff, activeParts.last.partNumber!);
+                      sendCode3(Core.partOff, activeParts.last.partNumber!);
+                    }).expanded(),
+                  ],
+                ),
+                _itemH(
+                  icon: Assets.alarmPart,
+                  title: '${s.partPartialArm} ${activeParts.last.partNumber}',
+                  width: screenWidth - 30,
+                  startColor: const Color(0xff0068bd),
+                  endColor: const Color(0xff277ecb),
+                  //
+                  itemColor: const Color(0xffffffff),
+                  opacity: 0.9,
+                ).onTap(() {
+                  // sendCode3(activeParts.last.partNumber==1?Core.partSet:Core.partPartialArm, activeParts.last.partNumber!);
+                  sendCode3(Core.partPartialArm, activeParts.last.partNumber!);
+                }),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+
+  Widget _setAllPart({required Model model}) {
+    List<PartModel> activeParts = model.partModels!.where((element) => element.isActive == 1).toList();
+    return activeParts.isEmpty
+        ? Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _item(
+                    icon: Assets.alarmOn,
+                    height: 85,
+                    title: s.arm,
+                    opacity: 0.9,
+                    startColor: const Color(0xffff0000),
+                    endColor: const Color(0xfff82020),
+                    itemColor: const Color(0xffffffff), //
+                  ).onTap(() {
+                    sendCode2(Core.on);
+                  }).expanded(),
+                  const SizedBox(width: 16),
+                  _item(
+                    icon: Assets.alarmOff,
+                    height: 85,
+                    title: s.disarm,
+                    startColor: const Color(0xff055b00),
+                    endColor: const Color(0xff217c1b),
+                    itemColor: const Color(0xffffffff),
+                    opacity: 0.9,
+                  ).onTap(() {
+                    sendCode2(Core.off);
+                  }).expanded(),
+                ],
+              ),
+              _itemH(
+                icon: Assets.alarmPart,
+                title: s.partialArm,
+                width: screenWidth - 30,
+                startColor: const Color(0xff0068bd),
+                endColor: const Color(0xff277ecb),
+                //
+                itemColor: const Color(0xffffffff),
+                opacity: 0.9,
+              ).onTap(() {
+                sendCode2(Core.partSet);
+              }),
+            ],
+          )
+        : Container(
+            width: 100,
+            height: 10,
+            color: Colors.red,
+          );
+  }
 }

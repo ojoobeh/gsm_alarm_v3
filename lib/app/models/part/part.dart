@@ -9,6 +9,7 @@ class PartModel {
     this.id,
     this.deviceId = 0,
     this.title,
+    this.partNumber,
     this.isActive,
   });
   @HiveField(0)
@@ -18,5 +19,7 @@ class PartModel {
   @HiveField(2)
   String? title;
   @HiveField(3)
+  int? partNumber;
+  @HiveField(4)
   int? isActive;
 }

@@ -2534,16 +2534,6 @@ class S {
     );
   }
 
-  /// `Two-stage shutdown of the device (double protection)`
-  String get twoStageShutdownOfTheDevice {
-    return Intl.message(
-      'Two-stage shutdown of the device (double protection)',
-      name: 'twoStageShutdownOfTheDevice',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `این برنامه متعلق به مجموعه فنی مهندسی تولیدی آرنیک اصفهان میباشد و هر گونه کپی برداری از آن پیگرد قانونی دارد`
   String get warningApp {
     return Intl.message(
@@ -2659,6 +2649,16 @@ class S {
     return Intl.message(
       'Send remaining charge',
       name: 'sendRemainingCharge',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Periodic sending of remaining charge`
+  String get periodicSendingOfRemainingCharge {
+    return Intl.message(
+      'Periodic sending of remaining charge',
+      name: 'periodicSendingOfRemainingCharge',
       desc: '',
       args: [],
     );

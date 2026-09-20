@@ -129,7 +129,7 @@ void simCardCharge(String key) {
 }
 
 void sendMessage(String message) {
-    String body = message;
+    String body = message.replaceAll('PASS', Core.selectedModel.password??'-');
     if (Core.selectDeviceModel.value.hasWifi == 1 && (getBool(AppConstants.isWifi) ?? false)) {
       body = ("${body}W");
     }

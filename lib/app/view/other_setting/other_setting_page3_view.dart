@@ -32,7 +32,7 @@ class _OtherSettingPage3ViewState extends State<OtherSettingPage3View> with Othe
           item(title: s.setupStimulationType, params: <String>[s.momentary, s.surface], code: Core.setupStimulationType),
           item(title: s.setupLanguageSMS, params: <String>[s.english, s.persian], code: Core.setupLanguageSMS, defaultParamIndex: 1),
           item(title: s.defaultDialingSystem, params: <String>[s.simCard, s.fixedLine], code: Core.defaultDialingSystem),
-          item(title: s.remoteControl, params: <String>[s.on, s.off], code: Core.remoteControl, defaultParamIndex: 1),
+          item(title: s.callAdminByPhone, params: <String>[s.on, s.off], code: Core.callAdminByPhone, defaultParamIndex: 1),
           item(title: s.setAlarmTime, params: <String>[s.oneMinute, s.twoMinute], code: Core.setAlarmTime),
           item(title: s.singleSirenSetting, params: <String>[s.all, s.internalSpeaker], code: Core.singleSirenSetting),
           // item(title: s.adjustTheTypeOfDingDong, params: <String>[s.welcome,s.melody], code: Core.adjustTheTypeOfDingDong),

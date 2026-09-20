@@ -10,9 +10,9 @@ import 'package:bestdroid/app/models/data_manager.dart';
 import 'package:bestdroid/app/view/home/home_controller.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({this.model,super.key, });
+  const HomePage({required this.model,super.key, });
 
-  final Model? model;
+  final Model model;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -30,6 +30,9 @@ class _HomePageState extends State<HomePage> with HomeController ,OutputsControl
 
   @override
   void initState() {
+
+    Model? _model=widget.model;
+    debugPrint('dddd');
 
 
     init(
@@ -53,7 +56,7 @@ class _HomePageState extends State<HomePage> with HomeController ,OutputsControl
         label: s.mainPage,
 
       ),
-      page: HomeMainPage(title: s.mainPage,),
+      page: HomeMainPage(title: s.mainPage,model:widget.model),
     ));
     listCurrent.add(NavigationModel(
       bottom: BottomNavigationBarItem(

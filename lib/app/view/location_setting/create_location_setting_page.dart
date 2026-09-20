@@ -278,6 +278,7 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
       PartModel outputModel = PartModel(
         id: (PartManager.getList().lastOrNull?.id ?? 0) + 1,
         title: 'Part ${i + 1}',
+        partNumber: i + 1,
         deviceId: model.id ?? 0,
         isActive: partList[i].isActive,
       );
