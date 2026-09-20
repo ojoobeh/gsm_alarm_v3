@@ -46,7 +46,7 @@ class Core {
   static List<DeviceModel> deviceModelList = <DeviceModel>[
     DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, partNumber: 0,zoneNumber:14, hasWifi: 0),
     DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 4, partNumber: 8,zoneNumber:8, hasWifi: 0),
-    DeviceModel(id: 3, model: 'HITEC', selected: 0, hasMultiPart: 1, outputNumber: 8, partNumber: 5,zoneNumber:5, hasWifi: 0),
+    DeviceModel(id: 3, model: 'DELTA5', selected: 0, hasMultiPart: 1, outputNumber: 8, partNumber: 5,zoneNumber:5, hasWifi: 0),
   ];
   static List<PartModel> partModelList = <PartModel>[PartModel(id: 0, title: s.generalPart), PartModel(id: 1, title: s.part1), PartModel(id: 2, title: s.part2)];
 
@@ -108,7 +108,7 @@ class Core {
   static CodeModel connectingTheKeypad = CodeModel(id: 26, model1: '*PASS*52#VAL#', model2: '*PASS*60#VAL#', model3: '*PASS*60#VAL#');
   static CodeModel rFReceiverActivation = CodeModel(id: 26, model1: '*PASS*53#VAL#', model2: '-', model3: '-');
   static CodeModel sendRemainingCharge = CodeModel(id: 26, model1: '*PASS*55#VAL#', model2: '-', model3: '-');
-  static CodeModel simCardModuleActivation = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
+  // static CodeModel simCardModuleActivation = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
   static CodeModel zone13Masha = CodeModel(id: 26, model1: '*PASS*57#VAL#', model2: '-', model3: '-');
   static CodeModel doubleProtection = CodeModel(id: 26, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
   static CodeModel zone14ManualSwitch = CodeModel(id: 26, model1: '*PASS*58#VAL#', model2: '*PASS*58#VAL#', model3: '*PASS*58#VAL#');
@@ -117,7 +117,7 @@ class Core {
   static CodeModel changingTheVolumeOfSSingleSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
   static CodeModel changeKeypadPassword = CodeModel(id: 26, model1: '-', model2: '*PASS*31#NEWPASS#', model3: '*PASS*31#NEWPASS#');
   static CodeModel changeOut1ByRemote = CodeModel(id: 26, model1: '-', model2: '*PASS*45#VAL#', model3: '*PASS*45#VAL#');
-  static CodeModel rejectCallFromUnknownNumber = CodeModel(id: 26, model1: '*PASS*46#VAL#', model2: '-', model3: '-');
+  static CodeModel rejectCallFromUnknownNumber = CodeModel(id: 26, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
   static CodeModel notificationOfDeviceNotTurningOnAfterTwoHours = CodeModel(id: 26, model1: '-', model2: 'PASS*46#VAL#', model3: 'PASS*46#VAL#');
   static CodeModel deleteRemote = CodeModel(id: 26, model1: '*PASS*47#VAL#', model2: '*PASS*47#VAL#', model3: '*PASS*47#VAL#');
   static CodeModel powerOutageCall = CodeModel(id: 26, model1: '*PASS*52#VAL#', model2: '*PASS*52#VAL#', model3: '*PASS*52#VAL#');
