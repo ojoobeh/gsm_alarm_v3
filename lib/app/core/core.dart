@@ -113,7 +113,7 @@ class Core {
   static CodeModel doubleProtection = CodeModel(id: 26, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
   static CodeModel zone14ManualSwitch = CodeModel(id: 26, model1: '*PASS*58#VAL#', model2: '*PASS*58#VAL#', model3: '*PASS*58#VAL#');
   static CodeModel changeDevicePassword = CodeModel(id: 26, model1: '-', model2: '*PASS*27#NEWPASS#', model3: '*PASS*27#NEWPASS#');
-  static CodeModel changingTheVolumeOfTheMainSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
+  // static CodeModel changingTheVolumeOfTheMainSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
   static CodeModel changingTheVolumeOfSSingleSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
   static CodeModel changeKeypadPassword = CodeModel(id: 26, model1: '-', model2: '*PASS*31#NEWPASS#', model3: '*PASS*31#NEWPASS#');
   static CodeModel changeOut1ByRemote = CodeModel(id: 26, model1: '-', model2: '*PASS*45#VAL#', model3: '*PASS*45#VAL#');
