@@ -283,6 +283,7 @@
   "internalBellMessage": "Internal bell message",
   "lowBatteryWarning": "Low battery warning",
   "powerOutageCall": "Power outage call",
+  "convertingNormalCloseToNormalOpenZones": "Converting normal CLOSE to normal OPEN zones",
   "notificationOfDeviceNotTurningOnAfterTwoHours": "Notification of device not turning on after two hours",
   "convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn": "Converting remote out1 to negative output when the device is turned on",
   "help1": "<![CDATA[\n<p>پس از نصب نرم افزار، ابتدا باید اطلاعات مربوط به دستگاه و محل نصب را از طریق قسمت تنظیمات محل نصب در نرم افزار ذخیره کنید. پس از ذخیره، نام محل نصب بالای صفحه اصلی نمایش داده می شود. </p>\n<p>در صورتی که از سیستم حفاظتی  Gsm در محل دیگری نیز استفاده می کنید، با اضافه کردن این محل از طریق نرم افزار، سیستم های حفاظتی ذخیره شده را کنترل نمائید.</p>\n ",

@@ -95,6 +95,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactTheManagerThroughAFixedLine":
             MessageLookupByLibrary.simpleMessage(
                 "تماس از طریق خط ثابت با مدیر"),
+        "convertingNormalCloseToNormalOpenZones":
+            MessageLookupByLibrary.simpleMessage(
+                "تبدیل نرمال CLOSE به نرمال OPEN زونها"),
         "convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn":
             MessageLookupByLibrary.simpleMessage(
                 "تبدیل out1 ریموت به خروجی منفی با روشن شدن دستگاه"),

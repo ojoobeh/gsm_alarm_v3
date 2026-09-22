@@ -24,6 +24,7 @@ mixin OtherSettingController {
   final TextEditingController etPhone = TextEditingController();
   final TextEditingController etRemoteNumber = TextEditingController();
   final TextEditingController etZoneNumber = TextEditingController();
+  final TextEditingController etZoneNumber2 = TextEditingController();
   final TextEditingController etAdminPassword = TextEditingController();
   final TextEditingController etBurglarAlarmPassword = TextEditingController();
   final TextEditingController etDevicePassword = TextEditingController();
@@ -57,6 +58,7 @@ mixin OtherSettingController {
   final setAlarmTime = 0.obs;
   final setZoneStatus = 0.obs;
   final setSirenOnStatus = 0.obs;
+  final setChaneCloseToOpen = 0.obs;
 
   // final singleSirenSetting = 0.obs;
   final outputAdjustment1 = 0.obs;
@@ -169,6 +171,8 @@ mixin OtherSettingController {
 
   void setSetSirenOnStatus(int _setSirenOnStatus) {
     this.setSirenOnStatus(_setSirenOnStatus);
+  }  void setSetChaneCloseToOpen(int _setChaneCloseToOpen) {
+    this.setChaneCloseToOpen(_setChaneCloseToOpen);
   }
 
   // void setSingleSirenSetting(int _singleSirenSetting) {
@@ -261,6 +265,15 @@ mixin OtherSettingController {
     }
   }
 
+  Future<void> chaneCloseToOpen() async {
+    String dd = etZoneNumber2.text;
+    if (dd.length > 0) {
+      String code = getCode(Core.convertingNormalCloseToNormalOpenZones);
+      sendMessage(code.replaceAll("VAL", (setChaneCloseToOpen.value+(Core.selectedModel.modelId==1?0:1)).toString()).replaceAll("ZONE", (dd).toString()));
+    } else {
+      snackbarRed(title: s.error, subtitle: "Enter the remote number");
+    }
+  } //'*PASS*70#ZONEVAL#',
   Future<void> silencingASingleZone() async {
     String dd = etZoneNumber.text;
     if (dd.length > 0) {

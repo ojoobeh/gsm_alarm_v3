@@ -100,6 +100,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactTheManagerThroughAFixedLine":
             MessageLookupByLibrary.simpleMessage(
                 "Contact the manager through a fixed line"),
+        "convertingNormalCloseToNormalOpenZones":
+            MessageLookupByLibrary.simpleMessage(
+                "Converting normal CLOSE to normal OPEN zones"),
         "convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn":
             MessageLookupByLibrary.simpleMessage(
                 "Converting remote out1 to negative output when the device is turned on"),

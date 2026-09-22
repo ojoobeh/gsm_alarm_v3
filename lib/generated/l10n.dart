@@ -2864,6 +2864,16 @@ class S {
     );
   }
 
+  /// `Converting normal CLOSE to normal OPEN zones`
+  String get convertingNormalCloseToNormalOpenZones {
+    return Intl.message(
+      'Converting normal CLOSE to normal OPEN zones',
+      name: 'convertingNormalCloseToNormalOpenZones',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Notification of device not turning on after two hours`
   String get notificationOfDeviceNotTurningOnAfterTwoHours {
     return Intl.message(

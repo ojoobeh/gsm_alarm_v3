@@ -112,7 +112,7 @@ class Core {
   static CodeModel zone13Masha = CodeModel(id: 26, model1: '*PASS*57#VAL#', model2: '-', model3: '-');
   static CodeModel doubleProtection = CodeModel(id: 26, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
   static CodeModel zone14ManualSwitch = CodeModel(id: 26, model1: '*PASS*58#VAL#', model2: '*PASS*58#VAL#', model3: '*PASS*58#VAL#');
-  static CodeModel changeDevicePassword = CodeModel(id: 26, model1: '*PASS*27#NEWPASS#', model2: '*PASS*27#NEWPASS#', model3: '*PASS*27#NEWPASS#');
+  static CodeModel changeDevicePassword = CodeModel(id: 26, model1: '-', model2: '*PASS*27#NEWPASS#', model3: '*PASS*27#NEWPASS#');
   static CodeModel changingTheVolumeOfTheMainSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
   static CodeModel changingTheVolumeOfSSingleSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
   static CodeModel changeKeypadPassword = CodeModel(id: 26, model1: '-', model2: '*PASS*31#NEWPASS#', model3: '*PASS*31#NEWPASS#');
@@ -120,7 +120,7 @@ class Core {
   static CodeModel rejectCallFromUnknownNumber = CodeModel(id: 26, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
   static CodeModel notificationOfDeviceNotTurningOnAfterTwoHours = CodeModel(id: 26, model1: '-', model2: 'PASS*46#VAL#', model3: 'PASS*46#VAL#');
   static CodeModel deleteRemote = CodeModel(id: 26, model1: '*PASS*47#VAL#', model2: '*PASS*47#VAL#', model3: '*PASS*47#VAL#');
-  static CodeModel powerOutageCall = CodeModel(id: 26, model1: '*PASS*52#VAL#', model2: '*PASS*52#VAL#', model3: '*PASS*52#VAL#');
+  static CodeModel powerOutageCall = CodeModel(id: 26, model1: '-', model2: '*PASS*52#VAL#', model3: '-');
   static CodeModel lowBatteryWarning = CodeModel(id: 26, model1: '-', model2: '*PASS*53#VAL#', model3: '*PASS*53#VAL#');
   static CodeModel instantaneousOutputTimerBasedOn = CodeModel(id: 26, model1: '-', model2: '*PASS*50#VAL#', model3: '*PASS*50#VAL#');
   static CodeModel internalBellMessage = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
@@ -134,6 +134,7 @@ class Core {
     model3: '*PASS*57#VAL#',
   );
   static CodeModel silencingASingleZone = CodeModel(id: 26, model1: '*PASS*56#ZONEVAL#', model2: '*PASS*70#ZONEVAL#', model3: '*PASS*70#ZONEVAL#');
+  static CodeModel convertingNormalCloseToNormalOpenZones = CodeModel(id: 26, model1: '*PASS*50#ZONEVAL#', model2: '*PASS*70#ZONEVAL#', model3: '*PASS*70#ZONEVAL#');
 
   // static Rx<LocationSettingModel> selectLocationSettingModel = LocationSettingModel().obs;
 
