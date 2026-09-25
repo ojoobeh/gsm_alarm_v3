@@ -96,22 +96,33 @@ mixin OtherSettingController {
     selectZone(zoneList[0]);
   }
 
-  void setCallPriority(CallPriorityModel _callPriorityModel) {
-    selectCallPriority(_callPriorityModel);
-  }
-
   void setVolumeMainAlarm(double _volumeMainAlarm) {
     volumeMainAlarm(_volumeMainAlarm);
   }
-  Future<void> sendVolumeMainAlarm() async {
-    String code = await getCode(Core.singleSirenVolumeControl);
-    sendMessage(code.replaceAll("X", (volumeMainAlarm.value.toInt()).toString()));
-  }
-
 
   void setVolumeSingleAlarm(double _volumeSingleAlarm) {
     volumeSingleAlarm(_volumeSingleAlarm);
   }
+
+
+  Future<void> sendVolumeSingleAlarm() async {
+    String code = await getCode(Core.singleSirenVolumeControl);
+    sendMessage(code.replaceAll("X", (volumeSingleAlarm.value.toInt()).toString()));
+  }
+
+  Future<void> sendVolumeMainAlarm() async {
+    String code = await getCode(Core.changingTheVolumeOfTheMainSiren);
+    sendMessage(code.replaceAll("X", (volumeMainAlarm.value.toInt()).toString()));
+  }
+
+
+
+  void setCallPriority(CallPriorityModel _callPriorityModel) {
+    selectCallPriority(_callPriorityModel);
+  }
+
+
+
 
   void setZone(ZoneModel _zoneModel) {
     selectZone(_zoneModel);

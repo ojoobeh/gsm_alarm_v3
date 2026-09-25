@@ -34,7 +34,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -86,7 +86,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -118,7 +118,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -141,7 +141,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -177,7 +177,56 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
               ],
             ),
           ),
-          if(Core.selectedModel.modelId==1)
+          if (Core.selectedModel.modelId == 1)
+            Container(
+              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.theme.scaffoldBackgroundColor,
+                boxShadow: [BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  appTextFormField(
+                    title: s.convertingNormalCloseToNormalOpenZones,
+                    inputType: TextInputType.number,
+                    maxLength: 1,
+                    controller: etZoneNumber2,
+                    hint: s.remoteZone,
+                  ),
+                  const SizedBox(height: 8),
+                  Obx(() {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Row(
+                          children: [
+                            Radio(value: 0, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetSirenOnStatus(0)),
+                            Text('Close', style: const TextStyle(fontSize: 12)),
+                          ],
+                        ), //
+                        Row(
+                          children: [
+                            Radio(value: 1, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetSirenOnStatus(1)),
+                            Text('Open', style: const TextStyle(fontSize: 12)),
+                          ],
+                        ),
+                      ],
+                    );
+                  }),
+                  const SizedBox(height: 8),
+                  button(
+                    title: s.send,
+                    onTap: () {
+                      chaneCloseToOpen();
+                    },
+                  ),
+                ],
+              ),
+            ),
           Container(
             padding: const EdgeInsets.all(8),
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -185,50 +234,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                appTextFormField(title: s.convertingNormalCloseToNormalOpenZones, inputType: TextInputType.number, maxLength: 1, controller: etZoneNumber2, hint: s.remoteZone),
-                const SizedBox(height: 8),
-                Obx(() {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
-                        children: [
-                          Radio(value: 0, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetSirenOnStatus(0)),
-                          Text('Close', style: const TextStyle(fontSize: 12)),
-                        ],
-                      ), //
-                      Row(
-                        children: [
-                          Radio(value: 1, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetSirenOnStatus(1)),
-                          Text('Open', style: const TextStyle(fontSize: 12)),
-                        ],
-                      ),
-                    ],
-                  );
-                }),
-                const SizedBox(height: 8),
-                button(
-                  title: s.send,
-                  onTap: () {
-                    chaneCloseToOpen();
-                  },
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.all(8),
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8))],
+              boxShadow: [BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8))],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -238,7 +244,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                   return Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      border: Border.all(color: context.theme.dividerColor.withOpacity(0.8), width: 1),
+                      border: Border.all(color: context.theme.dividerColor.withValues(alpha: 0.8), width: 1),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
@@ -327,7 +333,7 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                             : SizedBox(),
                         Core.selectedModel.modelId != 1
                             ? Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Radio(value: 6, groupValue: setZoneStatus.value, onChanged: (value) => setSetZoneStatus(6)),
                                   Text('Normal CLOSE & Normal OPEN', style: const TextStyle(fontSize: 12)),
@@ -368,54 +374,102 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
               ],
             ),
           ),
-          if(Core.selectedModel.modelId==3)
-          Container(
-            padding: const EdgeInsets.all(8),
-            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: context.theme.scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
-              ],
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(s.setVolumeMainAlarm).bodySmall().marginOnly(bottom: 4, top: 20),
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: context.theme.dividerColor.withOpacity(0.8), width: 1),
-                    borderRadius: BorderRadius.circular(8),
+          if (Core.selectedModel.modelId == 3)
+            Container(
+              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.theme.scaffoldBackgroundColor,
+                boxShadow: [
+                  BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8)),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(s.singleSirenVolumeControl).bodySmall().marginOnly(bottom: 4, top: 20),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: context.theme.dividerColor.withValues(alpha: 0.8), width: 1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Obx(() {
+                      return Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: Slider(
+                          value: volumeSingleAlarm.value,
+                          min: 0,
+                          max: 9,
+                          divisions: 9,
+                          label: volumeSingleAlarm.value.round().toString(),
+                          onChanged: (value) {
+                            setVolumeSingleAlarm(value);
+                          },
+                        ),
+                      );
+                    }),
                   ),
-                  child: Obx(() {
-                    return Directionality(
-                      textDirection: TextDirection.ltr,
-                      child: Slider(
-                        value: volumeMainAlarm.value,
-                        min: 0,
-                        max: 9,
-                        divisions: 9,
-                        label: volumeMainAlarm.value.round().toString(),
-                        onChanged: (value) {
-                          setVolumeMainAlarm(value);//
-                        },
-                      ),
-                    );
-                  }),
-                ),
-                const SizedBox(height: 8),
-                button(
-                  title: s.send,
-                  onTap: () {
-                    sendVolumeMainAlarm();
-                  },
-                )
-              ],
+                  const SizedBox(height: 8),
+                  button(
+                    title: s.send,
+                    onTap: () {
+                      sendVolumeSingleAlarm();
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
+          if (Core.selectedModel.modelId == 3)
+            Container(
+              padding: const EdgeInsets.all(8),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: context.theme.scaffoldBackgroundColor,
+                boxShadow: [
+                  BoxShadow(color: context.theme.dividerColor.withValues(alpha: 0.5), blurRadius: 20, offset: const Offset(0, 8)),
+                ],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(s.setVolumeMainAlarm).bodySmall().marginOnly(bottom: 4, top: 20),
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: context.theme.dividerColor.withValues(alpha: 0.8), width: 1),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Obx(() {
+                      return Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: Slider(
+                          value: volumeMainAlarm.value,
+                          min: 0,
+                          max: 9,
+                          divisions: 9,
+                          label: volumeMainAlarm.value.round().toString(),
+                          onChanged: (value) {
+                            setVolumeMainAlarm(value);
+                          },
+                        ),
+                      );
+                    }),
+                  ),
+                  const SizedBox(height: 8),
+                  button(
+                    title: s.send,
+                    onTap: () {
+                      sendVolumeMainAlarm();
+                    },
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
