@@ -126,6 +126,7 @@ class Core {
   static CodeModel internalBellMessage = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
   static CodeModel chirpPartSet = CodeModel(id: 26, model1: '-', model2: '*PASS*55#VAL#', model3: '*PASS*55#VAL#');
   static CodeModel disableSIMCardCalls = CodeModel(id: 26, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
+  static CodeModel singleSirenVolumeControl = CodeModel(id: 26, model1: '-', model2: '-', model3: '*PASS*28#2X#');
   static CodeModel smsFromUnknownNumberCalledMr = CodeModel(
     id: 26,
     //پیامک شماره ناشناس تماس گرفته شده به مستر

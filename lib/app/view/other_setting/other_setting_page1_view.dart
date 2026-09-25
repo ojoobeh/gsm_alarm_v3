@@ -177,7 +177,6 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
               ],
             ),
           ),
-
           if(Core.selectedModel.modelId==1)
           Container(
             padding: const EdgeInsets.all(8),
@@ -366,6 +365,54 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                     sendSetZone();
                   },
                 ),
+              ],
+            ),
+          ),
+          if(Core.selectedModel.modelId==3)
+          Container(
+            padding: const EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: context.theme.scaffoldBackgroundColor,
+              boxShadow: [
+                BoxShadow(color: context.theme.dividerColor.withOpacity(0.5), blurRadius: 20, offset: const Offset(0, 8)),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(s.setVolumeMainAlarm).bodySmall().marginOnly(bottom: 4, top: 20),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: context.theme.dividerColor.withOpacity(0.8), width: 1),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Obx(() {
+                    return Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: Slider(
+                        value: volumeMainAlarm.value,
+                        min: 0,
+                        max: 9,
+                        divisions: 9,
+                        label: volumeMainAlarm.value.round().toString(),
+                        onChanged: (value) {
+                          setVolumeMainAlarm(value);//
+                        },
+                      ),
+                    );
+                  }),
+                ),
+                const SizedBox(height: 8),
+                button(
+                  title: s.send,
+                  onTap: () {
+                    sendVolumeMainAlarm();
+                  },
+                )
               ],
             ),
           ),

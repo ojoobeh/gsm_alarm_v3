@@ -103,6 +103,11 @@ mixin OtherSettingController {
   void setVolumeMainAlarm(double _volumeMainAlarm) {
     volumeMainAlarm(_volumeMainAlarm);
   }
+  Future<void> sendVolumeMainAlarm() async {
+    String code = await getCode(Core.singleSirenVolumeControl);
+    sendMessage(code.replaceAll("X", (volumeMainAlarm.value.toInt()).toString()));
+  }
+
 
   void setVolumeSingleAlarm(double _volumeSingleAlarm) {
     volumeSingleAlarm(_volumeSingleAlarm);
