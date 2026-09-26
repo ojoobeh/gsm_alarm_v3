@@ -46,11 +46,12 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     } else {
       partList.clear();
       for (int i = 0; i < (Core.deviceModelList.first.partNumber ?? 0); i++) {
+
         partList.add(
           PartModel(
-            id: (i + 1),
-            title: 'Part ${i + 1}',
-            isActive: 0,
+            id: i,
+            title: 'Part $i',
+            isActive: i == 0 ? 1 : 0,
             deviceId: ModelManager.getList().length + 1,
           ),
         );
@@ -149,7 +150,6 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
 
                           Obx(() {
                             final parts = partList;
-                            final selected = partSelected;
 
                             if (parts.isEmpty) {
                               return const SizedBox();
@@ -159,38 +159,60 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                               padding: EdgeInsets.zero,
                               physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
-                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, childAspectRatio: 16 / 6),
-                              itemCount: parts.length,
+                              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3,
+                                childAspectRatio: 16 / 6,
+                              ),
+                              itemCount:(selectDeviceModel.value.id==1)? parts.length:parts.length-1,
                               itemBuilder: (context, index) {
-                                final part = parts[index];
+                                int _index=index;
+                                if(selectDeviceModel.value.id!=1){
+                                  _index++;
+                                }
 
-                                final isSelected = selected.any((item) => item.id == part.id);
+                                final part = parts[_index];
+
+                                final isSelected = part.isActive == 1;
 
                                 return Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                                  margin: const EdgeInsets.symmetric(
+                                    horizontal: 4,
+                                    vertical: 2,
+                                  ),
                                   child: Row(
                                     spacing: 8,
                                     children: [
                                       SizedBox(
-                                        width: 16,
-                                        height: 16,
-                                        child: Checkbox(
-                                          value: parts[index].isActive == 1,
+                                        width: 20,
+                                        height: 20,
+                                        child: Radio<int>(
+                                          value: part.id ?? index,
+                                          groupValue: parts
+                                              .firstWhereOrNull(
+                                                (item) => item.isActive == 1,
+                                              )
+                                              ?.id,
                                           onChanged: (value) {
-                                            if (parts[index].isActive == 1) {
-                                              parts[index].isActive = (0);
-                                            } else {
-                                              if (parts.where((PartModel item) => item.isActive == 1).toList().length > 1) {
-                                                snackbarRed(title: s.warning, subtitle: 'تعداد پارت انتخابی نباید بیش از 2 پارت باشد');
-                                              } else {
-                                                parts[index].isActive = (1);
-                                              }
+                                            if (value == null) return;
+
+                                            // همه رو غیرفعال کن
+                                            for (final item in parts) {
+                                              item.isActive = 0;
                                             }
+
+                                            // فقط مورد انتخاب‌شده فعال بشه
+                                            part.isActive = 1;
+
                                             parts.refresh();
                                           },
                                         ),
                                       ),
-                                      Text(part.title ?? 'Part $index'),
+                                      Expanded(
+                                        child: Text(
+                                         part.id==0?'ALL': part.title ?? 'Part $index',
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 );
@@ -277,8 +299,8 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     for (int i = 0; i < partList.length; i++) {
       PartModel outputModel = PartModel(
         id: (PartManager.getList().lastOrNull?.id ?? 0) + 1,
-        title: 'Part ${i + 1}',
-        partNumber: i + 1,
+        title: 'Part $i ',
+        partNumber: i,
         deviceId: model.id ?? 0,
         isActive: partList[i].isActive,
       );

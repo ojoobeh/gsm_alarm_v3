@@ -15,8 +15,8 @@ mixin LocationSettingController {
 
   RxBool part1IsOn = false.obs;
   RxBool part2IsOn = false.obs;
-  RxList<PartModel> partSelected=<PartModel>[].obs;
-  RxList<PartModel> partList=<PartModel>[].obs;
+  RxList<PartModel> partSelected = <PartModel>[].obs;
+  RxList<PartModel> partList = <PartModel>[].obs;
 
   TextEditingController passwordController = TextEditingController();
   TextEditingController simNumberController = TextEditingController();
@@ -28,28 +28,33 @@ mixin LocationSettingController {
   List<DeviceModel> deviceModelList = <DeviceModel>[];
   Rx<DeviceModel> selectDeviceModel = DeviceModel().obs;
   Rx<PartModel> partModels = PartModel().obs;
-  Rx<PartModel> selectPartModel = PartModel(title: s.generalPart,id: 0).obs;
+  Rx<PartModel> selectPartModel = PartModel(title: s.generalPart, id: 0).obs;
 
-
-  void setPartList(int length){
+  void setPartList(int length) {
     partList.clear();
+
+
+
     for (int i = 0; i < length; i++) {
+
+      int _isActive=0;
+      if(selectDeviceModel.value.id==1){
+        _isActive=i == 0 ? 1 : 0;
+      }else{
+        _isActive=i == 1 ? 1 : 0;
+      }
+
       partList.add(
         PartModel(
-          id: (i + 1),
-          title: 'Part ${i + 1}',
-          isActive: 0,
+          id: i,
+          title: 'Part $i',
+          isActive: _isActive,
           deviceId: ModelManager.getList().length + 1,
         ),
       );
-
-    }
+    } //
     partList.refresh();
-
   }
-
-
-
 
   bool isValidParam() {
     if (nameController.text.isNotEmpty) {
@@ -65,7 +70,6 @@ mixin LocationSettingController {
     }
   }
 
-
   void updateSimCardTypeIndex(int id) {}
 
   Future<void> init({required VoidCallback action}) async {
@@ -75,7 +79,10 @@ mixin LocationSettingController {
     action();
   }
 
-  Future<void> deleteSelected({required LocationSettingModel model,required VoidCallback action,}) async {
+  Future<void> deleteSelected({
+    required LocationSettingModel model,
+    required VoidCallback action,
+  }) async {
     DataManager.deleteLocationSetting(model.id ?? 0);
     List<LocationSettingModel> list = await DataManager.getLocationSettingModelList();
     if (list.isNotEmpty) {

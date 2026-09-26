@@ -640,7 +640,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
 
   Widget _setAllPart({required Model model}) {
     List<PartModel> activeParts = model.partModels!.where((element) => element.isActive == 1).toList();
-    return activeParts.isEmpty
+    return Core.selectDeviceModel.value.id!=1
         ? Column(
             children: [
               Row(

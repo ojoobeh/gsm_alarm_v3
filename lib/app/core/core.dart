@@ -44,9 +44,9 @@ class Core {
   static const int port = 2468;
   final int sdkVersion = 34;
   static List<DeviceModel> deviceModelList = <DeviceModel>[
-    DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, partNumber: 0,zoneNumber:14, hasWifi: 0),
-    DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 4, partNumber: 8,zoneNumber:8, hasWifi: 0),
-    DeviceModel(id: 3, model: 'DELTA5', selected: 0, hasMultiPart: 1, outputNumber: 8, partNumber: 5,zoneNumber:5, hasWifi: 0),
+    DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, partNumber: 3,zoneNumber:14, hasWifi: 0),
+    DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 4, partNumber: 9,zoneNumber:8, hasWifi: 0),
+    DeviceModel(id: 3, model: 'DELTA5', selected: 0, hasMultiPart: 1, outputNumber: 8, partNumber: 6,zoneNumber:5, hasWifi: 0),
   ];
   static List<PartModel> partModelList = <PartModel>[PartModel(id: 0, title: s.generalPart), PartModel(id: 1, title: s.part1), PartModel(id: 2, title: s.part2)];
 
