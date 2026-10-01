@@ -53,8 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "button": MessageLookupByLibrary.simpleMessage("Button"),
         "buttonName": MessageLookupByLibrary.simpleMessage("Button name"),
         "call": MessageLookupByLibrary.simpleMessage("Call"),
-        "callAdminByPhone":
-            MessageLookupByLibrary.simpleMessage("Call admin by phone"),
+        "callDeviceByPhone":
+            MessageLookupByLibrary.simpleMessage("Call device by phone"),
         "callPriorityBy":
             MessageLookupByLibrary.simpleMessage("Call priority by"),
         "canSMSBeSent":

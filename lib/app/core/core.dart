@@ -44,9 +44,9 @@ class Core {
   static const int port = 2468;
   final int sdkVersion = 34;
   static List<DeviceModel> deviceModelList = <DeviceModel>[
-    DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, partNumber: 3,zoneNumber:14, hasWifi: 0),
-    DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 4, partNumber: 9,zoneNumber:8, hasWifi: 0),
-    DeviceModel(id: 3, model: 'DELTA5', selected: 0, hasMultiPart: 1, outputNumber: 8, partNumber: 6,zoneNumber:5, hasWifi: 0),
+    DeviceModel(id: 1, model: 'P3000', selected: 1, hasMultiPart: 1, outputNumber: 4, partNumber: 2, zoneNumber: 14, hasWifi: 0),
+    DeviceModel(id: 2, model: 'P3008', selected: 0, hasMultiPart: 1, outputNumber: 4, partNumber: 8, zoneNumber: 8, hasWifi: 0),
+    DeviceModel(id: 3, model: 'DELTA5', selected: 0, hasMultiPart: 1, outputNumber: 8, partNumber: 5, zoneNumber: 5, hasWifi: 0),
   ];
   static List<PartModel> partModelList = <PartModel>[PartModel(id: 0, title: s.generalPart), PartModel(id: 1, title: s.part1), PartModel(id: 2, title: s.part2)];
 
@@ -54,89 +54,87 @@ class Core {
 
   ///**********************************************************************/
 
-  static CodeModel off = CodeModel(id: 2, model1: '*PASS*80#', model2: '*PASS*80#', model3: '*PASS*80#');
-  static CodeModel on = CodeModel(id: 1, model1: '*PASS*81#', model2: '*PASS*81#', model3: '*PASS*81#');
-  static CodeModel partSet = CodeModel(id: 3, model1: '*PASS*82#', model2: '*PASS*82#', model3: '*PASS*82#');
+  static CodeModel off = CodeModel(id: 80, model1: '*PASS*80#', model2: '*PASS*80#', model3: '*PASS*80#');
+  static CodeModel on = CodeModel(id: 81, model1: '*PASS*81#', model2: '*PASS*81#', model3: '*PASS*81#');
+  static CodeModel partSet = CodeModel(id: 82, model1: '*PASS*82#', model2: '*PASS*82#', model3: '*PASS*82#');
 
-  static CodeModel partOff = CodeModel(id: 2, model1: '*PASS*80#X#', model2: '*PASS*80#X#', model3: '*PASS*80#X#');
-  static CodeModel partOn = CodeModel(id: 1, model1: '*PASS*81#X#', model2: '*PASS*81#X#', model3: '*PASS*81#X#');
-  static CodeModel partPartialArm = CodeModel(id: 3, model1: '*PASS*82#X#', model2: '*PASS*82#X#', model3: '*PASS*82#X#');
+  static CodeModel partOff = CodeModel(id: 800, model1: '*PASS*80#X#', model2: '*PASS*80#X#', model3: '*PASS*80#X#');
+  static CodeModel partOn = CodeModel(id: 810, model1: '*PASS*81#X#', model2: '*PASS*81#X#', model3: '*PASS*81#X#');
+  static CodeModel partPartialArm = CodeModel(id: 820, model1: '*PASS*82#X#', model2: '*PASS*82#X#', model3: '*PASS*82#X#');
 
-  static CodeModel onP1 = CodeModel(id: 33, model1: '*PASS*83#', model2: '*PASS*83#', model3: '*PASS*83#');
-  static CodeModel offP1 = CodeModel(id: 34, model1: '*PASS*84#', model2: '*PASS*84#', model3: '*PASS*84#');
-  static CodeModel onP2 = CodeModel(id: 35, model1: '*PASS*85#', model2: '*PASS*85#', model3: '*PASS*85#');
-  static CodeModel offP2 = CodeModel(id: 36, model1: '*PASS*86#', model2: '*PASS*86#', model3: '*PASS*86#');
-  static CodeModel chargeCode = CodeModel(id: 7, model1: '*PASS*25#SHARGE#', model2: '*PASS*25#SHARGE#', model3: '*PASS*25#SHARGE#');
-  static CodeModel simCardInquiry = CodeModel(id: 4, model1: '*PASS*26#', model2: '*PASS*26#', model3: '*PASS*26#');
-  static CodeModel stopDialing = CodeModel(id: 5, model1: '*PASS*88#', model2: '*PASS*88#', model3: '*PASS*88#');
-  static CodeModel deviceReport = CodeModel(id: 6, model1: '*PASS*87#', model2: '*PASS*87#', model3: '*PASS*87#');
-  static CodeModel emergencySiren = CodeModel(id: 58, model1: '*PASS*99#', model2: '*PASS*99#', model3: '*PASS*99#');
-  static CodeModel deleteRemoteNumber = CodeModel(id: 13, model1: '*PASS*47#VAL#', model2: '*PASS*47#VAL#', model3: '*PASS*47#VAL#');
-  static CodeModel insertToMemory = CodeModel(id: 9, model1: '*PASS*MEMORY#PHONE#', model2: '*PASS*MEMORY#PHONE#', model3: '*PASS*MEMORY#PHONE#');
-  static CodeModel deleteFromMemory = CodeModel(id: 10, model1: '*PASS*MEMORY##', model2: '*PASS*MEMORY##', model3: '*PASS*MEMORY##');
-  static CodeModel showMemory = CodeModel(id: 11, model1: '*PASS*MEMORY#', model2: '*PASS*MEMORY#', model3: '*PASS*MEMORY#');
-  static CodeModel callPriority = CodeModel(id: 12, model1: '*PASS*30#VAL#', model2: '*PASS*30#VAL#', model3: '*PASS*30#VAL#');
-  static CodeModel setZoneSetting = CodeModel(id: 27, model1: '*PASS*49#XY#', model2: '*PASS*49#XY#', model3: '*PASS*49#XY#');
-  static CodeModel alarmSilentExternalSpeaker = CodeModel(id: 14, model1: '*PASS*43#VAL#', model2: '*PASS*43#VAL#', model3: '*PASS*43#VAL#');
-  static CodeModel alarmOnOffPower = CodeModel(id: 15, model1: '*PASS*42#VAL#', model2: '*PASS*42#VAL#', model3: '*PASS*42#VAL#');
-  static CodeModel alarmOnOffSmsReceivingReport = CodeModel(id: 18, model1: '*PASS*33#VAL#', model2: '*PASS*33#VAL#', model3: '*PASS*33#VAL#');
-  static CodeModel alarmOnOffConfidental = CodeModel(id: 16, model1: '*PASS*34#VAL#', model2: '*PASS*34#VAL#', model3: '*PASS*34#VAL#');
-  static CodeModel selectSimType = CodeModel(id: 31, model1: '*PASS*32#VAL#', model2: '*PASS*32#VAL#', model3: '*PASS*32#VAL#');
-  static CodeModel setupStimulationType = CodeModel(id: 19, model1: '*PASS*29#VAL#', model2: '*PASS*29#VAL#', model3: '*PASS*29#VAL#');
-  static CodeModel setupLanguageSMS = CodeModel(id: 20, model1: '*PASS*31#VAL#', model2: '-', model3: '-');
-  static CodeModel defaultDialingSystem = CodeModel(id: 21, model1: '*PASS*36#VAL#', model2: '*PASS*36#VAL#', model3: '*PASS*36#VAL#');
+  ///*************************************************************************************************************/
+  static CodeModel offP0 = CodeModel(id: 80, model1: '*PASS*80#', model2: '*PASS*83#', model3: '*PASS*83#');
+  static CodeModel onP0 = CodeModel(id: 81, model1: '*PASS*81#', model2: '*PASS*84#', model3: '*PASS*84#');
+  static CodeModel partSet0 = CodeModel(id: 82, model1: '*PASS*82#', model2: '*PASS*84#', model3: '*PASS*84#');
+
+  static CodeModel onP1 = CodeModel(id: 83, model1: '*PASS*83#', model2: '*PASS*83#', model3: '*PASS*83#');
+  static CodeModel offP1 = CodeModel(id: 84, model1: '*PASS*84#', model2: '*PASS*84#', model3: '*PASS*84#');
+  static CodeModel onP2 = CodeModel(id: 85, model1: '*PASS*85#', model2: '*PASS*85#', model3: '*PASS*85#');
+  static CodeModel offP2 = CodeModel(id: 86, model1: '*PASS*86#', model2: '*PASS*86#', model3: '*PASS*86#');
+
+  ///*************************************************************************************************************/
+  static CodeModel chargeCode = CodeModel(id: 25, model1: '*PASS*25#SHARGE#', model2: '*PASS*25#SHARGE#', model3: '*PASS*25#SHARGE#');
+  static CodeModel simCardInquiry = CodeModel(id: 26, model1: '*PASS*26#', model2: '*PASS*26#', model3: '*PASS*26#');
+  static CodeModel stopDialing = CodeModel(id: 88, model1: '*PASS*88#', model2: '*PASS*88#', model3: '*PASS*88#');
+  static CodeModel deviceReport = CodeModel(id: 87, model1: '*PASS*87#', model2: '*PASS*87#', model3: '*PASS*87#');
+  static CodeModel emergencySiren = CodeModel(id: 99, model1: '*PASS*99#', model2: '*PASS*99#', model3: '*PASS*99#');
+  static CodeModel deleteRemoteNumber = CodeModel(id: 47, model1: '*PASS*47#VAL#', model2: '*PASS*47#VAL#', model3: '*PASS*47#VAL#');
+  static CodeModel insertToMemory = CodeModel(id: 1, model1: '*PASS*MEMORY#PHONE#', model2: '*PASS*MEMORY#PHONE#', model3: '*PASS*MEMORY#PHONE#');
+  static CodeModel deleteFromMemory = CodeModel(id: 2, model1: '*PASS*MEMORY##', model2: '*PASS*MEMORY##', model3: '*PASS*MEMORY##');
+  static CodeModel showMemory = CodeModel(id: 3, model1: '*PASS*MEMORY#', model2: '*PASS*MEMORY#', model3: '*PASS*MEMORY#');
+  static CodeModel callPriority = CodeModel(id: 30, model1: '*PASS*30#VAL#', model2: '*PASS*30#VAL#', model3: '*PASS*30#VAL#');
+  static CodeModel setZoneSetting = CodeModel(id: 49, model1: '*PASS*49#XY#', model2: '*PASS*49#XY#', model3: '*PASS*49#XY#');
+  static CodeModel alarmSilentExternalSpeaker = CodeModel(id: 43, model1: '*PASS*43#VAL#', model2: '*PASS*43#VAL#', model3: '*PASS*43#VAL#');
+  static CodeModel alarmOnOffPower = CodeModel(id: 42, model1: '*PASS*42#VAL#', model2: '*PASS*42#VAL#', model3: '*PASS*42#VAL#');
+  static CodeModel alarmOnOffSmsReceivingReport = CodeModel(id: 33, model1: '*PASS*33#VAL#', model2: '*PASS*33#VAL#', model3: '*PASS*33#VAL#');
+  static CodeModel alarmOnOffConfidental = CodeModel(id: 34, model1: '*PASS*34#VAL#', model2: '*PASS*34#VAL#', model3: '*PASS*34#VAL#');
+  static CodeModel selectSimType = CodeModel(id: 32, model1: '*PASS*32#VAL#', model2: '*PASS*32#VAL#', model3: '*PASS*32#VAL#');
+  static CodeModel setupStimulationType = CodeModel(id: 29, model1: '*PASS*29#VAL#', model2: '*PASS*29#VAL#', model3: '*PASS*29#VAL#');
+  static CodeModel setupLanguageSMS = CodeModel(id: 31, model1: '*PASS*31#VAL#', model2: '-', model3: '-');
+  static CodeModel defaultDialingSystem = CodeModel(id: 36, model1: '*PASS*36#VAL#', model2: '*PASS*36#VAL#', model3: '*PASS*36#VAL#');
+
   // static CodeModel remoteControl = CodeModel(id: 22, model1: '*PASS*37#VAL#', model2: '*PASS*37#VAL#', model3: '*PASS*37#VAL#');
-  static CodeModel callAdminByPhone = CodeModel(id: 22, model1: '*PASS*37#VAL#', model2: '*PASS*37#VAL#', model3: '*PASS*37#VAL#');
-  static CodeModel setAlarmTime = CodeModel(id: 23, model1: '*PASS*40#VAL#', model2: '*PASS*40#VAL#', model3: '*PASS*40#VAL#');
-  static CodeModel singleSirenSetting = CodeModel(id: 24, model1: '*PASS*41#VAL#', model2: '*PASS*41#VAL#', model3: '*PASS*41#VAL#');
-  static CodeModel setArrivalTime = CodeModel(id: 26, model1: '*PASS*39#VAL#', model2: '*PASS*39#VAL#', model3: '*PASS*39#VAL#');
-  static CodeModel changeZoneName = CodeModel(id: 30, model1: '*PASS*NUMBER#PARAM#', model2: '*PASS*NUMBER#PARAM#', model3: '*PASS*NUMBER#PARAM#');
-  static CodeModel typeOfFixedLineDialing = CodeModel(id: 26, model1: '*PASS*35#VAL#', model2: '*PASS*35#VAL#', model3: '*PASS*35#VAL#');
-  static CodeModel turnTheDialerOnAndOff = CodeModel(id: 26, model1: '*PASS*38#VAL#', model2: '*PASS*38#VAL#', model3: '*PASS*38#VAL#');
-  static CodeModel singleSirenWhenSemiActivated = CodeModel(id: 26, model1: '*PASS*45#VAL#', model2: '-', model3: '-');
-  static CodeModel output1AsADoorOpener = CodeModel(id: 26, model1: '*PASS*44#VAL#', model2: '-', model3: '-');
-  static CodeModel convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn = CodeModel(id: 26, model1: '-', model2: '*PASS*44#VAL#', model3: '*PASS*44#VAL#');
-  static CodeModel deviceShutdownReport = CodeModel(id: 26, model1: '*PASS*46#VAL#', model2: '*PASS*46#VAL#', model3: '*PASS*46#VAL#');
-  static CodeModel twoStageShutdown = CodeModel(id: 26, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
-  static CodeModel output = CodeModel(
-    id: 26,
-    //روشن شدن خودکار
-    model1: '*PASS*48#IDSTATUS#',
-    model2: '*PASS*48#IDSTATUS#',
-    model3: '*PASS*48#IDSTATUS#',
-  );
-  static CodeModel connectingTheKeypad = CodeModel(id: 26, model1: '*PASS*52#VAL#', model2: '*PASS*60#VAL#', model3: '*PASS*60#VAL#');
-  static CodeModel rFReceiverActivation = CodeModel(id: 26, model1: '*PASS*53#VAL#', model2: '-', model3: '-');
-  static CodeModel sendRemainingCharge = CodeModel(id: 26, model1: '*PASS*55#VAL#', model2: '-', model3: '-');
+  static CodeModel callDeviceByPhone = CodeModel(id: 37, model1: '*PASS*37#VAL#', model2: '*PASS*37#VAL#', model3: '*PASS*37#VAL#');
+  static CodeModel setAlarmTime = CodeModel(id: 40, model1: '*PASS*40#VAL#', model2: '*PASS*40#VAL#', model3: '*PASS*40#VAL#');
+  static CodeModel singleSirenSetting = CodeModel(id: 41, model1: '*PASS*41#VAL#', model2: '*PASS*41#VAL#', model3: '*PASS*41#VAL#');
+  static CodeModel setArrivalTime = CodeModel(id: 39, model1: '*PASS*39#VAL#', model2: '*PASS*39#VAL#', model3: '*PASS*39#VAL#');
+  static CodeModel changeZoneName = CodeModel(id: 4, model1: '*PASS*NUMBER#PARAM#', model2: '*PASS*NUMBER#PARAM#', model3: '*PASS*NUMBER#PARAM#');
+  static CodeModel typeOfFixedLineDialing = CodeModel(id: 35, model1: '*PASS*35#VAL#', model2: '*PASS*35#VAL#', model3: '*PASS*35#VAL#');
+  static CodeModel turnTheDialerOnAndOff = CodeModel(id: 38, model1: '*PASS*38#VAL#', model2: '*PASS*38#VAL#', model3: '*PASS*38#VAL#');
+  static CodeModel singleSirenWhenSemiActivated = CodeModel(id: 45, model1: '*PASS*45#VAL#', model2: '-', model3: '-');
+  static CodeModel output1AsADoorOpener = CodeModel(id: 44, model1: '*PASS*44#VAL#', model2: '-', model3: '-');
+  static CodeModel convertingRemoteOut1ToNegativeOutputWhenTheDeviceIsTurnedOn = CodeModel(id: 44, model1: '-', model2: '*PASS*44#VAL#', model3: '*PASS*44#VAL#');
+  static CodeModel deviceShutdownReport = CodeModel(id: 46, model1: '*PASS*46#VAL#', model2: '*PASS*46#VAL#', model3: '*PASS*46#VAL#');
+  static CodeModel twoStageShutdown = CodeModel(id: 59, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
+  static CodeModel output = CodeModel(id: 48, model1: '*PASS*48#IDSTATUS#', model2: '*PASS*48#IDSTATUS#', model3: '*PASS*48#IDSTATUS#');
+  static CodeModel connectingTheKeypad = CodeModel(id: 52, model1: '*PASS*52#VAL#', model2: '*PASS*60#VAL#', model3: '*PASS*60#VAL#');
+  static CodeModel rFReceiverActivation = CodeModel(id: 53, model1: '*PASS*53#VAL#', model2: '-', model3: '-');
+  static CodeModel sendRemainingCharge = CodeModel(id: 55, model1: '*PASS*55#VAL#', model2: '-', model3: '-');
+
   // static CodeModel simCardModuleActivation = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
-  static CodeModel zone13Masha = CodeModel(id: 26, model1: '*PASS*57#VAL#', model2: '-', model3: '-');
-  static CodeModel doubleProtection = CodeModel(id: 26, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
-  static CodeModel zone14ManualSwitch = CodeModel(id: 26, model1: '*PASS*58#VAL#', model2: '*PASS*58#VAL#', model3: '*PASS*58#VAL#');
-  static CodeModel changeDevicePassword = CodeModel(id: 26, model1: '-', model2: '*PASS*27#NEWPASS#', model3: '*PASS*27#NEWPASS#');
+  static CodeModel zone13Masha = CodeModel(id: 57, model1: '*PASS*57#VAL#', model2: '-', model3: '-');
+  static CodeModel doubleProtection = CodeModel(id: 59, model1: '*PASS*59#VAL#', model2: '*PASS*59#VAL#', model3: '*PASS*59#VAL#');
+  static CodeModel zone14ManualSwitch = CodeModel(id: 58, model1: '*PASS*58#VAL#', model2: '*PASS*58#VAL#', model3: '*PASS*58#VAL#');
+  static CodeModel changeDevicePassword = CodeModel(id: 27, model1: '*PASS*27#NEWPASS#', model2: '*PASS*27#NEWPASS#', model3: '*PASS*27#NEWPASS#');
+
   // static CodeModel changingTheVolumeOfTheMainSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
-  static CodeModel changingTheVolumeOfSSingleSiren = CodeModel(id: 26, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
-  static CodeModel changeKeypadPassword = CodeModel(id: 26, model1: '-', model2: '*PASS*31#NEWPASS#', model3: '*PASS*31#NEWPASS#');
-  static CodeModel changeOut1ByRemote = CodeModel(id: 26, model1: '-', model2: '*PASS*45#VAL#', model3: '*PASS*45#VAL#');
-  static CodeModel rejectCallFromUnknownNumber = CodeModel(id: 26, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
-  static CodeModel notificationOfDeviceNotTurningOnAfterTwoHours = CodeModel(id: 26, model1: '-', model2: 'PASS*46#VAL#', model3: 'PASS*46#VAL#');
-  static CodeModel deleteRemote = CodeModel(id: 26, model1: '*PASS*47#VAL#', model2: '*PASS*47#VAL#', model3: '*PASS*47#VAL#');
-  static CodeModel powerOutageCall = CodeModel(id: 26, model1: '-', model2: '*PASS*52#VAL#', model3: '-');
-  static CodeModel lowBatteryWarning = CodeModel(id: 26, model1: '-', model2: '*PASS*53#VAL#', model3: '*PASS*53#VAL#');
-  static CodeModel instantaneousOutputTimerBasedOn = CodeModel(id: 26, model1: '-', model2: '*PASS*50#VAL#', model3: '*PASS*50#VAL#');
-  static CodeModel internalBellMessage = CodeModel(id: 26, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
-  static CodeModel chirpPartSet = CodeModel(id: 26, model1: '-', model2: '*PASS*55#VAL#', model3: '*PASS*55#VAL#');
-  static CodeModel disableSIMCardCalls = CodeModel(id: 26, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
-  static CodeModel singleSirenVolumeControl = CodeModel(id: 26, model1: '-', model2: '-', model3: '*PASS*28#2X#');
-  static CodeModel changingTheVolumeOfTheMainSiren = CodeModel(id: 26, model1: '-', model2: '-', model3: '*PASS*28#1X#');
-  static CodeModel smsFromUnknownNumberCalledMr = CodeModel(
-    id: 26,
-    //پیامک شماره ناشناس تماس گرفته شده به مستر
-    model1: '-',
-    model2: '*PASS*57#VAL#',
-    model3: '*PASS*57#VAL#',
-  );
-  static CodeModel silencingASingleZone = CodeModel(id: 26, model1: '*PASS*56#ZONEVAL#', model2: '*PASS*70#ZONEVAL#', model3: '*PASS*70#ZONEVAL#');
-  static CodeModel convertingNormalCloseToNormalOpenZones = CodeModel(id: 26, model1: '*PASS*50#ZONEVAL#', model2: '*PASS*70#ZONEVAL#', model3: '*PASS*70#ZONEVAL#');
+  static CodeModel changingTheVolumeOfSSingleSiren = CodeModel(id: 28, model1: '*PASS*28#1VAL#', model2: '*PASS*28#1VAL#', model3: '*PASS*28#1VAL#');
+  static CodeModel changeKeypadPassword = CodeModel(id: 31, model1: '-', model2: '*PASS*31#NEWPASS#', model3: '*PASS*31#NEWPASS#');
+  static CodeModel changeOut1ByRemote = CodeModel(id: 45, model1: '-', model2: '*PASS*45#VAL#', model3: '*PASS*45#VAL#');
+  static CodeModel rejectCallFromUnknownNumber = CodeModel(id: 56, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
+  static CodeModel notificationOfDeviceNotTurningOnAfterTwoHours = CodeModel(id: 46, model1: '-', model2: 'PASS*46#VAL#', model3: 'PASS*46#VAL#');
+  static CodeModel deleteRemote = CodeModel(id: 47, model1: '*PASS*47#VAL#', model2: '*PASS*47#VAL#', model3: '*PASS*47#VAL#');
+  static CodeModel powerOutageCall = CodeModel(id: 52, model1: '-', model2: '*PASS*52#VAL#', model3: '-');
+  static CodeModel lowBatteryWarning = CodeModel(id: 53, model1: '-', model2: '*PASS*53#VAL#', model3: '*PASS*53#VAL#');
+  static CodeModel instantaneousOutputTimerBasedOn = CodeModel(id: 50, model1: '-', model2: '*PASS*50#VAL#', model3: '*PASS*50#VAL#');
+  static CodeModel internalBellMessage = CodeModel(id: 54, model1: '-', model2: '*PASS*54#VAL#', model3: '*PASS*54#VAL#');
+  static CodeModel chirpPartSet = CodeModel(id: 55, model1: '-', model2: '*PASS*55#VAL#', model3: '*PASS*55#VAL#');
+  static CodeModel disableSIMCardCalls = CodeModel(id: 56, model1: '-', model2: '*PASS*56#VAL#', model3: '*PASS*56#VAL#');
+  static CodeModel singleSirenVolumeControl = CodeModel(id: 28, model1: '-', model2: '-', model3: '*PASS*28#2X#');
+  static CodeModel changingTheVolumeOfTheMainSiren = CodeModel(id: 28, model1: '-', model2: '-', model3: '*PASS*28#1X#');
+  static CodeModel smsFromUnknownNumberCalledMr = CodeModel(id: 57, model1: '-', model2: '*PASS*57#VAL#', model3: '*PASS*57#VAL#');
+  static CodeModel silencingASingleZone = CodeModel(id: 56, model1: '*PASS*56#ZONEVAL#', model2: '*PASS*70#ZONEVAL#', model3: '*PASS*70#ZONEVAL#');
+  static CodeModel convertingNormalCloseToNormalOpenZones = CodeModel(id: 50, model1: '*PASS*50#ZONEVAL#', model2: '*PASS*70#ZONEVAL#', model3: '*PASS*70#ZONEVAL#');
 
   // static Rx<LocationSettingModel> selectLocationSettingModel = LocationSettingModel().obs;
 

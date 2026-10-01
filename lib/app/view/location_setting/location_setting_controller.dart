@@ -32,28 +32,29 @@ mixin LocationSettingController {
 
   void setPartList(int length) {
     partList.clear();
-
-
-
     for (int i = 0; i < length; i++) {
-
-      int _isActive=0;
-      if(selectDeviceModel.value.id==1){
-        _isActive=i == 0 ? 1 : 0;
-      }else{
-        _isActive=i == 1 ? 1 : 0;
-      }
-
+      int _i = i + 1;
       partList.add(
         PartModel(
-          id: i,
-          title: 'Part $i',
-          isActive: _isActive,
+          id: _i,
+          title: 'Part $_i',
+          isActive: i == 0 ? 1 : 0,
+          partNumber: _i,
           deviceId: ModelManager.getList().length + 1,
         ),
       );
-    } //
-    partList.refresh();
+    }
+    if (selectDeviceModel.value.id == 1)
+      partList.add(
+        PartModel(
+          id: 1000,
+          title: 'All',
+          isActive: 0,
+          partNumber: 1000,
+          deviceId: ModelManager.getList().length + 1,
+        ),
+      ); //
+    debugPrint('dddd'); //
   }
 
   bool isValidParam() {

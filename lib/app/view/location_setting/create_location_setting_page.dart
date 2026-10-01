@@ -46,17 +46,27 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     } else {
       partList.clear();
       for (int i = 0; i < (Core.deviceModelList.first.partNumber ?? 0); i++) {
-
+        int _i = i + 1;
         partList.add(
           PartModel(
-            id: i,
-            title: 'Part $i',
-            isActive: i == 0 ? 1 : 0,
+            id: _i,
+            title: 'Part $_i',
+            isActive: 0,
+            partNumber: _i,
             deviceId: ModelManager.getList().length + 1,
           ),
         );
       }
-      debugPrint('dddd');
+      partList.add(
+        PartModel(
+          id: 1000,
+          title: 'All',
+          isActive: 1,
+          partNumber: 1000,
+          deviceId: ModelManager.getList().length + 1,
+        ),
+      ); //
+      debugPrint('dddd'); //
     }
 
     super.initState();
@@ -122,7 +132,7 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                             maxLength: 4,
                             maxLines: 1,
                           ),
-                          if (Core.deviceModelList.length > 1)
+                          if (Core.deviceModelList.length > 1 && widget.model == null)
                             Obx(
                               () => DropDownWidget(
                                 lable: s.deviceModel,
@@ -163,16 +173,16 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                                 crossAxisCount: 3,
                                 childAspectRatio: 16 / 6,
                               ),
-                              itemCount:(selectDeviceModel.value.id==1)? parts.length:parts.length-1,
+                              itemCount: parts.length,
                               itemBuilder: (context, index) {
-                                int _index=index;
-                                if(selectDeviceModel.value.id!=1){
-                                  _index++;
-                                }
+                                // int _index = index;
+                                // if (selectDeviceModel.value.id != 1) {
+                                //   _index++;
+                                // }
 
-                                final part = parts[_index];
+                                final part = parts[index];
 
-                                final isSelected = part.isActive == 1;
+                                // final isSelected = part.isActive == 1; //
 
                                 return Container(
                                   margin: const EdgeInsets.symmetric(
@@ -209,7 +219,7 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
                                       ),
                                       Expanded(
                                         child: Text(
-                                         part.id==0?'ALL': part.title ?? 'Part $index',
+                                          part.partNumber == 0 ? 'All' : part.title ?? '',
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                       ),
@@ -299,8 +309,8 @@ class _CreateLocationSettingPageState extends State<CreateLocationSettingPage> w
     for (int i = 0; i < partList.length; i++) {
       PartModel outputModel = PartModel(
         id: (PartManager.getList().lastOrNull?.id ?? 0) + 1,
-        title: 'Part $i ',
-        partNumber: i,
+        title: partList[i].title,
+        partNumber: partList[i].partNumber,
         deviceId: model.id ?? 0,
         isActive: partList[i].isActive,
       );

@@ -30,6 +30,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
 
   @override
   void initState() {
+    var tt = widget.model;
     init(
       action: () {
         // isLoading(false);
@@ -115,10 +116,10 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                       })
                       .marginOnly(bottom: 16),
 
-                  _setAllPart(model: widget.model),
+                  // _setAllPart(model: widget.model),
 
                   ///***************************************/
-                  _setParts(model: widget.model),
+                  Core.selectedModel.modelId == 1 ? _set3000Parts(model: widget.model) : _setParts(model: widget.model),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -133,7 +134,7 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
                         itemColor: const Color(0xffffffff),
                         opacity: 0.7,
                       ).onTap(() {
-                        sendCode2(Core.deviceReport);
+                        sendCode4(Core.deviceReport,widget.model.partModels!.where((element) => element.isActive==1,).toList().first.partNumber!);
                       }).expanded(),
                       const SizedBox(width: 8),
                       _item(
@@ -402,120 +403,120 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
     ),
   );
 
-  void showPopup(int status) => Get.dialog(
-    Dialog(
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          spacing: 8,
-          children: [
-            const Text('انتخاب پارت'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              spacing: 8,
-              children: [
-                _itemPopupDialog('Part 1').onTap(() {
-                  sendCode3(
-                    status == 0
-                        ? Core.partOn
-                        : status == 1
-                        ? Core.partOff
-                        : Core.partPartialArm,
-                    1,
-                  );
-                }).expanded(),
-                _itemPopupDialog('Part 2').onTap(() {
-                  sendCode3(
-                    status == 0
-                        ? Core.partOn
-                        : status == 1
-                        ? Core.partOff
-                        : Core.partPartialArm,
-                    2,
-                  );
-                }).expanded(),
-                _itemPopupDialog('Part 3').onTap(() {
-                  sendCode3(
-                    status == 0
-                        ? Core.partOn
-                        : status == 1
-                        ? Core.partOff
-                        : Core.partPartialArm,
-                    3,
-                  );
-                }).expanded(),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              spacing: 8,
-              children: [
-                _itemPopupDialog('Part 4').onTap(() {
-                  sendCode3(
-                    status == 0
-                        ? Core.partOn
-                        : status == 1
-                        ? Core.partOff
-                        : Core.partPartialArm,
-                    4,
-                  );
-                }).expanded(),
-                _itemPopupDialog('Part 5').onTap(() {
-                  sendCode3(
-                    status == 0
-                        ? Core.partOn
-                        : status == 1
-                        ? Core.partOff
-                        : Core.partPartialArm,
-                    5,
-                  );
-                }).expanded(),
-                if (Core.selectedModel.modelId != 1)
-                  _itemPopupDialog('Part 6').onTap(() {
-                    sendCode3(
-                      status == 0
-                          ? Core.partOn
-                          : status == 1
-                          ? Core.partOff
-                          : Core.partPartialArm,
-                      5,
-                    );
-                  }).expanded(),
-              ],
-            ),
-            if (Core.selectedModel.modelId == 3)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                spacing: 8,
-                children: [
-                  _itemPopupDialog('Part 7').onTap(() {
-                    sendCode3(
-                      status == 0
-                          ? Core.partOn
-                          : status == 1
-                          ? Core.partOff
-                          : Core.partPartialArm,
-                      7,
-                    );
-                  }).expanded(),
-                  _itemPopupDialog('Part 8').onTap(() {
-                    sendCode3(
-                      status == 0
-                          ? Core.partOn
-                          : status == 1
-                          ? Core.partOff
-                          : Core.partPartialArm,
-                      8,
-                    );
-                  }).expanded(),
-                ],
-              ),
-          ],
-        ),
-      ),
-    ),
-  );
+  // void showPopup(int status) => Get.dialog(
+  //   Dialog(
+  //     child: Container(
+  //       padding: const EdgeInsets.all(8),
+  //       child: Column(
+  //         mainAxisSize: MainAxisSize.min,
+  //         spacing: 8,
+  //         children: [
+  //           const Text('انتخاب پارت'),
+  //           Row(
+  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //             spacing: 8,
+  //             children: [
+  //               _itemPopupDialog('Part 1').onTap(() {
+  //                 sendCode3(
+  //                   status == 0
+  //                       ? Core.partOn
+  //                       : status == 1
+  //                       ? Core.partOff
+  //                       : Core.partPartialArm,
+  //                   1,
+  //                 );
+  //               }).expanded(),
+  //               _itemPopupDialog('Part 2').onTap(() {
+  //                 sendCode3(
+  //                   status == 0
+  //                       ? Core.partOn
+  //                       : status == 1
+  //                       ? Core.partOff
+  //                       : Core.partPartialArm,
+  //                   2,
+  //                 );
+  //               }).expanded(),
+  //               _itemPopupDialog('Part 3').onTap(() {
+  //                 sendCode3(
+  //                   status == 0
+  //                       ? Core.partOn
+  //                       : status == 1
+  //                       ? Core.partOff
+  //                       : Core.partPartialArm,
+  //                   3,
+  //                 );
+  //               }).expanded(),
+  //             ],
+  //           ),
+  //           Row(
+  //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //             spacing: 8,
+  //             children: [
+  //               _itemPopupDialog('Part 4').onTap(() {
+  //                 sendCode3(
+  //                   status == 0
+  //                       ? Core.partOn
+  //                       : status == 1
+  //                       ? Core.partOff
+  //                       : Core.partPartialArm,
+  //                   4,
+  //                 );
+  //               }).expanded(),
+  //               _itemPopupDialog('Part 5').onTap(() {
+  //                 sendCode3(
+  //                   status == 0
+  //                       ? Core.partOn
+  //                       : status == 1
+  //                       ? Core.partOff
+  //                       : Core.partPartialArm,
+  //                   5,
+  //                 );
+  //               }).expanded(),
+  //               if (Core.selectedModel.modelId != 1)
+  //                 _itemPopupDialog('Part 6').onTap(() {
+  //                   sendCode3(
+  //                     status == 0
+  //                         ? Core.partOn
+  //                         : status == 1
+  //                         ? Core.partOff
+  //                         : Core.partPartialArm,
+  //                     5,
+  //                   );
+  //                 }).expanded(),
+  //             ],
+  //           ),
+  //           if (Core.selectedModel.modelId == 3)
+  //             Row(
+  //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //               spacing: 8,
+  //               children: [
+  //                 _itemPopupDialog('Part 7').onTap(() {
+  //                   sendCode3(
+  //                     status == 0
+  //                         ? Core.partOn
+  //                         : status == 1
+  //                         ? Core.partOff
+  //                         : Core.partPartialArm,
+  //                     7,
+  //                   );
+  //                 }).expanded(),
+  //                 _itemPopupDialog('Part 8').onTap(() {
+  //                   sendCode3(
+  //                     status == 0
+  //                         ? Core.partOn
+  //                         : status == 1
+  //                         ? Core.partOff
+  //                         : Core.partPartialArm,
+  //                     8,
+  //                   );
+  //                 }).expanded(),
+  //               ],
+  //             ),
+  //         ],
+  //       ),
+  //     ),
+  //   ),
+  // );
 
   Widget _itemPopupDialog(String title) => Container(
     //
@@ -640,7 +641,8 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
 
   Widget _setAllPart({required Model model}) {
     List<PartModel> activeParts = model.partModels!.where((element) => element.isActive == 1).toList();
-    return Core.selectDeviceModel.value.id!=1
+    // return Core.selectedModel.id!=1
+    return 10 < 5
         ? Column(
             children: [
               Row(
@@ -690,6 +692,124 @@ class _HomeMainPageState extends State<HomeMainPage> with HomeController {
             width: 100,
             height: 10,
             color: Colors.red,
+          );
+  }
+
+  Widget _set3000Parts({required Model model}) {
+    List<PartModel> activeParts = model.partModels!.where((element) => element.isActive == 1).toList();
+    // return Core.selectedModel.id!=1
+    return activeParts.first.partNumber == 1
+        ? Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _item(
+                    icon: Assets.alarmOn,
+                    height: 85,
+                    title: '${s.partArm} 1',
+                    opacity: 0.9,
+                    startColor: const Color(0xffff0000),
+                    endColor: const Color(0xfff82020),
+                    itemColor: const Color(0xffffffff), //
+                  ).onTap(() {
+                    sendCode2(Core.onP1);
+                  }).expanded(),
+                  const SizedBox(width: 16),
+                  _item(
+                    icon: Assets.alarmOff,
+                    height: 85,
+                    title: '${s.partDisarm} 1',
+                    startColor: const Color(0xff055b00),
+                    endColor: const Color(0xff217c1b),
+                    itemColor: const Color(0xffffffff),
+                    opacity: 0.9,
+                  ).onTap(() {
+                    sendCode2(Core.offP1);
+                  }).expanded(),
+                ],
+              ),
+            ],
+          )
+        : activeParts.first.partNumber == 2
+        ? Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _item(
+                    icon: Assets.alarmOn,
+                    height: 85,
+                    title: '${s.partArm} 2',
+                    opacity: 0.9,
+                    startColor: const Color(0xffff0000),
+                    endColor: const Color(0xfff82020),
+                    itemColor: const Color(0xffffffff), //
+                  ).onTap(() {
+                    sendCode2(Core.onP2);
+                  }).expanded(),
+                  const SizedBox(width: 16),
+                  _item(
+                    icon: Assets.alarmOff,
+                    height: 85,
+                    title: '${s.partDisarm} 2',
+                    startColor: const Color(0xff055b00),
+                    endColor: const Color(0xff217c1b),
+                    itemColor: const Color(0xffffffff),
+                    opacity: 0.9,
+                  ).onTap(() {
+                    sendCode2(Core.offP2);
+                  }).expanded(),
+                ],
+              ),
+            ],
+          )
+        : Column(
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _item(
+                    icon: Assets.alarmOn,
+                    height: 85,
+                    title: s.arm,
+                    opacity: 0.9,
+                    startColor: const Color(0xffff0000),
+                    endColor: const Color(0xfff82020),
+                    itemColor: const Color(0xffffffff), //
+                  ).onTap(() {
+                    sendCode2(Core.on);
+                  }).expanded(),
+                  const SizedBox(width: 16),
+                  _item(
+                    icon: Assets.alarmOff,
+                    height: 85,
+                    title: s.disarm,
+                    startColor: const Color(0xff055b00),
+                    endColor: const Color(0xff217c1b),
+                    itemColor: const Color(0xffffffff),
+                    opacity: 0.9,
+                  ).onTap(() {
+                    sendCode2(Core.off);
+                  }).expanded(),
+                ],
+              ),
+              _itemH(
+                icon: Assets.alarmPart,
+                title: s.partialArm,
+                width: screenWidth - 30,
+                startColor: const Color(0xff0068bd),
+                endColor: const Color(0xff277ecb),
+                //
+                itemColor: const Color(0xffffffff),
+                opacity: 0.9,
+              ).onTap(() {
+                sendCode2(Core.partSet);
+              }),
+            ],
           );
   }
 }

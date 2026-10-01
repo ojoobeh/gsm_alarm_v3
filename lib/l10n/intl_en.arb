@@ -203,7 +203,7 @@
   "outputControlBySilent": "Output control by silent",
   "offReportByDial": "Off report by dial",
   "silentFunction": "Silent function",
-  "callAdminByPhone": "Call admin by phone",
+  "callDeviceByPhone": "Call device by phone",
   "outputDorOpen": "Output dor open",
   "offSystem2step": "Off system 2 step",
   "remoteControlCid": "Remote control cid",

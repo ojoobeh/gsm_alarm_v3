@@ -220,7 +220,7 @@
   "sendNumberInputDial": "ارسال شماره ورودی",
   "outputControlBySilent": "بیصدا کردن کنترل خروجی",
   "offReportByDial": "خاموش کردن گزارش با تلفن",
-  "callAdminByPhone": "تماس تلفنی با ادمین",
+  "callDeviceByPhone": "تماس تلفنی با دستگاه",
   "outputDorOpen": "باز کردن درب خروجی",
   "offSystem2step": "خاموش کردن سیستم دو مرحله ای",
   "remoteControlCid": "ریموت کنترل CID",

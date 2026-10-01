@@ -204,13 +204,13 @@ class _OtherSettingPage1ViewState extends State<OtherSettingPage1View> with Othe
                       children: [
                         Row(
                           children: [
-                            Radio(value: 0, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetSirenOnStatus(0)),
+                            Radio(value: 0, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetChaneCloseToOpen(0)),
                             Text('Close', style: const TextStyle(fontSize: 12)),
                           ],
                         ), //
                         Row(
                           children: [
-                            Radio(value: 1, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetSirenOnStatus(1)),
+                            Radio(value: 1, groupValue: setChaneCloseToOpen.value, onChanged: (value) => setSetChaneCloseToOpen(1)),
                             Text('Open', style: const TextStyle(fontSize: 12)),
                           ],
                         ),

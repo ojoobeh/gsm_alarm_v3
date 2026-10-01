@@ -52,8 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "button": MessageLookupByLibrary.simpleMessage("کلید"),
         "buttonName": MessageLookupByLibrary.simpleMessage("نام دکمه"),
         "call": MessageLookupByLibrary.simpleMessage("تماس"),
-        "callAdminByPhone":
-            MessageLookupByLibrary.simpleMessage("تماس تلفنی با ادمین"),
+        "callDeviceByPhone":
+            MessageLookupByLibrary.simpleMessage("تماس تلفنی با دستگاه"),
         "callPriorityBy":
             MessageLookupByLibrary.simpleMessage("اولویت تماس با"),
         "canSMSBeSent":

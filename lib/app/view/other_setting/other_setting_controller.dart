@@ -104,7 +104,6 @@ mixin OtherSettingController {
     volumeSingleAlarm(_volumeSingleAlarm);
   }
 
-
   Future<void> sendVolumeSingleAlarm() async {
     String code = await getCode(Core.singleSirenVolumeControl);
     sendMessage(code.replaceAll("X", (volumeSingleAlarm.value.toInt()).toString()));
@@ -115,14 +114,9 @@ mixin OtherSettingController {
     sendMessage(code.replaceAll("X", (volumeMainAlarm.value.toInt()).toString()));
   }
 
-
-
   void setCallPriority(CallPriorityModel _callPriorityModel) {
     selectCallPriority(_callPriorityModel);
   }
-
-
-
 
   void setZone(ZoneModel _zoneModel) {
     selectZone(_zoneModel);
@@ -187,7 +181,9 @@ mixin OtherSettingController {
 
   void setSetSirenOnStatus(int _setSirenOnStatus) {
     this.setSirenOnStatus(_setSirenOnStatus);
-  }  void setSetChaneCloseToOpen(int _setChaneCloseToOpen) {
+  }
+
+  void setSetChaneCloseToOpen(int _setChaneCloseToOpen) {
     this.setChaneCloseToOpen(_setChaneCloseToOpen);
   }
 
@@ -285,16 +281,17 @@ mixin OtherSettingController {
     String dd = etZoneNumber2.text;
     if (dd.length > 0) {
       String code = getCode(Core.convertingNormalCloseToNormalOpenZones);
-      sendMessage(code.replaceAll("VAL", (setChaneCloseToOpen.value+(Core.selectedModel.modelId==1?0:1)).toString()).replaceAll("ZONE", (dd).toString()));
+      sendMessage(code.replaceAll("VAL", (setChaneCloseToOpen.value + (Core.selectedModel.modelId == 1 ? 0 : 1)).toString()).replaceAll("ZONE", (dd).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: "Enter the remote number");
     }
   } //'*PASS*70#ZONEVAL#',
+
   Future<void> silencingASingleZone() async {
     String dd = etZoneNumber.text;
     if (dd.length > 0) {
       String code = getCode(Core.silencingASingleZone);
-      sendMessage(code.replaceAll("VAL", (setSirenOnStatus.value+(Core.selectedModel.modelId==1?0:1)).toString()).replaceAll("ZONE", (dd).toString()));
+      sendMessage(code.replaceAll("VAL", (setSirenOnStatus.value + (Core.selectedModel.modelId == 1 ? 0 : 1)).toString()).replaceAll("ZONE", (dd).toString()));
     } else {
       snackbarRed(title: s.error, subtitle: "Enter the remote number");
     }

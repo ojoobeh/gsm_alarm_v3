@@ -2064,11 +2064,11 @@ class S {
     );
   }
 
-  /// `Call admin by phone`
-  String get callAdminByPhone {
+  /// `Call device by phone`
+  String get callDeviceByPhone {
     return Intl.message(
-      'Call admin by phone',
-      name: 'callAdminByPhone',
+      'Call device by phone',
+      name: 'callDeviceByPhone',
       desc: '',
       args: [],
     );
